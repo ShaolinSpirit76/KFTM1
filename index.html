@@ -1,9 +1,3 @@
-<?php
-//    Condition qui permet de vérifier si les valeurs month et year ont été renseignées
-//        Fonction qui permet d'affilier les données d'une page php externe à l'index
-include 'assets/file.php';
-?>
-
 <!DOCTYPE html>
 <!-- Spécification du langage de la page et du sens de lecture -->
 <html lang="fr" dir="ltr">
@@ -54,6 +48,7 @@ include 'assets/file.php';
   <a id="buttonScroll" class="rounded-circle"></a>
 
 
+
   <div id="header">
     <div id="logoEcole" class="text-center">
       <img src="images/thieuLam.jpg" height="70%" width="70%" class="rounded-circle" />
@@ -61,9 +56,12 @@ include 'assets/file.php';
     <h1 class="text-center"><i>Cercle ThieuLam Montivilliers</i></h1>
 
     <h2 class="text-center">École de Kung-Fu spécialisée dans le style Shaolin traditionnel</h2>
-
   </div>
+
   <!-- Fin du header -->
+
+
+
 
 
   <!-- 1ère navbar : connexion -->
@@ -71,6 +69,9 @@ include 'assets/file.php';
     <ul class="nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link active text-dark" href="#"><img src="images/iconfinder_Recent Documents_37492.png" class="img-fluid" width="30%" height="30%" alt="icone Calendrier" title="Gérer le calendrier" /></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active text-dark" href="#"><img src="images/iconfinder_My Documents_37479.png" class="img-fluid" width="30%" height="30%" alt="icone Dossiers" title="Mon compte" /></a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Turn Off_37503.png" class="img-fluid" width="30%" height="30%" alt="icone Déconnexion" title="Déconnexion" /></a>
@@ -87,10 +88,17 @@ include 'assets/file.php';
 
 
 
+
+
+
   <!-- Silhouette avec particules -->
-  <div data-aos="flip-right">
-    <div id="particles-js"></div>
+  <div id="home1">
+    <div data-aos="flip-right">
+      <div id="particles-js"></div>
+    </div>
   </div>
+
+
 
 
   <!-- Début de la 2ème navbar -->
@@ -114,42 +122,52 @@ include 'assets/file.php';
             <ul class="justify-content-center align-items-center navbar-nav mx-auto">
               <li class="nav-item">
                 <div class="cpt">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Portes de l'école</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="home nav-link" href="#">Accueil</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="cpt">
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="schoolDoors clickTop nav-link" href="#">Portes de l'école</a>
                 </div>
               </li>
               <li class="nav-item dropdown">
                 <div class="exp">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Fil d'actualités</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="news clickTop nav-link" href="#">Fil d'actualités</a>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="dpl">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Kung Fu</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="kungFu clickTop nav-link" href="#">Kung Fu</a>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="pscol">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Taïchi Chuan</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="taïchiChuan clickTop nav-link" href="#">Taïchi Chuan</a>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="crt">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Sanda & Shoubo</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="sandaShoubo clickTop nav-link" href="#">Sanda & Shoubo</a>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="lsr">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Notre cercle</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="ourCircle clickTop nav-link" href="#">Notre cercle</a>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="ctc">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickContact nav-link" href="#image7">Contact</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="links clickTop nav-link" href="">Liens</a>
                 </div>
               </li>
               <li class="nav-item">
                 <div class="lsr">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="clickTop1 nav-link" href="#">Liens</a>
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="shop clickTop nav-link" href="#">Boutique</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <div class="lsr">
+                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="contactForm clickTop nav-link" href="#">Contact</a>
                 </div>
               </li>
             </ul>
@@ -172,80 +190,78 @@ include 'assets/file.php';
 
 
 
-  <!-- Début du calendrier -->
 
-  <form method="post" action="index.html">
 
-    <label for="month">Mois : </label>
-    <select name="month">
-      <option value="" disabled selected></option>
-      <option value="1" <?= ($month == 1) ? 'selected' : ''; ?>>01-Janvier</option>
-      <option value="2" <?= ($month == 2) ? 'selected' : ''; ?>>02-Février</option>
-      <option value="3" <?= ($month == 3) ? 'selected' : ''; ?>>03-Mars</option>
-      <option value="4" <?= ($month == 4) ? 'selected' : ''; ?>>04-Avril</option>
-      <option value="5" <?= ($month == 5) ? 'selected' : ''; ?>>05-Mai</option>
-      <option value="6" <?= ($month == 6) ? 'selected' : ''; ?>>06-Juin</option>
-      <option value="7" <?= ($month == 7) ? 'selected' : ''; ?>>07-Juillet</option>
-      <option value="8" <?= ($month == 8) ? 'selected' : ''; ?>>08-Août</option>
-      <option value="9" <?= ($month == 9) ? 'selected' : ''; ?>>09-Septembre</option>
-      <option value="10" <?= ($month == 10) ? 'selected' : ''; ?>>10-Octobre</option>
-      <option value="11" <?= ($month == 11) ? 'selected' : ''; ?>>11-Novembre</option>
-      <option value="12" <?= ($month == 12) ? 'selected' : ''; ?>>12-Décembre</option>
-    </select>
 
-    <label for="year">Année : </label>
-    <select name="year">
-      <option value="" disabled selected></option>
-      <?php
-//            la boucle ci-dessous permet d'afficher les années de 1930 à 2070
-        for ($yearMin = 1930; $yearMin <= 2070; $yearMin++) :
-            ?>
-      <option value="<?= $yearMin; ?>" <?= ($year == $yearMin) ? 'selected' : ''; ?>><?= $yearMin; ?></option>
-      <?php
-        endfor;
-        ?>
-    </select>
-    <button type="submit">Envoyer</button>
-  </form>
 
-  <h1 class="text-center"><?php echo ucfirst(strftime('%B-%Y', mktime(0, 0, 0, $month, 1, $year))); ?></h1>
-  <table class="table table-bordered">
-    <thead>
-      <?php
-// Boucle qui parcourt le tableau daysInWeek et retranscris la valeur day correspondante dans le th
-        foreach ($daysInWeek as $day) :
-            ?>
-      <th scope="col"><?= $day; ?></th> <?php endforeach; ?>
-    </thead><?php
-$outsideDayOfTheMonth = 1;
-$date = 1;
-// Boucle qui affiche une ligne de tableau supplémentaire tant qu'on n'a pas dépassé le nombre de jours du mois
-while ($date <= $numberDayInMonth):
-    ?> <tr scope="row"> <?php
-// Boucle qui crée 7 colonnes en fonction du nombre de jours dans la semaine
-        for ($i = 1; $i <= 7; $i++) :
-// Condition qui permet d'afficher les cellules en fonction du nombre de jours dans le mois et de griser les autres
-            if ($outsideDayOfTheMonth < $firstDayOfTheMonth || $date > $numberDayInMonth) :
-                $outsideDayOfTheMonth++;
-                ?>
-      <!-- On crée une cellule vide si le jour ne fait pas parti du mois sélectionné  -->
-      <td></td>
-      <?php
-// On crée une cellule avec la date du jour s'il fait bien parti du mois sélectionné
-            else :
-// En plus d'afficher la date du jour, on l'incrémente pour passer au jour suivant
-                ?> <td class="col-1"> <?= $date++; ?> </td>
-      <?php
-            endif;
-        endfor;
-        ?>
-    </tr>
+  <div id="home">
     <?php
-endwhile;
-?>
-  </table>
+require 'assets/calendar.php';
+    ?>
+    <div class="mx-auto text-center">
+      <img id="affiche" src="images/1098360_574799055894754_409396215_n.jpg" width="30%" height="30%" />
 
-  <!-- Fin du calendrier -->
+      <img id="calendrier" src="images/37766491_2147381731969804_6551757075704184832_n.png" width="45%" height="45%" />
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div id="schoolDoors">
+    <p>Portes de l'école</p>
+  </div>
+
+  <div id="news">
+    <p>Fil d'actualités</p>
+  </div>
+
+  <div id="kungFu">
+    <p>Kung-Fu</p>
+  </div>
+
+  <div id="taïchiChuan">
+    <p>Taïchi Chuan</p>
+  </div>
+
+  <div id="sandaShoubo">
+    <p>Sanda & Shoubo</p>
+  </div>
+
+  <div id="ourCircle">
+    <p>Notre cercle</p>
+  </div>
+
+  <div id="links">
+    <p>Liens</p>
+  </div>
+
+  <div id="shop">
+    <p>Boutique</p>
+  </div>
+
+  <div id="contactForm">
+    <p>Formulaire de contact</p>
+  </div>
+
+  <div id="legalInformations">
+    <p>Informations légales</p>
+  </div>
+
+  <div id="CGU">
+    <p>CGU</p>
+  </div>
+
+  <div id="RGPD">
+    <p>RGPD</p>
+  </div>
 
 
 
@@ -305,13 +321,13 @@ endwhile;
             <h6 class="footer-title">Mentions légales</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" />
             <p class="footer-legis">
-              •
+              • <a href="#legalInformations" class="legalInformations clickTop">Informations légales</a>
             </p>
             <p class="footer-legis">
-              •
+              • <a href="#CGU" title="Conditions Générales d'Utilisation" class="CGU clickTop">CGU</a>
             </p>
             <p class="footer-legis">
-              •
+              • <a href="#RGPD" title="Règlement Général sur la Protection des Données" class="RGPD clickTop">RGPD</a>
             </p>
           </div>
           <!-- Third column -->

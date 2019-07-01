@@ -46,8 +46,7 @@ h2 {
   right: 0;
   bottom: 0;
   background-image: url(images/silhouette-3592355_1280.png);
-  height: 1190px;
-  width: 1280px;
+  background-size: cover;
   background-color: #7f6e7f;
   padding-top: 1rem;
 }
@@ -81,4 +80,9 @@ h2 {
 
 #textNavButton {
   font-size: 1rem;
+}
+
+#home {
+  margin-top: 4rem;
+  margin-bottom: 12rem;
 }
