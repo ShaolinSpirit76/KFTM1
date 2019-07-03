@@ -36,8 +36,8 @@ include 'file.php';
             <select name="year">
                 <option value="" disabled selected></option>
                 <?php
-//            la boucle ci-dessous permet d'afficher les années de 1930 à 2070
-                for ($yearMin = 1930; $yearMin <= 2070; $yearMin++) :
+//            la boucle ci-dessous permet d'afficher les années de 2019 à 2070
+                for ($yearMin = 2019; $yearMin <= 2070; $yearMin++) :
                     ?>
                     <option value="<?= $yearMin; ?>" <?= ($year == $yearMin) ? 'selected' : ''; ?>><?= $yearMin; ?></option>
                     <?php

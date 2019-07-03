@@ -9,7 +9,6 @@ if (isset($_POST['month']) AND isset($_POST['year'])) :
 else :
     $month = $actualMonth;
     $year = $actualYear;
-    var_dump($year);
 endif;
 
 

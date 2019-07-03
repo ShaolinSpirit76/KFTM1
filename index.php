@@ -11,25 +11,29 @@
   <!-- Compatibilité internet explorer -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- CDN de font awesome pour l'utilisation des fa-fa et des icones -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
   <script src="https://kit.fontawesome.com/eaadffbb2b.js"></script>
+  <script src="assets/eaadffbb2b.js"></script>
   <!-- CDN de Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Lien avec la page CSS (toujours après Bootstrap pour éviter les bug) -->
-  <link rel="stylesheet" href="assets/header.css" />
+  <link rel="stylesheet" href="/assets/header.css" />
   <link rel="stylesheet" href="assets/footer.css" />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/style.css" />
+   <!-- Lien script pour animer -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/aos.js"></script>
   <!-- Lien pour le scroll to top -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
+  <link href="assets/css?family=Merriweather:400,900,900i.css" rel="stylesheet">
   <!-- Lien éventuel pour l'utilisation d'une police -->
   <link href="https://fonts.googleapis.com/css?family=Merienda|Permanent+Marker&display=swap" rel="stylesheet">
+  <link href="assets/css?family=Merienda|Permanent+Marker&display=swap.css" rel="stylesheet">
   <!-- Lien pour placer une icone dans l'onglet, avant le titre de la page -->
   <link rel="icon" href="images/logo.jpg">
-  <!-- Lien script pour animer -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <!-- Titre de la page affiché dans l'onglet -->
+    <!-- Titre de la page affiché dans l'onglet -->
   <title>Kung-Fu.ThieuLam.Montivilliers - Don't think... Feel !</title>
 
 </head>
@@ -93,96 +97,19 @@
 
   <!-- Silhouette avec particules -->
   <div id="home1">
-    <div data-aos="flip-right">
-      <div id="particles-js"></div>
+          <div id="particles-js"></div>
     </div>
-  </div>
+  
 
 
 
 
   <!-- Début de la 2ème navbar -->
-  <div data-aos="fade-right">
-    <nav id="menu" class="navbar navbar-expand-lg">
-      <a class="navbar-brand" href="#"></a>
-      <button id="navButton" class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span id="textNavButton">Cliquez pour voir le menu</span>
-      </button>
 
-      <div class="row w-100">
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="col-1">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item">
-                <img src="images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="75%" height="75%" />
-              </li>
-            </ul>
-          </div>
-          <div class="col-10">
-            <ul class="justify-content-center align-items-center navbar-nav mx-auto">
-              <li class="nav-item">
-                <div class="cpt">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="home nav-link" href="#">Accueil</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="cpt">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="schoolDoors clickTop nav-link" href="#">Portes de l'école</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <div class="exp">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="news clickTop nav-link" href="#">Fil d'actualités</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="dpl">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="kungFu clickTop nav-link" href="#">Kung Fu</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="pscol">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="taïchiChuan clickTop nav-link" href="#">Taïchi Chuan</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="crt">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="sandaShoubo clickTop nav-link" href="#">Sanda & Shoubo</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="lsr">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="ourCircle clickTop nav-link" href="#">Notre cercle</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="ctc">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="links clickTop nav-link" href="">Liens</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="lsr">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="shop clickTop nav-link" href="#">Boutique</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <div class="lsr">
-                  <a data-toggle="collapse" data-target="#navbarSupportedContent" class="contactForm clickTop nav-link" href="#">Contact</a>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="col-1">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item text-center">
-                <img src="images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="75%" height="75%" />
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
+   <?php
+include 'pages/navbar.php';
+   ?>
+  
   <!-- Fin de la 2ème navbar -->
 
 
@@ -195,14 +122,16 @@
 
 
   <div id="home">
-    <?php
-require 'assets/calendar.php';
-    ?>
+
     <div class="mx-auto text-center">
       <img id="affiche" src="images/1098360_574799055894754_409396215_n.jpg" width="30%" height="30%" />
 
       <img id="calendrier" src="images/37766491_2147381731969804_6551757075704184832_n.png" width="45%" height="45%" />
     </div>
+
+    <?php
+    include 'pages/calendar.php';
+    ?>
 
   </div>
 
@@ -344,7 +273,7 @@ require 'assets/calendar.php';
 
 
       <!-- Copyright -->
-      <div class="footer-copyright text-center py-3 bg-dark text-white">© 2019 Copyright : <a href="https://shaolinspirit76.github.io/" target="_blank">Shaolin Spirit 76</a>, du cercle Thieulâm :)
+      <div class="footer-copyright text-center py-3 bg-dark text-white">© 2019 Copyright : <a href="https://shaolinspirit76.github.io/" target="_blank">Shaolin Spirit 76</a>, du cercle Thieu-Lâm :)
       </div>
       <!-- Copyright -->
 
@@ -358,18 +287,23 @@ require 'assets/calendar.php';
   <!-- CDN JavaScript toujours à la fin du body pour éviter les bug -->
   <!-- D'abord le CDN de JQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="assets/jquery.min.js"></script>
   <!-- Puis le CDN du Popper.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="assets/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <!-- Et enfin le CDN de Bootstrap.js -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="assets/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- Sweet alert 2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="assets/sweetalert2@8.js"></script>
   <!-- Lien avec la page JS (toujours après les CDN de JQuery) -->
   <script src="assets/script.js"></script>
   <!-- Liens script.js pour les particules -->
   <script src="assets/particle.js"></script>
-  <script src="http://roshinjose.com/codepen/jquery_002.js"></script>
-  <script src="http://roshinjose.com/codepen/plugins.js"></script>
+  <script src="assets/jquery_002.js"></script>
+  <script src="assets/plugins.js"></script>
+  
 
 </body>
 

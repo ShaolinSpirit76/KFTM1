@@ -2,6 +2,16 @@
 AOS.init();
 
 
+// Gestion de l'ancres
+
+$(document).ready(function() {
+  $(".clickTop").click(function() {
+    $('html, body').animate({
+      scrollTop: $("#connexion").offset().top
+    }, 2000);
+  });
+});
+
 // Scroll to top
 
 var btn = $('#buttonScroll');
@@ -319,12 +329,4 @@ $("#CGU").hide();
 $("#RGPD").show();
 });
 
-// Gestion de l'ancres
 
-$(document).ready(function() {
-  $(".clickTop").click(function() {
-    $('html, body').animate({
-      scrollTop: $("#connexion").offset().top
-    }, 2000);
-  });
-});
