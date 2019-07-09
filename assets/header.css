@@ -31,9 +31,15 @@ h2 {
   position: absolute;
 }
 
+/* Fin CSS du header */
+
+
+/* CSS 1ère navbar */
 #connexion {
   font-family: 'Permanent Marker', cursive;
+  background-color: rgba(255, 255, 255, 0.65);
 }
+
 
 /*Particles Style*/
 #particles-js {

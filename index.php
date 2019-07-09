@@ -17,9 +17,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Lien avec la page CSS (toujours après Bootstrap pour éviter les bug) -->
-  <link rel="stylesheet" href="/assets/header.css" />
+  <link rel="stylesheet" href="assets/header.css" />
   <link rel="stylesheet" href="assets/footer.css" />
-  <link rel="stylesheet" href="/assets/style.css" />
+  <link rel="stylesheet" href="assets/style.css" />
    <!-- Lien script pour animer -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="assets/aos.js"></script>
@@ -72,19 +72,19 @@
   <nav id="connexion" class="sticky-top">
     <ul class="nav justify-content-end">
       <li class="nav-item">
-        <a class="nav-link active text-dark" href="#"><img src="images/iconfinder_Recent Documents_37492.png" class="img-fluid" width="30%" height="30%" alt="icone Calendrier" title="Gérer le calendrier" /></a>
+        <a class="nav-link active text-dark" href="#"><img src="images/iconfinder_Recent Documents_37492.png" class="img-fluid" width="30%" height="30%" alt="icone Calendrier" title="Gérer le calendrier" /><br />Calendrier</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active text-dark" href="#"><img src="images/iconfinder_My Documents_37479.png" class="img-fluid" width="30%" height="30%" alt="icone Dossiers" title="Mon compte" /></a>
+        <a class="nav-link active text-dark" href="#"><img src="images/iconfinder_My Documents_37479.png" class="img-fluid" width="30%" height="30%" alt="icone Dossiers" title="Mon compte" /><br />Mon Compte</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Turn Off_37503.png" class="img-fluid" width="30%" height="30%" alt="icone Déconnexion" title="Déconnexion" /></a>
+        <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Turn Off_37503.png" class="img-fluid" width="30%" height="30%" alt="icone Déconnexion" title="Déconnexion" /><br />Déconnexion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Email_37462.png" class="img-fluid" width="30%" height="30%" alt="icone Connexion" title="Connexion" /></a>
+        <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Email_37462.png" class="img-fluid" width="30%" height="30%" alt="icone Connexion" title="Connexion" /><br />Connexion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Internet_37471.png" class="img-fluid" width="30%" height="30%" alt="icone Inscription" title="Inscription" /></a>
+        <a class="nav-link text-dark" href="#"><img src="images/iconfinder_Internet_37471.png" class="img-fluid" width="30%" height="30%" alt="icone Inscription" title="Inscription" /><br />Inscription</a>
       </li>
     </ul>
   </nav>
@@ -145,7 +145,9 @@ include 'pages/navbar.php';
 
 
   <div id="schoolDoors">
-    <p>Portes de l'école</p>
+  <?php
+include 'pages/schoolDoors.php';
+   ?>
   </div>
 
   <div id="news">
@@ -177,19 +179,33 @@ include 'pages/navbar.php';
   </div>
 
   <div id="contactForm">
-    <p>Formulaire de contact</p>
+  <?php
+include 'pages/contact.php';
+   ?>
   </div>
 
+  <div id="AssoInformations">
+  <?php
+    include 'Mentions/AssoInfos.php';
+    ?>
+    </div>
+
   <div id="legalInformations">
-    <p>Informations légales</p>
+  <?php
+    include 'Mentions/legalInfos.php';
+    ?>
   </div>
 
   <div id="CGU">
-    <p>CGU</p>
+    <?php
+    include 'Mentions/CGU.php';
+    ?>
   </div>
 
   <div id="RGPD">
-    <p>RGPD</p>
+  <?php
+    include 'Mentions/RGPD.php';
+    ?>
   </div>
 
 
@@ -250,7 +266,10 @@ include 'pages/navbar.php';
             <h6 class="footer-title">Mentions légales</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" />
             <p class="footer-legis">
-              • <a href="#legalInformations" class="legalInformations clickTop">Informations légales</a>
+              • <a href="#AssoInformations" class="AssoInformations clickTop">Informations légales de l'association</a>
+            </p>
+            <p class="footer-legis">
+              • <a href="#legalInformations" class="legalInformations clickTop">Informations légales du site</a>
             </p>
             <p class="footer-legis">
               • <a href="#CGU" title="Conditions Générales d'Utilisation" class="CGU clickTop">CGU</a>
