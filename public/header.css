@@ -5,8 +5,8 @@
   padding-bottom: 0.5rem;
   height: auto;
   color: #fcd600;
-  background-color: #7f6e7f;
-  background-image: url(images/lanchaku-269343_1920.jpg);
+  background-color: #e4ee5f;
+  background-image: url(images/lanchaku-269343_1920.png);
   background-size: cover;
   background-position: center;
   font-family: 'Permanent Marker', cursive;
@@ -46,11 +46,16 @@ h2 {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(images/silhouette-3592355_1280.png);
-  background-size: cover;
-  background-color: #7f6e7f;
-  padding-top: 1rem;
+  background-image:  url(images/silhouette-3577338_1280.png), url(images/action-3598629_1920.jpg);
+  background-position: left, center;
+  padding-left: 5rem;
+  padding-bottom: 0rem;
+  background-size: contain, cover;
+  background-repeat: no-repeat;
+  margin-top: 1rem;
 }
+
+
 
 /* Navbar principale */
 #menu {
@@ -59,6 +64,16 @@ h2 {
   height: auto !important;
   width: 100% !important;
   font-family: 'Permanent Marker', cursive;
+  z-index:2;
+}
+
+/* CSS navbarMin */
+
+#navbarMin {
+  margin-top: -5rem;
+  background-color: rgba(0, 0, 0, 0.85);
+  font-family: 'Permanent Marker', cursive;
+  z-index:1;
 }
 
 .yellow-hover:hover {

@@ -1,13 +1,17 @@
 /* CSS de la page d'accueil */
 body {
   /* Code pour que l'image reste fixe et responsive */
-  margin: 0;
+  margin-top: 0;
   padding: 0;
   /* background-color: #f5f5f5; */
   -webkit-background-size: cover;
   /* pour anciens Chrome et Safari */
   background-size: cover;
   /* version standardisée */
+}
+
+#home, #body {
+margin-top: 10rem;
 }
 
 .img-fluid {
@@ -69,6 +73,9 @@ a:hover {
   opacity: 1;
   visibility: visible;
 }
+
+
+
 
 /* CSS formulaire d'inscription */
 

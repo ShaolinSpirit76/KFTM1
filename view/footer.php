@@ -1,3 +1,5 @@
+</div>
+
 <!-- Début du footer -->
 
 <div id="foot">
@@ -33,7 +35,7 @@
             <p>
               <img src="../public/images/iconfinder_Mobile Device_37473.png" class="img-fluid mr-3" width="20%" height="20%" alt="icone de téléphone portable" title="N° portable" /> 06. 22. 16. 71. 80</p>
             <p>
-              <img src="../public/images/2398089-256.png" class="img-fluid mr-3" width="20%" height="20%" alt="icone facebook" title="Facebook" /> <a href="https://www.facebook.com/kungfuthieulammontivilliers" target="_blank" title="Cliquez pour aller"> Lien
+              <img src="../public/images/iconfinder_1_3694241.svg" class="img-fluid mr-3" width="30%" height="30%" alt="icone facebook" title="Facebook" /> <a href="https://www.facebook.com/kungfuthieulammontivilliers" target="_blank" title="Cliquez pour aller"> Lien
                 Facebook</a></p>
           </div>
           <!-- Second column -->
@@ -43,21 +45,21 @@
             <h6 class="footer-title">Pour toutes questions ou remarques concernant le site</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" />
             <p class="footer-legis">
-              <img src="../public/images/iconfinder_Mail_642206.png" class="img-fluid mr-3" width="15%" height="15%" alt="icone d'email" title="Email" /> <a href="mailto:kungfu.montivilliers@gmail.com"
+              <img src="../public/images/yuuyake/iconfinder_Windows live mail_17600.png" class="img-fluid mr-3" width="20%" height="20%" alt="icone d'email" title="Email" /> <a href="mailto:kungfu.montivilliers@gmail.com"
                 title="Cliquez pour envoyer un email">kungfu.montivilliers@gmail.com</a><br /><br /></p>
             <h6 class="footer-title">Mentions légales</h6>
             <hr class="mb-4 mt-0 d-inline-block mx-auto" />
             <p class="footer-legis">
-              • <a href="AssoInfos.php" class="AssoInformations clickTop">Informations légales de l'association</a>
+              • <a href="AssoInfos.php" class="clickTop">Informations légales de l'association</a>
             </p>
             <p class="footer-legis">
-              • <a href="legalInfos.php" class="legalInformations clickTop">Informations légales du site</a>
+              • <a href="legalInfos.php" class="clickTop">Informations légales du site</a>
             </p>
             <p class="footer-legis">
-              • <a href="CGU.php" title="Conditions Générales d'Utilisation" class="CGU clickTop">CGU</a>
+              • <a href="CGU.php" title="Conditions Générales d'Utilisation" class="clickTop">CGU</a>
             </p>
             <p class="footer-legis">
-              • <a href="RGPD.php" title="Règlement Général sur la Protection des Données" class="RGPD clickTop">RGPD</a>
+              • <a href="RGPD.php" title="Règlement Général sur la Protection des Données" class="clickTop">RGPD</a>
             </p>
           </div>
           <!-- Third column -->
@@ -104,6 +106,8 @@
   <script src="../public/particle.js"></script>
   <script src="../public/jquery_002.js"></script>
   <script src="../public/plugins.js"></script>
+  <!-- Liens Midnight -->
+<script src="../public/midnight.jquery.min.js"></script>
   
 
 </body>

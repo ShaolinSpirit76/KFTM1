@@ -1,6 +1,8 @@
 <?php
 include 'head.php';
 include 'navbar.php';
+include '../controller/regex.php';
+include '../controller/inscription.php';
 ?>
 
 <!-- Début formulaire d'inscription -->
@@ -8,7 +10,7 @@ include 'navbar.php';
 <h1 id="legend1" class="text-center"><br />Inscription</h1>
 <p class="text-center"><small>* champs obligatoires</small></p>
 
-             <form method="post" action="index.php" id="inscriptionForm" name="inscriptionForm">
+             <form method="post" action="inscriptionForm.php" id="inscriptionForm" name="inscriptionForm">
                <div class="card mx-auto" id="connection" style="width: 30rem;">
   <div class="card-body">
       <fieldset>

@@ -91,11 +91,9 @@
 
 
 
-<!-- <div id="navbarMin">
 
- Début navbar 
-
-<nav id="menu" class="navbar navbar-expand-lg sticky-top">
+ <!-- Début navbar minimisée  -->
+<nav id="navbarMin" class="navbar navbar-expand-lg sticky-top">
       <a class="navbar-brand" href="#"></a>
       <button id="navButton" class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span id="textNavButton">Cliquez pour voir le menu</span>
@@ -108,7 +106,7 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <img src="../public/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
+                <img src="../public/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="70%" height="70%" />
               </li>
             </ul>
           </div>
@@ -131,7 +129,7 @@
               </li>
               <li class="nav-item">
                 <div class="kungfu dropdown">
-                <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Nos disciplines</span></a>
+                <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Nos disciplines</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="kungfu.php">Kung Fu</a>
     <a class="dropdown-item" href="taichi.php">Taïchi Chuan</a>
@@ -145,7 +143,7 @@
               </li>
               <li class="nav-item">
                 <div class="links dropdown">
-                <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Liens</a>
+                <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Liens</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="pictures.php">Photos</a>
     <a class="dropdown-item" href="video.php">Vidéos</a>
@@ -160,7 +158,7 @@
               </li>
               <li class="nav-item">
                 <div class="shop dropdown">
-                  <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Connexion</a>
+                  <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Connexion</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
     <a class="dropdown-item" href="inscriptionForm.php">Connexion / inscription</a>
     <a class="dropdown-item" href="">Déconnexion</a>
@@ -173,7 +171,7 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
-                <img src="../public/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
+                <img src="../public/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="70%" height="70%" />
               </li>
             </ul>
           </div>
@@ -181,6 +179,6 @@
       </div>
     </nav>
 
-     Fin navbar 
+     <!-- Fin navbar minimisée -->
 
-</div> -->
+     <div id="body">

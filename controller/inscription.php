@@ -1,8 +1,4 @@
 <?php
-include 'head.php';
-include 'navbar.php';
-include '../../controller/regex.php';
-
 
 // On crée un tableau error qui s'auto-incrémentera avec la valeur de l'erreur que nous lui assignerons au cas par cas, si la regex n'est pas franchie. Chaque cellule remplie comptera pour 1.
 $error = [];
@@ -47,7 +43,4 @@ if (count($_POST) > 0)
     }
 }
 
-include '../form/inscriptionForm.php'; 
-
-include 'footer.php';
 ?>

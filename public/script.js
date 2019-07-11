@@ -31,18 +31,6 @@ btn.on('click', function(e) {
   }, '300');
 });
 
-// Modification de la navbar en sticky-top
-
-// window.onscroll = function() {myFunction()};
-
-// function myFunction() {
-//   if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
-//     $('#navbarMin').show();
-//   } else {
-//    $('#navbarMin').hide();
-//   }
-// }
-
 
 
 
