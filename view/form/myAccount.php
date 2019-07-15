@@ -12,6 +12,7 @@ $sanda = '../pages/sanda.php';
 $ourCircle = '../pages/ourCircle.php';
 $pictures = '../pages/pictures.php';
 $video = '../pages/video.php';
+$techniques = '../pages/techniques.php';
 $otherSchools = '../pages/otherSchools.php';
 $contact = 'contact.php';
 $shop = '../pages/shop.php';

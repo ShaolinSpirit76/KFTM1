@@ -11,6 +11,7 @@ $sanda = 'sanda.php';
 $ourCircle = 'ourCircle.php';
 $pictures = 'pictures.php';
 $video = 'video.php';
+$techniques = 'techniques.php';
 $otherSchools = 'otherSchools.php';
 $contact = '../form/contact.php';
 $shop = 'shop.php';

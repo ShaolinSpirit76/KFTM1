@@ -25,7 +25,7 @@ if (count($_POST) > 0)
     {
         $error['errorMail'] = 'Votre adresse mail est incorrect.';
     } 
-    if (!preg_match ($regexPhone, $_POST['phone']))
+    if (!preg_match ($regexPhone, $_POST['phoneNumber']))
     {
         $error['errorPhone'] = 'Votre numéro de téléphone est incorrect.';
     } 

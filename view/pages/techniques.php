@@ -22,7 +22,7 @@ $checkCalendar = '../form/checkCalendar.php';
 include '../templates/navbar.php';
 ?>
 
-<p> Page Taïchi Chuan en cours de construction. </p>
+<p> Page Cahiers Techniques en cours de construction. </p>
 
 <?php
 // Variables dynamiques pour la navbar à partir à partir de pages

@@ -16,6 +16,7 @@
   <!-- Fin du header -->
 
 
+
 <!-- Début navbar -->
 
 <?php
@@ -29,6 +30,7 @@ $sanda = 'view/pages/sanda.php';
 $ourCircle = 'view/pages/ourCircle.php';
 $pictures = 'view/pages/pictures.php';
 $video = 'view/pages/video.php';
+$techniques = '../pages/techniques.php';
 $otherSchools = 'view/pages/otherSchools.php';
 $contact = 'view/form/contact.php';
 $shop = 'view/pages/shop.php';
@@ -44,6 +46,7 @@ include 'view/templates/navbar.php';
 
   <div id="home">
 
+  
     <div class="mx-auto text-center">
       <img id="affiche" src="../../assets/images/1098360_574799055894754_409396215_n.jpg" width="30%" height="30%" />
 
