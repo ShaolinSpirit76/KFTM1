@@ -10,6 +10,18 @@ body {
   /* version standardisée */
 }
 
+#contents {
+  background-color: #f1f0ee;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.permanent-marker {
+  font-family: 'Permanent Marker', cursive;
+}
+
+
+
 #home, #body {
 margin-top: 10rem;
 }
@@ -80,11 +92,59 @@ a:hover {
 
 /* CSS formulaire d'inscription */
 
+#legend1 {
+  margin-top: -12rem;
+  font-family: 'Permanent Marker', cursive;
+  letter-spacing: 0.5rem;
+}
+
+#submitInscriptionForm {
+background-color: #336699;
+color: white;
+}
+
+#submitInscriptionForm:hover {
+background-color: #fcd600;
+color: #0a0901;
+} 
+
+#headingOne {
+background-color: #7f6e7f;
+}
+
+#collapseOne {
+  background-color: white;
+}
+
+#accordion {
+  margin-bottom: -6rem;
+}
+
 .card {
   margin-top: 3rem;
-background: #2574a9;
+background: #32746d;
 }
 
 .red {
   border: red solid 2px;
+}
+
+/* Fin CSS formulaire d'inscription */
+
+
+/* CSS Portes de l'école */
+/* .padding {
+  padding-left: 2rem;
+  padding-right: 2rem;
+} */
+
+.entry-content {
+  margin-top: 3rem;
+  }
+
+#schoolDoorsTitle {
+  margin-bottom: 6rem;
+  color: #336699;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 3rem;
 }

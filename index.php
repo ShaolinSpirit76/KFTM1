@@ -1,5 +1,7 @@
 <?php
 include 'view/templates/head.php';
+include 'controller/regex.php';
+include 'controller/login.php';
 include 'view/pages/home.php';
 
 // Variables dynamiques pour le footer à partir de index.php

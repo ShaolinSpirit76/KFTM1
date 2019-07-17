@@ -118,3 +118,14 @@ padding-top: 0.75rem;
   margin-top: 4rem;
   margin-bottom: 12rem;
 }
+/* Fin CSS navbar min */
+
+
+/* CSS modal connexion/inscription */
+#connection {
+  font-family: 'Permanent Marker', cursive;
+}
+
+#loginButton {
+float:right;
+}

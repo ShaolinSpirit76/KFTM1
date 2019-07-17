@@ -1,5 +1,7 @@
  <?php
   include '../templates/head.php';
+  include '../../controller/regex.php';
+include '../../controller/login.php';
 
   // Variables dynamiques pour la navbar à partir de form
 $home = '../../index.php';

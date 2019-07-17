@@ -29,8 +29,8 @@
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
   <link href="../../assets/CSS/css?family=Merriweather:400,900,900i.css" rel="stylesheet">
   <!-- Lien éventuel pour l'utilisation d'une police -->
-  <link href="https://fonts.googleapis.com/css?family=Merienda|Permanent+Marker&display=swap" rel="stylesheet">
-  <link href="../../assets/CSS/css?family=Merienda|Permanent+Marker&display=swap.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Merienda|Permanent+Marker&display=swap" rel="stylesheet"> 
+  <link href="../../assets/CSS/police.css" rel="stylesheet">
   <!-- Lien pour placer une icone dans l'onglet, avant le titre de la page -->
   <link rel="icon" href="../../assets/images/logo.jpg">
     <!-- Titre de la page affiché dans l'onglet -->

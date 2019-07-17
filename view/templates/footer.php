@@ -1,3 +1,5 @@
+</div> 
+<!-- Fermeture div contents -->
 </div>
 
 <!-- Début du footer -->

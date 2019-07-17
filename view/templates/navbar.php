@@ -1,7 +1,3 @@
-<?php
-include '../../controller/regex.php';
-include '../../controller/login.php';
-?>
 <!-- Début navbar -->
 
 <nav id="menu" class="navbar navbar-expand-lg">
@@ -193,9 +189,9 @@ include '../../controller/login.php';
 <div id="connection" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-      <div class="modal-header">
+      <div class="modal-header text-white" style="background-color:black;">
         <h5 class="modal-title">Connexion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -203,24 +199,26 @@ include '../../controller/login.php';
 <form name="loginForm" method="POST" action="../../view/form/connexion.php">
   <ul class="text-center">
 
-  <span class="font-weight-bolder"><label for="login"><I>Identifiant (ou adresse mail)  </I></label><br /> <input class="<?php echo (isset($_POST['login']) && !preg_match($regexLogin, $_POST['login']))? 'red':'';  ?>" value="<?= $_POST['login']?>" type="text" name="login" id="login" placeholder="Pseudo" required /><small class="text-white"><br />Vous pouvez tout simplement choisir votre adresse mail.</small><p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></span>
+  <span><label for="login">Identifiant (ou adresse mail)  </label><br /> <input class="<?php echo (isset($_POST['login']) && !preg_match($regexLogin, $_POST['login']))? 'red':'';  ?>" value="<?= $_POST['login']?>" type="text" name="login" id="login" placeholder="Pseudo" required /><p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></span>
   
-  <span class="font-weight-bolder"><label for="password"><I>Mot de passe  </I></label><br /> <input class="<?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
+  <span><label for="password">Mot de passe  </label><br /> <input class="<?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><small class="text-muted"><br />Renseignés lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
 
 </ul>
 
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-  <button id="loginButton" type="submit" href="../../view/form/connexion.php" onclick="checkPasswordLogin();" class="btn btn-primary" style="background-color:#00acc1; color: white; float:right;">C'est parti !</button>
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+  <button id="loginButton" type="submit" href="../../view/form/connexion.php" onclick="checkPasswordLogin();" class="yellow-hover btn btn-primary text-white">C'est parti !</button>
 </form>
 </div>
-<div class="modal-footer">
-      <a href="../../view/form/inscriptionForm.php" class="mx-auto"><p><small><u><i>Pas encore inscrit ?</i></u></small></p></a>
+<div class="modal-footer" style="background-color:#282828;">
+      <a href="../../view/form/inscriptionForm.php" class="mx-auto"><p><small><u>Pas encore inscrit ?</u></small></p></a>
         </div>
     </div>
     </div>
 </div>
 
   <!-- Fin modal login -->
+
+  <div id="contents">
 
 
 
