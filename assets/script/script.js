@@ -1,52 +1,55 @@
+// Affichage conditionnel du formulaire d'inscription
+// div cachées avant tout choix
 $('#studentCourse').hide();
 $("#group").hide();
 $("#studentYear").hide();
 $("#childBelt").hide();
-$("#youngBelt").hide();
 $("#studentBelt").hide();
 $("#teacherCourse").hide();
 $("#teacherRank").hide();
 
+
+// Si statut élève alors
 $("#élève").click(function() {
   $('#studentCourse').show();
   $("#teacherCourse").hide();
   $("#group").show();
   $("#studentYear").show();
   $("#childBelt").hide();
-  $("#youngBelt").hide();
   $("#studentBelt").hide();
   $("#teacherRank").hide();
 
+
+// Si groupe enfant alors
   $("#Enfants").click(function() {
-$("#childBelt").show();
-$("#youngBelt").hide();
+  $("#childBelt").show();
   $("#studentBelt").hide();
   $("#teacherRank").hide();
   });   
 
+ // Si groupe ados alors
   $("#Ados").click(function() {
-    $("#childBelt").hide();
-    $("#youngBelt").show();
-      $("#studentBelt").hide();
-      $("#teacherRank").hide();
+    $("#childBelt").show();
+    $("#studentBelt").hide();
+    $("#teacherRank").hide();
       });  
       
+// Si groupe adulte alors
       $("#Adultes").click(function() {
         $("#childBelt").hide();
-        $("#youngBelt").hide();
-          $("#studentBelt").show();
-          $("#teacherRank").hide();
+        $("#studentBelt").show();
+        $("#teacherRank").hide();
           });   
 });
 
+// Si statut maître alors
 $("#maître").click(function() {
   $('#studentCourse').hide();
   $("#teacherCourse").show();
   $("#group").hide();
   $("#studentYear").hide();
   $("#childBelt").hide();
-  $("#youngBelt").hide();
-  $("#studentBelt").hide();
+  $("#studentBelt").show();
   $("#teacherRank").show();
 });
 
@@ -56,7 +59,6 @@ $("#maître_et_élève").click(function() {
   $("#group").hide();
   $("#studentYear").show();
   $("#childBelt").hide();
-  $("#youngBelt").hide();
   $("#studentBelt").show();
   $("#teacherRank").show();
 });

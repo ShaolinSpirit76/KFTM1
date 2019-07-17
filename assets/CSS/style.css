@@ -8,12 +8,13 @@ body {
   /* pour anciens Chrome et Safari */
   background-size: cover;
   /* version standardisée */
+  background-color: #f1f0ee;
 }
 
 #contents {
-  background-color: #f1f0ee;
   padding-left: 2rem;
   padding-right: 2rem;
+  
 }
 
 .permanent-marker {
@@ -132,11 +133,6 @@ background: #32746d;
 /* Fin CSS formulaire d'inscription */
 
 
-/* CSS Portes de l'école */
-/* .padding {
-  padding-left: 2rem;
-  padding-right: 2rem;
-} */
 
 .entry-content {
   margin-top: 3rem;

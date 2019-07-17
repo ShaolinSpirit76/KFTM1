@@ -8,17 +8,25 @@
 #------------------------------------------------------------
 
 CREATE TABLE User(
-        ID           Int  Auto_increment  NOT NULL ,
-        lastName     Varchar (50) NOT NULL ,
-        firstName    Varchar (50) NOT NULL ,
-        birthDate    Date ,
-        phoneNumber  Varchar (50) ,
-        mail         Varchar (50) NOT NULL ,
-        picture      Blob ,
-        login        Varchar (50) NOT NULL ,
-        password     Varchar (50) NOT NULL ,
-        verification TinyINT NOT NULL ,
-        status       Varchar (50) NOT NULL
+        ID            Int  Auto_increment  NOT NULL ,
+        lastName      Varchar (50) NOT NULL ,
+        firstName     Varchar (50) NOT NULL ,
+        birthDate     Date ,
+        phoneNumber   Varchar (50) ,
+        mail          Varchar (50) NOT NULL ,
+        picture       Blob ,
+        login         Varchar (50) NOT NULL ,
+        password      Varchar (50) NOT NULL ,
+        verification  TinyINT NOT NULL ,
+        status        Varchar (50) ,
+        studentCourse Varchar (50) ,
+        studentYear   Varchar (50) ,
+        childBelt     Varchar (50) ,
+        studentBelt   Varchar (50) ,
+        teacherCourse Varchar (50) ,
+        teacherRank   Varchar (50) ,
+        group         Varchar (50) ,
+        presentation  Varchar (250)
 	,CONSTRAINT User_PK PRIMARY KEY (ID)
 )ENGINE=InnoDB;
 
@@ -45,8 +53,9 @@ CREATE TABLE Events(
         ID               Int  Auto_increment  NOT NULL ,
         eventType        Varchar (50) NOT NULL ,
         eventDate        Datetime NOT NULL ,
-        eventMaxUser     Int NOT NULL ,
-        eventDescription Varchar (255) NOT NULL
+        eventMaxUser     Int ,
+        eventDescription Varchar (255) NOT NULL ,
+        eventPicture     Blob
 	,CONSTRAINT Events_PK PRIMARY KEY (ID)
 )ENGINE=InnoDB;
 
@@ -59,29 +68,11 @@ CREATE TABLE Courses(
         ID          Int  Auto_increment  NOT NULL ,
         courseType  Varchar (50) NOT NULL ,
         courseHours Varchar (50) NOT NULL ,
+        courseDay   Varchar (50) NOT NULL ,
         ID_Events   Int NOT NULL
 	,CONSTRAINT Courses_PK PRIMARY KEY (ID)
 
 	,CONSTRAINT Courses_Events_FK FOREIGN KEY (ID_Events) REFERENCES Events(ID)
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: UserStatus
-#------------------------------------------------------------
-
-CREATE TABLE UserStatus(
-        ID            Int  Auto_increment  NOT NULL ,
-        studentCourse Varchar (50) ,
-        studentYear   Int ,
-        studentBelt   Varchar (50) ,
-        teacherCourse Varchar (50) ,
-        teacherRank   Varchar (50) ,
-        ID_User       Int NOT NULL
-	,CONSTRAINT UserStatus_PK PRIMARY KEY (ID)
-
-	,CONSTRAINT UserStatus_User_FK FOREIGN KEY (ID_User) REFERENCES User(ID)
-	,CONSTRAINT UserStatus_User_AK UNIQUE (ID_User)
 )ENGINE=InnoDB;
 
 

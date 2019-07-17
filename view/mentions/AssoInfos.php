@@ -26,8 +26,6 @@ include '../templates/navbar.php';
 
 <h1>Informations légales de l'association</h1>
 
-<p>La société KUNG FU THIEU-LAM a son siège social à MONTIVILLIERS (76290).
-Son activité est classée dans la catégorie Arts / Spectacles.</p>
 
 <ul>
 <li><b>Raison sociale : </b> KUNG FU THIEU-LAM</li>
@@ -38,9 +36,11 @@ Son activité est classée dans la catégorie Arts / Spectacles.</p>
 <li><b>Forme juridique : </b> Association de loi 1901</li>
 <li><b>Date de création : </b> 29/06/1996</li>
 <li><b>Date de déclaration : </b> N° 1213 Préfecture de Normandie, <a href="http://www.prefectures-regions.gouv.fr/normandie/Documents-publications" taget="_blank" title="Journal Officiel">J.O.</a> du 14/08/1996</li>
+
 <li><b title="Système d'identification du répertoire des entreprises">SIREN : </b> 750447849</li>
 <li><b title="Système d’identification du répertoire des établissements">SIRET : </b> 75044784900019</li>
 <li><b>TVA : </b> FR40750447849</li>
+
 <li><b>Effectif du siège : </b> 6</li>
 <li><b>Adresse de l'école : </b> Rue du Manoir, 76290, Montivilliers</li>
 <li><b>Créateur de l'école : </b> Jean-Marie LEVRAY</li>
@@ -61,6 +61,7 @@ Son activité est classée dans la catégorie Arts / Spectacles.</p>
 Brevet d'Etat spécifique Kung Fu<br />
 C.N 4ème dan<br />
 Médaille bronze Jeunesse et Sports</li>
+
 <li><b>Instructeurs Kung Fu :</b> </li>
 <ul>
 <li>Jiaoshe Benjamin LEVRAY (C.N 2ème degré - DIF)</li>
@@ -81,12 +82,14 @@ Médaille bronze Jeunesse et Sports</li>
 <li>Benoît LEMARCHAND (C.N. 1er degré)</li>
 <li>Olivier PONS</li>
 </ul>
-<li><b>Instructeurs Taïji Quan :</b> </li>
+
+<li><b>Instructeurs Taïchi Chuan :</b> </li>
 <ul>
 <li>Jean-Marie LEVRAY (C.N. 4ème dan)</li>
 <li>Catherine LEVRAY</li>
 <li>Franck BLASSER</li>
 </ul>
+
 <li><b>Instructeurs Sanda et Shoubo :</b> Jean Hamard</li>
 </ul>
 

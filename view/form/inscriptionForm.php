@@ -80,13 +80,13 @@ include '../../controller/inscription.php';
 
             </fieldset>
 
-          <h5 for="statut" class="card-title font-weight-bolder text-white"><strong>4. Statut</strong><br /><br /></h5>
+          <h5 for="statut" class="card-title font-weight-bolder text-white"><strong>4. Statut * </strong><br /><br /></h5>
 <fieldset>
             <ul>
 
     <div id="rank">
 <li class="font-weight-bolder text-white"> 
-<label for="status">Rang * : </label>
+<label for="status">Rang : </label>
 
   <input type="radio" id="élève" name="rank" value="élève">
   <label for="élève">Élève</label>
@@ -183,29 +183,7 @@ include '../../controller/inscription.php';
           </select></li>
 </div>
 
-<div id="youngBelt">
-          <li class="font-weight-bolder text-white"><label for="youngBelt">Ceinture : </label>
-            <select name="youngBelt">
-            <option value="" selected disabled>Choisissez</option>
 
-            <optgroup label="Blanche - Grue">
-            <option value="Ceinture blanche-Grue">Grue</option>
-                <option value="Ceinture blanche-Grue 1ère barrette">Grue - 1ère barrette</option> 
-                <option value="Ceinture blanche-Grue 2ème barrette">Grue - 2ème barrette</option>
-                <option value="Ceinture blanche-Grue 3ème barrette">Grue - 3ème barrette</option>
-            <optgroup label="Jaune - Dragon">
-            <option value="Ceinture jaune-Dragon">Dragon</option>
-                <option value="Ceinture jaune-Dragon 1ère barrette">Dragon - 1ère barrette</option> 
-                <option value="Ceinture jaune-Dragon 2ème barrette">Dragon - 2ème barrette</option>
-                <option value="Ceinture jaune-Dragon 3ème barrette">Dragon - 3ème barrette</option>
-            <optgroup label="Rouge - Tigre">
-              <option value="Ceinture rouge-Tigre">Tigre</option>
-              <option value="Ceinture rouge-Tigre 1ère barrette">Tigre - 1ère barrette</option> 
-                <option value="Ceinture rouge-Tigre 2ème barrette">Tigre - 2ème barrette</option>
-                <option value="Ceinture rouge-Tigre 3ème barrette">Tigre - 3ème barrette</option>
-
-          </select></li>
-</div>
 
 
 
