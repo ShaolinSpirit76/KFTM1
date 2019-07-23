@@ -99,9 +99,13 @@
   <!-- Et enfin le CDN de Bootstrap.js -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <script src="../../assets/script/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
   <!-- Sweet alert 2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="../../assets/script/sweetalert2@8.js"></script>
+
+  
   <!-- Lien avec la page JS (toujours après les CDN de JQuery) -->
   <script src="../../assets/script/script.js"></script>
   <!-- Script pour l'animation -->

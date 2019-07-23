@@ -4,10 +4,10 @@
 
 
 #------------------------------------------------------------
-# Table: KFTM_USERS
+# Table: User
 #------------------------------------------------------------
 
-CREATE TABLE KFTM_USERS(
+CREATE TABLE User(
         ID            Int  Auto_increment  NOT NULL ,
         lastName      Varchar (50) NOT NULL ,
         firstName     Varchar (50) NOT NULL ,
@@ -25,82 +25,82 @@ CREATE TABLE KFTM_USERS(
         studentBelt   Varchar (50) ,
         teacherCourse Varchar (50) ,
         teacherRank   Varchar (50) ,
-        groupAge      Varchar (50) ,
+        group         Varchar (50) ,
         presentation  Text
-	,CONSTRAINT KFTM_USERS_PK PRIMARY KEY (ID)
+	,CONSTRAINT User_PK PRIMARY KEY (ID)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: KFTM_ROLE
+# Table: Role
 #------------------------------------------------------------
 
-CREATE TABLE KFTM_ROLE(
-        ID            Int  Auto_increment  NOT NULL ,
-        role          Varchar (50) NOT NULL ,
-        ID_KFTM_USERS Int NOT NULL
-	,CONSTRAINT KFTM_ROLE_PK PRIMARY KEY (ID)
+CREATE TABLE Role(
+        ID      Int  Auto_increment  NOT NULL ,
+        role    Varchar (50) NOT NULL ,
+        ID_User Int NOT NULL
+	,CONSTRAINT Role_PK PRIMARY KEY (ID)
 
-	,CONSTRAINT KFTM_ROLE_KFTM_USERS_FK FOREIGN KEY (ID_KFTM_USERS) REFERENCES KFTM_USERS(ID)
+	,CONSTRAINT Role_User_FK FOREIGN KEY (ID_User) REFERENCES User(ID)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: KFTM_EVENTS
+# Table: Events
 #------------------------------------------------------------
 
-CREATE TABLE KFTM_EVENTS(
+CREATE TABLE Events(
         ID               Int  Auto_increment  NOT NULL ,
         eventType        Varchar (50) NOT NULL ,
         eventDate        Datetime NOT NULL ,
         eventMaxUser     Int ,
         eventDescription Varchar (255) NOT NULL ,
         eventPicture     Blob
-	,CONSTRAINT KFTM_EVENTS_PK PRIMARY KEY (ID)
+	,CONSTRAINT Events_PK PRIMARY KEY (ID)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: KFTM_COURSES
+# Table: Courses
 #------------------------------------------------------------
 
-CREATE TABLE KFTM_COURSES(
-        ID             Int  Auto_increment  NOT NULL ,
-        courseType     Varchar (50) NOT NULL ,
-        courseHours    Varchar (50) NOT NULL ,
-        courseDay      Varchar (50) NOT NULL ,
-        ID_KFTM_EVENTS Int NOT NULL
-	,CONSTRAINT KFTM_COURSES_PK PRIMARY KEY (ID)
+CREATE TABLE Courses(
+        ID          Int  Auto_increment  NOT NULL ,
+        courseType  Varchar (50) NOT NULL ,
+        courseHours Varchar (50) NOT NULL ,
+        courseDay   Varchar (50) NOT NULL ,
+        ID_Events   Int NOT NULL
+	,CONSTRAINT Courses_PK PRIMARY KEY (ID)
 
-	,CONSTRAINT KFTM_COURSES_KFTM_EVENTS_FK FOREIGN KEY (ID_KFTM_EVENTS) REFERENCES KFTM_EVENTS(ID)
+	,CONSTRAINT Courses_Events_FK FOREIGN KEY (ID_Events) REFERENCES Events(ID)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: KFTM_ARTICLES
+# Table: Article
 #------------------------------------------------------------
 
-CREATE TABLE KFTM_ARTICLES(
+CREATE TABLE Article(
         id                 Int  Auto_increment  NOT NULL ,
         articleName        Varchar (50) NOT NULL ,
         articlePicture     Blob NOT NULL ,
         articleQuantity    Int NOT NULL ,
         articleDescription Varchar (255) NOT NULL ,
         articlePrice       Int NOT NULL
-	,CONSTRAINT KFTM_ARTICLES_PK PRIMARY KEY (id)
+	,CONSTRAINT Article_PK PRIMARY KEY (id)
 )ENGINE=InnoDB;
 
 
 #------------------------------------------------------------
-# Table: KFTM_SHOPCART
+# Table: ShopCart
 #------------------------------------------------------------
 
-CREATE TABLE KFTM_SHOPCART(
-        ID               Int  Auto_increment  NOT NULL ,
-        id_KFTM_ARTICLES Int NOT NULL
-	,CONSTRAINT KFTM_SHOPCART_PK PRIMARY KEY (ID)
+CREATE TABLE ShopCart(
+        ID         Int  Auto_increment  NOT NULL ,
+        id_Article Int NOT NULL
+	,CONSTRAINT ShopCart_PK PRIMARY KEY (ID)
 
-	,CONSTRAINT KFTM_SHOPCART_KFTM_ARTICLES_FK FOREIGN KEY (id_KFTM_ARTICLES) REFERENCES KFTM_ARTICLES(id)
+	,CONSTRAINT ShopCart_Article_FK FOREIGN KEY (id_Article) REFERENCES Article(id)
 )ENGINE=InnoDB;
 
 
@@ -109,12 +109,12 @@ CREATE TABLE KFTM_SHOPCART(
 #------------------------------------------------------------
 
 CREATE TABLE Participating(
-        ID            Int NOT NULL ,
-        ID_KFTM_USERS Int NOT NULL
-	,CONSTRAINT Participating_PK PRIMARY KEY (ID,ID_KFTM_USERS)
+        ID      Int NOT NULL ,
+        ID_User Int NOT NULL
+	,CONSTRAINT Participating_PK PRIMARY KEY (ID,ID_User)
 
-	,CONSTRAINT Participating_KFTM_EVENTS_FK FOREIGN KEY (ID) REFERENCES KFTM_EVENTS(ID)
-	,CONSTRAINT Participating_KFTM_USERS0_FK FOREIGN KEY (ID_KFTM_USERS) REFERENCES KFTM_USERS(ID)
+	,CONSTRAINT Participating_Events_FK FOREIGN KEY (ID) REFERENCES Events(ID)
+	,CONSTRAINT Participating_User0_FK FOREIGN KEY (ID_User) REFERENCES User(ID)
 )ENGINE=InnoDB;
 
 
@@ -123,12 +123,12 @@ CREATE TABLE Participating(
 #------------------------------------------------------------
 
 CREATE TABLE Checking(
-        ID            Int NOT NULL ,
-        ID_KFTM_USERS Int NOT NULL
-	,CONSTRAINT Checking_PK PRIMARY KEY (ID,ID_KFTM_USERS)
+        ID      Int NOT NULL ,
+        ID_User Int NOT NULL
+	,CONSTRAINT Checking_PK PRIMARY KEY (ID,ID_User)
 
-	,CONSTRAINT Checking_KFTM_COURSES_FK FOREIGN KEY (ID) REFERENCES KFTM_COURSES(ID)
-	,CONSTRAINT Checking_KFTM_USERS0_FK FOREIGN KEY (ID_KFTM_USERS) REFERENCES KFTM_USERS(ID)
+	,CONSTRAINT Checking_Courses_FK FOREIGN KEY (ID) REFERENCES Courses(ID)
+	,CONSTRAINT Checking_User0_FK FOREIGN KEY (ID_User) REFERENCES User(ID)
 )ENGINE=InnoDB;
 
 
@@ -137,11 +137,11 @@ CREATE TABLE Checking(
 #------------------------------------------------------------
 
 CREATE TABLE Booking(
-        ID            Int NOT NULL ,
-        ID_KFTM_USERS Int NOT NULL
-	,CONSTRAINT Booking_PK PRIMARY KEY (ID,ID_KFTM_USERS)
+        ID      Int NOT NULL ,
+        ID_User Int NOT NULL
+	,CONSTRAINT Booking_PK PRIMARY KEY (ID,ID_User)
 
-	,CONSTRAINT Booking_KFTM_SHOPCART_FK FOREIGN KEY (ID) REFERENCES KFTM_SHOPCART(ID)
-	,CONSTRAINT Booking_KFTM_USERS0_FK FOREIGN KEY (ID_KFTM_USERS) REFERENCES KFTM_USERS(ID)
+	,CONSTRAINT Booking_ShopCart_FK FOREIGN KEY (ID) REFERENCES ShopCart(ID)
+	,CONSTRAINT Booking_User0_FK FOREIGN KEY (ID_User) REFERENCES User(ID)
 )ENGINE=InnoDB;
 

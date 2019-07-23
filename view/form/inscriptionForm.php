@@ -2,6 +2,7 @@
  include '../templates/head.php';
  include '../../controller/regex.php';
  include '../../controller/login.php';
+ include_once '../../view/templates/successJs.php';
 
  // Variables dynamiques pour la navbar à partir de form
 $home = '../../index.php';
@@ -21,10 +22,10 @@ $connexion = 'connexion.php';
 $myAccount = 'myAccount.php';
 $checkCalendar = 'checkCalendar.php';
 
- include '../templates/navbar.php';
+include '../templates/navbar.php';
 
-include '../../controller/regex.php';
-include '../../controller/inscription.php';
+require_once '../../controller/regex.php';
+require_once '../../controller/inscription.php';
 ?>
 
 <!-- Début formulaire d'inscription -->
@@ -45,8 +46,8 @@ include '../../controller/inscription.php';
 
                  <li class="font-weight-bolder text-white"><label for="firstName">Prénom * : </label> <input class="<?php echo (isset($_POST['firstName']) && !preg_match($regexName, $_POST['firstName']))? 'red':'';  ?>" value="<?= $_POST['firstName']?>" id="firstName" type="text" name="firstName" placeholder="Prénom" required /><p class="errorMessage"><?= (isset($error['errorFirstName'])) ? $error['errorFirstName'] : ''; ?></p></li>
 
-                 <li class="font-weight-bolder text-white"><label for="birthDate">Date de naissance : </label> <input class="<?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, $_POST['birthDate']))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="tel" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
-
+                 <li class="font-weight-bolder text-white"><label for="birthDate">Date de naissance : </label> <input class="<?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
+                 
                  <li class="font-weight-bolder text-white"><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" placeholder="Moi.jpg" />
                  <small class="text-white"><br /><i>De préférence un .jpg</i></small></li>
 </ul>
@@ -80,21 +81,21 @@ include '../../controller/inscription.php';
 
             </fieldset>
 
-          <h5 for="statut" class="card-title font-weight-bolder text-white"><strong>4. Statut * </strong><br /><br /></h5>
+          <h5 for="statut" class="card-title font-weight-bolder text-white"><strong>4. Statut  </strong><br /><br /></h5>
 <fieldset>
             <ul>
 
-    <div id="rank">
+    <div id="status">
 <li class="font-weight-bolder text-white"> 
 <label for="status">Rang : </label>
 
-  <input type="radio" id="élève" name="rank" value="élève">
+  <input type="radio" id="élève" name="status" value="élève">
   <label for="élève">Élève</label>
 
-  <input type="radio" id="maître" name="rank" value="maître">
+  <input type="radio" id="maître" name="status" value="maître">
   <label for="maître">Maître</label>
 
-  <input type="radio" id="maître_et_élève" name="rank" value="maître_et_élève">
+  <input type="radio" id="maître_et_élève" name="status" value="maître_et_élève">
   <label for="maître_et_élève">Maître et élève</label>
  
 </li>
@@ -122,17 +123,17 @@ include '../../controller/inscription.php';
 </select></li>
 </div>
 
-<div id="group">
+<div id="groupAge">
 <li class="font-weight-bolder text-white"> 
-<label for="group">Groupe : </label>
+<label for="groupAge">Groupe : </label>
 
-  <input type="radio" id="Enfants" name="group" value="Enfants">
+  <input type="radio" id="Enfants" name="groupAge" value="Enfants">
   <label for="Enfants">Enfants</label>
 
-  <input type="radio" id="Ados" name="group" value="Ados">
+  <input type="radio" id="Ados" name="groupAge" value="Ados">
   <label for="Ados">Ados</label>
 
-  <input type="radio" id="Adultes" name="group" value="Adultes">
+  <input type="radio" id="Adultes" name="groupAge" value="Adultes">
   <label for="Adultes">Adultes</label>
     
             
@@ -233,6 +234,14 @@ include '../../controller/inscription.php';
 </li>
 </div>
 
+<div>
+<p class="font-weight-bolder text-white text-justify"><label for="presentation"><br /><br />Un slogan, une citation préférée, ou tout simplement votre parcours dans les arts martiaux ? Dites-nous en plus !</label></p> <!--Pour le maxlenght du textarea, il ne commence qu'à 18 caractères. Il faut donc mettre le nombre souhaité +18-->
+                <textarea id="presentation" name="presentation" rows="5" cols="33" maxlength="518">
+
+                </textarea>
+                <p class="card-text"><small class="text-white"><i>Max. 500 caractères</i></small></p>
+</div>
+
 </ul>
 
 
@@ -247,6 +256,9 @@ include '../../controller/inscription.php';
 </div>
 
 </form>
+
+
+
 
 
 <div id="accordion" style="width: 30rem;" class="mx-auto">

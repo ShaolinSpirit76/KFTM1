@@ -17,4 +17,3 @@ $numberDayInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
 // On initialise la variable ci-dessous avec la fonction date et le paramètre N qui permet de retourner le 1er jour du mois 
 $firstDayOfTheMonth = date('N', mktime(0, 0, 0, $month, 1, $year));
 $actualMonth = date('N');
-?>

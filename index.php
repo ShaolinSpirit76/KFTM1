@@ -11,6 +11,6 @@ $CGU = 'view/mentions/CGU.php';
 $RGPD = 'view/mentions/RGPD.php';
 
 include 'view/templates/footer.php';
-?>
+
 
 

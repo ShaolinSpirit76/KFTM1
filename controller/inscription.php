@@ -2,21 +2,25 @@
 
 // On crée un tableau error qui s'auto-incrémentera avec la valeur de l'erreur que nous lui assignerons au cas par cas, si la regex n'est pas franchie. Chaque cellule remplie comptera pour 1.
 $error = [];
-
+$users = new User();
 // On teste les regex si le formulaire est rempli
 if (count($_POST) > 0)
  {
     
     $_POST= array_map('strip_tags', $_POST); // Ligne à mettre absolument pour la sécurité : interdit l'injection de script (balises non autorisées)
 
-    if ( !preg_match ($regexName, $_POST['lastName'] ) )
-    {
+    if ( !preg_match ($regexName, $_POST['lastName'] ) ):
         $error['errorLastName'] = 'Votre nom de famille est incorrect.';
-    } 
-     if ( !preg_match ($regexName, $_POST['firstName'] ) )
-    {
+        elseif (preg_match ($regexName, $_POST['lastName'] )):
+            $users->lastName = $lastName;
+    endif;
+
+     if ( !preg_match ($regexName, $_POST['firstName'] ) ):
         $error['errorFirstName'] = 'Votre prénom est incorrect.';
-    } 
+        elseif (preg_match ($regexName, $_POST['firstName'] )):
+            $users->firstName = $firstName;
+     endif;
+
     if ( !preg_match ($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) ) ))
     {
         $error['errorBirthDate'] = 'Votre date de naissance est incorrecte.';
@@ -41,6 +45,94 @@ if (count($_POST) > 0)
     {
         $error['errorConfirmPassword'] = 'La confirmation de votre mot de passe est incorrecte.';
     }
+
+
+    // modal error s'il y a une erreur
+    if(!empty($error)):
+        ?>
+<script>
+  Swal.fire({
+  title: 'Oups !',
+  text: 'Il doit y avoir une erreur dans ton formulaire... :(',
+  type: 'error',
+  confirmButtonText: 'Ok'
+});
+setTimeout(function(){
+      
+    }, 2000);
+</script>
+<?php endif; 
+
+
+// modal success s'il n'y a pas d'erreur
+
+if(empty($error)):
+    ?>
+<script>
+Swal.fire(
+  'Bien joué !',
+  'Ton inscription a bien été enregistrée !',
+  'success'
+);
+setTimeout(function(){
+   document.location.href = "../../index.php"; 
+}, 2000);
+</script>
+<?php endif; 
+
+
 }
 
-?>
+
+
+
+//il faut tjrs appeler la base de donnée dans le controller
+require '../../model/DataBase.php'; 
+require '../../model/User.php';
+    
+if(count($_POST) > 0){
+    $lastName = $_POST['lastName'];
+    $firstName = $_POST['firstName'];
+    $birthDate = $_POST['birthDate'];
+    $picture = $_POST['picture'];
+    $mail = $_POST['mail'];
+    $phoneNumber = $_POST['phoneNumber'];
+    $login = $_POST['login'];
+    $password = $_POST['password'];
+    $status = $_POST['status'];
+    $studentCourse = $_POST['studentCourse'];
+    $teacherCourse = $_POST['teacherCourse'];
+    $groupAge = $_POST['groupAge'];
+    $studentYear = $_POST['studentYear'];
+    $childBelt = $_POST['childBelt'];
+    $studentBelt = $_POST['studentBelt'];
+    $teacherRank = $_POST['teacherRank'];
+    $presentation = $_POST['presentation'];
+    // $verification = $_POST['verification'];
+        
+    //objet qui contient les attributs et les méthodes de la class User
+    
+    
+   
+    $users->birthDate = $birthDate;
+    $users->picture = $picture;
+    $users->mail = $mail;
+    $users->phoneNumber = $phoneNumber;
+    $users->login = $login;
+    $users->password = $password;
+    $users->status = $status;
+    $users->studentCourse = $studentCourse;
+    $users->teacherCourse = $teacherCourse;
+    $users->groupAge = $groupAge;
+    $users->studentYear = $studentYear;
+    $users->childBelt = $childBelt;
+    $users->studentBelt = $studentBelt;
+    $users->teacherRank = $teacherRank;
+    $users->presentation = $presentation;
+    // $users->verification = $verification;
+
+    if($users->addUser()){
+       
+
+    }
+}

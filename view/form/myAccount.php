@@ -25,7 +25,20 @@ $checkCalendar = 'checkCalendar.php';
 include '../templates/navbar.php';
 ?>
 
-<p> Formulaire "Mon compte" en cours de construction </p>
+<!-- Bouton switch on/off -->
+<div class="text-center">
+<label>Afficher mon profil dans la page "Notre cercle"</label>
+<div class="onoffswitch">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+        <label class="onoffswitch-label" for="myonoffswitch">
+            <span class="onoffswitch-inner"></span>
+            <span class="onoffswitch-switch"></span>
+        </label>
+    </div>
+</div>
+
+
+
 
 <?php
 // Variables dynamiques pour la navbar à partir à partir de form

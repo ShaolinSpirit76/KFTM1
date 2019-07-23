@@ -1,0 +1,76 @@
+<?php
+//class User qui hérite de DataBase.php (DB)
+class User extends DB{
+
+    public $id;
+    public $firstName;
+    public $lastName;
+    public $birthDate;
+    public $picture;
+    public $mail;
+    public $phoneNumber;
+    public $login;
+    public $password;
+    public $status;
+    public $studentCourse;
+    public $teacherCourse;
+    public $groupAge;
+    public $studentYear;
+    public $childBelt;
+    public $studentBelt;
+    public $teacherRank;
+    public $presentation;
+    public $verification;
+
+    public function __construct(){
+        //On récupere le constructeur de la page DataBase.php qui est le parent de la class User
+        parent::__construct();
+ }
+    public function addUser(){
+        $query = 'INSERT INTO `KFTM_USERS`(`firstName`, `lastName`, `birthDate`, `picture`, `mail`, `phoneNumber`, `login`, `password`, `status`, 
+        `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :login, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation)';
+        // création de la variable $addUser qui nous a permis de préparer la requête
+        $addUser = $this->db->prepare($query);
+        $addUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
+        $addUser->bindValue(':firstName', $this->firstName, PDO::PARAM_STR);
+        $addUser->bindValue(':birthDate', $this->birthDate, PDO::PARAM_STR); 
+        $addUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
+        $addUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
+        $addUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
+        $addUser->bindValue(':login', $this->login, PDO::PARAM_STR);
+        $addUser->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $addUser->bindValue(':status', $this->status, PDO::PARAM_STR);
+        $addUser->bindValue(':studentCourse', $this->studentCourse, PDO::PARAM_STR);
+        $addUser->bindValue(':teacherCourse', $this->teacherCourse, PDO::PARAM_STR);
+        $addUser->bindValue(':groupAge', $this->groupAge, PDO::PARAM_STR);
+        $addUser->bindValue(':studentYear', $this->studentYear, PDO::PARAM_STR);
+        $addUser->bindValue(':childBelt', $this->childBelt, PDO::PARAM_STR);
+        $addUser->bindValue(':studentBelt', $this->studentBelt, PDO::PARAM_STR);
+        $addUser->bindValue(':teacherRank', $this->teacherRank, PDO::PARAM_STR);
+        $addUser->bindValue(':presentation', $this->login, PDO::PARAM_STR);
+        // $addUser->bindValue(':verification', $this->verification, PDO::PARAM_INT);            
+        if($addUser->execute()){
+            return true;
+        }
+    }
+    
+     public function displayUser(){
+        $query = 'SELECT * FROM `KFTM_USERS`';
+        $selectUser = $this->db->prepare($query);
+        $selectUser->execute();
+        $displayUsers=$selectUser->fetchAll(PDO::FETCH_ASSOC);
+        return $displayUsers;
+     }
+     
+
+     
+     public function deleteUser(){
+        $query = 'DELETE FROM `KFTM_USERS` WHERE id=:id';
+        $deleteUser=$this->db->prepare($query);
+        $deleteUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+        if($deleteUser->execute()){
+           return true;
+        }
+
+     }
+}
