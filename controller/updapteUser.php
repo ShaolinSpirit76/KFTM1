@@ -1,12 +1,12 @@
 <?php
 
 //il faut tjrs appeler la base de donnée dans le controller
-require '../../model/DataBase.php'; 
-require '../../model/User.php';
+require '../model/DataBase.php'; 
+require '../model/User.php';
 
 // On crée un tableau error qui s'auto-incrémentera avec la valeur de l'erreur que nous lui assignerons au cas par cas, si la regex n'est pas franchie. Chaque cellule remplie comptera pour 1.
 $error = [];
-$users = new User();
+
 
 // On teste les regex si le formulaire est rempli
 if (count($_POST) > 0):
@@ -34,6 +34,7 @@ if (count($_POST) > 0):
     $studentBelt = $_POST['studentBelt'];
     $teacherRank = $_POST['teacherRank'];
     $presentation = $_POST['presentation'];
+    
     // $verification = $_POST['verification'];
 
     
@@ -110,12 +111,12 @@ if(empty($error)):
 <script>
 Swal.fire(
   'Bien joué !',
-  'Ton inscription a bien été enregistrée !',
+  'Ta modification a bien été enregistrée !',
   'success'
 );
 setTimeout(function(){
    document.location.href = "../../index.php"; 
-}, 2000);
+}, 4000);
 </script>
 <?php endif; 
 
@@ -134,7 +135,7 @@ setTimeout(function(){
     $users->teacherRank = $teacherRank;
     $users->presentation = $presentation;
     // $users->verification = $verification;
-    $users->addUser();
+    $users->updateUser();
 
 
 

@@ -93,6 +93,22 @@ a:hover {
 
 /* CSS formulaire d'inscription */
 
+/* {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #9ee0c4;
+  background-color: transparent;
+} */
+
+.inputInscription{
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #9ee0c4;
+    background-color: transparent;
+    width: 18rem;
+    color: white;
+}
+
 #legend1 {
   margin-top: -12rem;
   font-family: 'Permanent Marker', cursive;

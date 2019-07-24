@@ -24,9 +24,11 @@ $checkCalendar = '../form/checkCalendar.php';
 include '../templates/navbar.php';
 ?>
 
-<h1>Informations légales de l'association</h1>
+<h1 class="text-center">Informations légales de l'association</h1>
 
-
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6 mx-auto">
 <ul>
 <li><b>Raison sociale : </b> KUNG FU THIEU-LAM</li>
 <li><b>Siège social : </b> Montivilliers (76290)</li>
@@ -43,7 +45,8 @@ include '../templates/navbar.php';
 
 <li><b>Effectif du siège : </b> 6</li>
 <li><b>Adresse de l'école : </b> Rue du Manoir, 76290, Montivilliers</li>
-<li><b>Créateur de l'école : </b> Jean-Marie LEVRAY</li>
+<li><b>Fondateur de l'école : </b> Jean-Marie LEVRAY</li>
+<img src="../../assets/images/19064836233e6cb0ae63f15.png" height="40%" width="40%" alt="Jean-Marie Levray" title="Jean-Marie Levray" class="img-fluid" />
 </ul>
 
 
@@ -51,6 +54,7 @@ include '../templates/navbar.php';
 <li><b>Membres du siège : </b> </li>
 <ul class="pr-5">
 <li><b>Présidente :</b> Catherine LEVRAY</li>
+<img src="../../assets/images/1964858829405710038dfe5.png" height="40%" width="40%" alt="Catherine Levray" title="Catherine Levray" class="img-fluid" />
 <li><b>Secrétaire :</b> Olivier GAUTTIER</li>
 <li><b>Trésorier :</b> Julien LEVRAY</li>
 <li><b>Membre :</b> Davy DERENEMESNIL</li>
@@ -91,7 +95,12 @@ Médaille bronze Jeunesse et Sports</li>
 </ul>
 
 <li><b>Instructeurs Sanda et Shoubo :</b> Jean Hamard</li>
+<img src="../../assets/images/10014403.jpg" height="50%" width="50%" alt="Jean Hamard" title="Jean Hamard" class="img-fluid" />
 </ul>
+
+</div>
+</div>
+</div>
 
 <?php
 // Variables dynamiques pour la navbar à partir à partir de mentions

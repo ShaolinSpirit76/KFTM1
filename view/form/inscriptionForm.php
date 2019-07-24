@@ -42,13 +42,13 @@ require_once '../../controller/inscription.php';
     
               <ul>
               
-              <li class="font-weight-bolder text-white"><label for="lastName">Nom * : </label> <input class="<?php echo (isset($_POST['lastName']) && !preg_match($regexName, $_POST['lastName']))? 'red':'';  ?>" value="<?= $_POST['lastName']?>" id="lastName" type="text" name="lastName" placeholder="Nom" required /><p class="errorMessage"><?= (isset($error['errorLastName'])) ? $error['errorLastName'] : ''; ?></p></li>
+              <li class="font-weight-bolder text-white"><label for="lastName">Nom * : </label> <input class="inputInscription <?php echo (isset($_POST['lastName']) && !preg_match($regexName, $_POST['lastName']))? 'red':'';  ?>" value="<?= $_POST['lastName']?>" id="lastName" type="text" name="lastName" placeholder="Nom" required /><p class="errorMessage"><?= (isset($error['errorLastName'])) ? $error['errorLastName'] : ''; ?></p></li>
 
-                 <li class="font-weight-bolder text-white"><label for="firstName">Prénom * : </label> <input class="<?php echo (isset($_POST['firstName']) && !preg_match($regexName, $_POST['firstName']))? 'red':'';  ?>" value="<?= $_POST['firstName']?>" id="firstName" type="text" name="firstName" placeholder="Prénom" required /><p class="errorMessage"><?= (isset($error['errorFirstName'])) ? $error['errorFirstName'] : ''; ?></p></li>
+                 <li class="font-weight-bolder text-white"><label for="firstName">Prénom * : </label> <input class="inputInscription <?php echo (isset($_POST['firstName']) && !preg_match($regexName, $_POST['firstName']))? 'red':'';  ?>" value="<?= $_POST['firstName']?>" id="firstName" type="text" name="firstName" placeholder="Prénom" required /><p class="errorMessage"><?= (isset($error['errorFirstName'])) ? $error['errorFirstName'] : ''; ?></p></li>
 
-                 <li class="font-weight-bolder text-white"><label for="birthDate">Date de naissance : </label> <input class="<?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
+                 <li class="font-weight-bolder text-white"><label for="birthDate">Date de naissance : </label> <input class="inputInscription <?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
                  
-                 <li class="font-weight-bolder text-white"><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" placeholder="Moi.jpg" />
+                 <li class="font-weight-bolder text-white"><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" accept="image/*" />
                  <small class="text-white"><br /><i>De préférence un .jpg</i></small></li>
 </ul>
 </fieldset>
@@ -58,9 +58,9 @@ require_once '../../controller/inscription.php';
                  <fieldset>
                  <ul>
 
-                 <li class="font-weight-bolder text-white"><label for="mail">Adresse mail * : </label> <input class="<?php echo (isset($_POST['mail']) && !preg_match($regexMail, $_POST['mail']))? 'red':'';  ?>" type="text" id="mail" name="mail" placeholder="juliedupont@exemple.com" value="<?= $_POST['mail']?>" required /><p class="errorMessage"><?= (isset($error['errorMail'])) ? $error['errorMail'] : ''; ?></p></li>
+                 <li class="font-weight-bolder text-white"><label for="mail">Adresse mail * : </label> <input class="inputInscription <?php echo (isset($_POST['mail']) && !preg_match($regexMail, $_POST['mail']))? 'red':'';  ?>" type="text" id="mail" name="mail" placeholder="juliedupont@exemple.com" value="<?= $_POST['mail']?>" required /><p class="errorMessage"><?= (isset($error['errorMail'])) ? $error['errorMail'] : ''; ?></p></li>
 
-            <li class="font-weight-bolder text-white"><label for="phoneNumber">Numéro de téléphone : </label> <input class="<?php echo (isset($_POST['phoneNumber']) && !preg_match($regexPhone, $_POST['phoneNumber']))? 'red':'';  ?>" value="<?= $_POST['phoneNumber']?>" type="tel" id="phoneNumber" name="phoneNumber" placeholder=" 06xxxxxxxx " /><p class="errorMessage"><?= (isset($error['errorPhone'])) ? $error['errorPhone'] : ''; ?></p></li>
+            <li class="font-weight-bolder text-white"><label for="phoneNumber">Numéro de téléphone : </label> <input class="inputInscription <?php echo (isset($_POST['phoneNumber']) && !preg_match($regexPhone, $_POST['phoneNumber']))? 'red':'';  ?>" value="<?= $_POST['phoneNumber']?>" type="tel" id="phoneNumber" name="phoneNumber" placeholder=" 06xxxxxxxx " /><p class="errorMessage"><?= (isset($error['errorPhone'])) ? $error['errorPhone'] : ''; ?></p></li>
 
 </ul>
 </fieldset>
@@ -69,12 +69,12 @@ require_once '../../controller/inscription.php';
 <fieldset>
             <ul>
 
-            <li class="font-weight-bolder text-white"><label for="login"><I>Identifiant * : </I></label> <input class="<?php echo (isset($_POST['login']) && !preg_match($regexLogin, $_POST['login']))? 'red':'';  ?>" value="<?= $_POST['login']?>" type="text" name="login" id="login" placeholder="Pseudo" required /><small class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
+            <li class="font-weight-bolder text-white"><label for="login"><I>Identifiant * : </I></label> <input class="inputInscription <?php echo (isset($_POST['login']) && !preg_match($regexLogin, $_POST['login']))? 'red':'';  ?>" value="<?= $_POST['login']?>" type="text" name="login" id="login" placeholder="Pseudo" required /><small class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
             <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></li>
 
-<li class="font-weight-bolder text-white"><label for="password"><I>Mot de passe * : </I></label> <input class="<?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></li>
+<li class="font-weight-bolder text-white"><label for="password"><I>Mot de passe * : </I></label> <input class="inputInscription <?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></li>
 
-<li class="font-weight-bolder text-white"><label for="confirmPassword"><I>Confirmation * : </I></label> <input class="<?php echo (isset($_POST['confirmPassword']) && !preg_match($regexPassword, $_POST['confirmPassword']))? 'red':'';  ?>" value="<?= $_POST['confirmPassword']?>" type="password" name="confirmPassword" id="confirmPassword" required/>
+<li class="font-weight-bolder text-white"><label for="confirmPassword"><I>Confirmation * : </I></label> <input class="inputInscription <?php echo (isset($_POST['confirmPassword']) && !preg_match($regexPassword, $_POST['confirmPassword']))? 'red':'';  ?>" value="<?= $_POST['confirmPassword']?>" type="password" name="confirmPassword" id="confirmPassword" required/>
     <p class="card-text"><small class="text-white"><i>Entre 8 et 15 caractères, contenant au moins une minuscule et une majuscule, un chiffre et un caractère spécial.</i></small></p><p class="errorMessage"><?= (isset($error['errorConfirmPassword'])) ? $error['errorConfirmPassword'] : ''; ?></p></li>
 
                 </ul>
@@ -95,8 +95,8 @@ require_once '../../controller/inscription.php';
   <input type="radio" id="maître" name="status" value="maître">
   <label for="maître">Maître</label>
 
-  <input type="radio" id="maître_et_élève" name="status" value="maître_et_élève">
-  <label for="maître_et_élève">Maître et élève</label>
+  <input type="radio" id="maître_et_élève" name="status" value="maître et élève">
+  <label for="maître et élève">Maître et élève</label>
  
 </li>
 </div>
@@ -105,7 +105,7 @@ require_once '../../controller/inscription.php';
 
 <div id="studentCourse">
             <li class="font-weight-bolder text-white"><label for="studentCourse">Discipline (élève) : </label>
-            <select name="studentCourse">
+            <select name="studentCourse" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
                 <option value="Kung-Fu">Kung-Fu</option> 
                 <option value="Taïchi Chuan & Qi Gong">Taïchi Chuan & Qi Gong</option>
@@ -115,7 +115,7 @@ require_once '../../controller/inscription.php';
 
 <div id="teacherCourse">
             <li class="font-weight-bolder text-white"><label for="teacherCourse">Cours (maître) : </label>
-            <select name="teacherCourse">
+            <select name="teacherCourse" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
                 <option value="Kung-Fu">Kung-Fu</option> 
                 <option value="Taïchi Chuan & Qi Gong">Taïchi Chuan & Qi Gong</option>
@@ -143,7 +143,7 @@ require_once '../../controller/inscription.php';
 
 <div id="studentYear">
 <li class="font-weight-bolder text-white"><label for="studentYear">Année : </label>
-            <select name="studentYear" id="studentYear">
+            <select name="studentYear" id="studentYear" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
                 <option value="1ère année">1ère</option> 
                 <option value="2ème année">2ème</option>
@@ -162,7 +162,7 @@ require_once '../../controller/inscription.php';
 
 <div id="childBelt">
           <li class="font-weight-bolder text-white"><label for="childBelt">Ceinture : </label>
-            <select name="childBelt">
+            <select name="childBelt" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
 
             <optgroup label="Blanche - Grue">
@@ -190,7 +190,7 @@ require_once '../../controller/inscription.php';
 
 <div id="studentBelt">
           <li class="font-weight-bolder text-white"><label for="studentBelt">Ceinture : </label>
-            <select name="studentBelt">
+            <select name="studentBelt" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
             <optgroup label="Blanche">
             <option value="Ceinture blanche">Blanche</option>
@@ -219,7 +219,7 @@ require_once '../../controller/inscription.php';
 
 <div id="teacherRank">
           <li class="font-weight-bolder text-white"><label for="teacherRank">Grade : </label>
-            <select name="teacherRank">
+            <select name="teacherRank" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
                 <option value="Sibak">Sibak</option>
                 <option value="Jiaoshe">Jiaoshe</option> 
