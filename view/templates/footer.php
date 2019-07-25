@@ -83,9 +83,9 @@
       <!-- Copyright -->
 
     </footer>
-    <!-- Fin du footer-->
+   
   </div>
-
+ <!-- Fin du footer-->
 
 
 

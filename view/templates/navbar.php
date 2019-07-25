@@ -196,17 +196,17 @@
         </button>
       </div>
       <div class="modal-body">
-<form name="loginForm" method="POST" action="../../view/form/connexion.php">
+<form name="loginForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
   <ul class="text-center">
 
-  <span><label for="login">Identifiant (ou adresse mail)  </label><br /> <input class="<?php echo (isset($_POST['login']) && !preg_match($regexLogin, $_POST['login']))? 'red':'';  ?>" value="<?= $_POST['login']?>" type="text" name="login" id="login" placeholder="Pseudo" required /><p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></span>
+  <span><label for="mailConnect">Identifiant (ou adresse mail)  </label><br /> <input class="<?php echo (isset($_POST['mailConnect']) && !preg_match($regexLogin, $_POST['mailConnect']))? 'red':'';  ?>" value="<?= $_POST['mailConnect']?>" type="text" name="mailConnect" id="mailConnect" placeholder="Pseudo" required /><p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></span>
   
-  <span><label for="password">Mot de passe  </label><br /> <input class="<?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><small class="text-muted"><br />Renseignés lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
+  <span><label for="passwordConnect">Mot de passe  </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect" required/><small class="text-muted"><br />Renseignés lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
 
 </ul>
 
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-  <button id="loginButton" type="submit" href="../../view/form/connexion.php" onclick="checkPasswordLogin();" class="yellow-hover btn btn-primary text-white">C'est parti !</button>
+  <button id="loginButton" name="loginButton" type="submit" onclick="checkPasswordLogin();" class="yellow-hover btn btn-primary text-white">C'est parti !</button>
 </form>
 </div>
 <div class="modal-footer" style="background-color:#282828;">

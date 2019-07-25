@@ -53,6 +53,18 @@ class User extends DB{
             return true;
         }
     }
+
+
+    public function connectionUser() {
+        $query = 'SELECT * FROM `KFTM_USERS` WHERE mail = :mail';
+        $connectUser = $this->db->prepare($query);
+        $connectUser->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        if($connectUser->execute()):
+            $connectUserResult = $connectUser->fetch(PDO::FETCH_OBJ);
+            return $connectUserResult;
+        endif;
+    }
+
     
      public function displayUser(){
         $query = 'SELECT * FROM `KFTM_USERS`';
