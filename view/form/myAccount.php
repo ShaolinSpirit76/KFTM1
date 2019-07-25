@@ -1,32 +1,10 @@
 <?php
 
 include '../templates/head.php';
- include '../../controller/regex.php';
- include '../../controller/login.php';
- include_once '../../view/templates/successJs.php';
-
-// Variables dynamiques pour la navbar à partir de form
-$home = '../../index.php';
-$schoolDoors = '../pages/schoolDoors.php';
-$news = '../pages/news.php';
-$kungfu = '../pages/kungfu.php';
-$taichi = '../pages/taichi.php';
-$sanda = '../pages/sanda.php';
-$ourCircle = '../pages/ourCircle.php';
-$pictures = '../pages/pictures.php';
-$video = '../pages/video.php';
-$techniques = '../pages/techniques.php';
-$otherSchools = '../pages/otherSchools.php';
-$contact = 'contact.php';
-$shop = '../pages/shop.php';
-$connexion = 'connexion.php';
-$myAccount = 'myAccount.php';
-$checkCalendar = 'checkCalendar.php';
-
-include '../templates/navbar.php';
-
-require_once '../../controller/regex.php';
-require_once '../../controller/updateUser.php';
+require '../../controller/regex.php';
+include '../../controller/login.php';
+include_once '../../view/templates/successJs.php';
+require_once '../../controller/myAccountController.php';
 ?>
 
 <!-- Bouton switch on/off -->
@@ -274,11 +252,5 @@ require_once '../../controller/updateUser.php';
 
 
 <?php
-// Variables dynamiques pour la navbar à partir à partir de form
-$AssoInfos = '../mentions/AssoInfos.php';
-$legalInfos = '../mentions/legalInfos.php';
-$CGU = '../mentions/CGU.php';
-$RGPD = '../mentions/RGPD.php';
-
-  include '../templates/footer.php';
+include '../templates/footer.php';
 ?>

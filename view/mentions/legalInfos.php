@@ -2,26 +2,7 @@
 include '../templates/head.php';
 include '../../controller/regex.php';
 include '../../controller/login.php';
-
-// Variables dynamiques pour la navbar à partir de mentions
-$home = '../../index.php';
-$schoolDoors = '../pages/schoolDoors.php';
-$news = '../pages/news.php';
-$kungfu = '../pages/kungfu.php';
-$taichi = '../pages/taichi.php';
-$sanda = '../pages/sanda.php';
-$ourCircle = '../pages/ourCircle.php';
-$pictures = '../pages/pictures.php';
-$video = '../pages/video.php';
-$techniques = '../pages/techniques.php';
-$otherSchools = '../pages/otherSchools.php';
-$contact = '../form/contact.php';
-$shop = '../pages/shop.php';
-$connexion = '../form/connexion.php';
-$myAccount = '../form/myAccount.php';
-$checkCalendar = '../form/checkCalendar.php';
-
-include '../templates/navbar.php';
+require_once '../../controller/legalInfosController.php';
 ?>
 
 <p style="text-align:center">MENTIONS LEGALES :</p>
@@ -87,11 +68,5 @@ Le site http://KungFu.ThieuLam.Montivilliers.fr est en conformité avec le RGPD 
 <p style="text-align:justify">Les bases de données sont protégées par les dispositions de la loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique des bases de données.</p>
 
 <?php
-// Variables dynamiques pour la navbar à partir à partir de mentions
-$AssoInfos = 'AssoInfos.php';
-$legalInfos = 'legalInfos.php';
-$CGU = 'CGU.php';
-$RGPD = 'RGPD.php';
-
-  include '../templates/footer.php';
+include '../templates/footer.php';
 ?>

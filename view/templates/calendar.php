@@ -1,7 +1,7 @@
 <?php
 //    Condition qui permet de vérifier si les valeurs month et year ont été renseignées
 //        Fonction qui permet d'affilier les données d'une page php externe à l'index
-require '../../controller/file.php';
+require '../../controller/calendarController.php';
 
 ?>
         <form method="post" action="index.php">
