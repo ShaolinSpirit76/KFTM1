@@ -1,4 +1,4 @@
-/* CSS de la page d'accueil */
+/* CSS général */
 body {
   /* Code pour que l'image reste fixe et responsive */
   margin-top: 0;
@@ -11,28 +11,29 @@ body {
   background-color: #f1f0ee;
 }
 
+/* Pour avoir des marges */
 #contents {
   padding-left: 2rem;
   padding-right: 2rem;
-  
 }
 
+/* Class pour la police */
 .permanent-marker {
   font-family: 'Permanent Marker', cursive;
 }
 
-
-
+/* Distance entre le contenu des pages et la navbar min */
 #home, #body {
-margin-top: 10rem;
-}
+  margin-top: 10rem;
+  }
 
+/* A utiliser avec class="img-fluid" à appliquer à chaque image déclarée dans le html, pour que toutes les images soient responsives */
 .img-fluid {
-  /* A utiliser avec class="img-fluid" à appliquer à chaque image déclarée dans le html, pour que toutes les images soient responsives */
-  max-width: 100%;
+    max-width: 100%;
   height: auto;
 }
 
+/* Couleur de hover des liens */
 a:hover {
   color: #fcd600;
 }
@@ -44,6 +45,8 @@ a:hover {
 #textNavButton {
   color: white;
 }
+
+
 
 /* CSS du scroll to top */
 #buttonScroll {
@@ -87,130 +90,114 @@ a:hover {
   opacity: 1;
   visibility: visible;
 }
+/* Fin CSS scroll to top */
 
 
 
 
-/* CSS formulaire d'inscription */
 
-/* {
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #9ee0c4;
-  background-color: transparent;
-} */
+/* Styles for the content section */
 
-.inputInscription{
-    outline: none;
-    border: none;
-    border-bottom: 1px solid #9ee0c4;
-    background-color: transparent;
-    width: 18rem;
-    color: white;
+.content {
+  width: 77%;
+  margin: 50px auto;
+  font-family: 'Merriweather', serif;
+  font-size: 17px;
+  color: #6c767a;
+  line-height: 1.9;
+}
+@media (min-width: 500px) {
+  .content {
+    width: 43%;
+  }
+  #button {
+    margin: 30px;
+  }
+}
+.content h1 {
+  margin-bottom: -10px;
+  color: #03a9f4;
+  line-height: 1.5;
+}
+.content h3 {
+  font-style: italic;
+  color: #96a2a7;
 }
 
-#legend1 {
-  margin-top: -12rem;
+
+
+
+
+
+
+
+
+
+/* Navbar principale */
+#menu {
+  line-height: 100%;
+  background-color: rgba(0, 0, 0, 1);
+  height: auto !important;
+  width: 100% !important;
   font-family: 'Permanent Marker', cursive;
-  letter-spacing: 0.5rem;
+  z-index:2;
 }
 
-#submitInscriptionForm {
-background-color: #336699;
-color: white;
+/* CSS navbarMin */
+
+#navbarMin {
+  margin-top: -5rem;
+  background-color: rgba(0, 0, 0, 0.85);
+  font-family: 'Permanent Marker', cursive;
+  z-index:1;
 }
 
-#submitInscriptionForm:hover {
-background-color: #fcd600;
-color: #0a0901;
-} 
-
-#headingOne {
-background-color: #7f6e7f;
+.yellow-hover:hover {
+  color: #fcd600;
 }
 
-#collapseOne {
-  background-color: white;
+.dropdown-item {
+  color: white;
 }
 
-#accordion {
-  margin-bottom: -6rem;
+.spaceTop {
+padding-top: 0.75rem;
 }
 
-.card {
-  margin-top: 3rem;
-background: #32746d;
+.spaceBottom {
+  padding-bottom: 1.5rem;
 }
 
-.red {
-  border: red solid 2px;
+#navbarSupportedContent {
+  align-items: center;
 }
 
-/* Fin CSS formulaire d'inscription */
-
-
-
-.entry-content {
-  margin-top: 3rem;
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.5);
   }
 
-#schoolDoorsTitle {
-  margin-bottom: 6rem;
-  color: #336699;
-  font-family: 'Permanent Marker', cursive;
-  font-size: 3rem;
+.nav-link {
+  color: white;
+  font-size: 1rem;
+  text-align: center;
 }
+
+#navButton {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#textNavButton {
+  font-size: 1rem;
+}
+
+#home {
+  margin-top: 4rem;
+  margin-bottom: 12rem;
+}
+/* Fin CSS navbar min */
 
 
 
-/* CSS du formulaire mon compte */
 
-/* Bouton switch on/off */
-.onoffswitch {
-  position: relative; width: 90px;
-  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-}
-.onoffswitch-checkbox {
-  display: none;
-}
-.onoffswitch-label {
-  display: block; overflow: hidden; cursor: pointer;
-  border: 2px solid #999999; border-radius: 20px;
-}
-.onoffswitch-inner {
-  display: block; width: 200%; margin-left: -100%;
-  transition: margin 0.3s ease-in 0s;
-}
-.onoffswitch-inner:before, .onoffswitch-inner:after {
-  display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-  box-sizing: border-box;
-}
-.onoffswitch-inner:before {
-  content: "ON";
-  padding-left: 10px;
-  background-color: #F5ED05; color: #050505;
-}
-.onoffswitch-inner:after {
-  content: "OFF";
-  padding-right: 10px;
-  background-color: #EEEEEE; color: #999999;
-  text-align: right;
-}
-.onoffswitch-switch {
-  display: block; width: 8px; margin: 11px;
-  background: #FFFFFF;
-  position: absolute; top: 0; bottom: 0;
-  right: 56px;
-  border: 2px solid #999999; border-radius: 20px;
-  transition: all 0.3s ease-in 0s; 
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
-  margin-left: 0;
-}
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-  right: 0px; 
-}
-/* Fin bouton switch on/off */
 
 

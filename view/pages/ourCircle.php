@@ -1,8 +1,7 @@
 <?php
+require_once '../../controller/ourCircleController.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-require_once '../../controller/ourCircleController.php';
 ?>
 
 
@@ -22,7 +21,7 @@ require_once '../../controller/ourCircleController.php';
                    <p class="text-white">Date de naissance : <?=strftime('%d/%m/%Y',strtotime($displayUser['birthDate']))?> </p>
                    <p class="text-white">Mail : <?=$displayUser['mail']?> </p>
                    <p class="text-white">Photo : <?= $displayUser['picture']?> </p>
-                   <p class="text-white">Login : <?= $displayUser['login']?> </p>
+                   <p class="text-white">Login : <?= $displayUser['userLog']?> </p>
                    <p class="text-white">Mot de passe : <?= $displayUser['password']?> </p>
                    <p class="text-white">Statut : <?= $displayUser['status']?> </p>
                    <p class="text-white">Cours en tant qu'élève : <?= $displayUser['studentCourse']?> </p>
@@ -54,4 +53,51 @@ require_once '../../controller/ourCircleController.php';
 
 <?php
 include '../templates/footer.php';
+
+// Alerts de connexion
+if(isset($connectionSuccess) && $connectionSuccess == true){
+  ?>
+        <script>
+        Swal.fire(
+          'Bonjour !',
+          'Te revoilà...',
+          'success'
+        );
+        setTimeout(function(){
+           document.location.href = "../../index.php"; 
+        }, 4000);
+        </script>
+        <?php
+}
+if(isset($connectionFailed) && $connectionFailed == true){
+  ?>
+        <script>
+  Swal.fire({
+  title: 'Oups !',
+  text: 'L\'identifiant et/ou le mot de passe semble(nt) incorrect(s)... :(',
+  type: 'error',
+  confirmButtonText: 'Ok'
+});
+setTimeout(function(){
+      
+    }, 4000);
+</script>
+        <?php
+}
+if(isset($mdpFailed) && $mdpFailed == true){
+  ?>
+        <script>
+  Swal.fire({
+  title: 'Oups !',
+  text: 'Le mot de passe est incorrect... :(',
+  type: 'error',
+  confirmButtonText: 'Ok'
+});
+setTimeout(function(){
+      
+    }, 4000);
+</script>
+        <?php
+}
+// Fin alerts connexion
 ?>

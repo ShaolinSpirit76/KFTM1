@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <!-- Spécification du langage de la page et du sens de lecture -->
 <html lang="fr" dir="ltr">
@@ -20,7 +17,9 @@ session_start();
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../assets/CSS/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Lien avec la page CSS (toujours après Bootstrap pour éviter les bug) -->
-  <link rel="stylesheet" href="../../assets/CSS/admin.css" />
+    <link rel="stylesheet" href="../../assets/CSS/footer.css" />
+  <link rel="stylesheet" href="../../assets/CSS/style.css" />
+  <link rel="stylesheet" href="<?= $PageCSS ?>" />
    <!-- Lien script pour animer -->
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
  <link href="../../assets/CSS/aos.css" rel="stylesheet">
@@ -42,5 +41,7 @@ session_start();
 <body>
 <!-- Pour le scroll to top -->
 <a id="buttonScroll" class="rounded-circle"></a>
+
+
 
 

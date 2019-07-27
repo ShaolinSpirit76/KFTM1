@@ -1,8 +1,7 @@
 <?php
+require_once '../../controller/RGPDController.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-require_once '../../controller/RGPDController.php';
 ?>
 
 <h3>Définitions</h3>

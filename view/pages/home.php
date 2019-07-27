@@ -1,6 +1,3 @@
-<?php
-require_once 'controller/homeController.php';
-?>
 <!-- Début du header -->
 
   <div id="header">

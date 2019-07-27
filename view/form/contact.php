@@ -1,9 +1,9 @@
 <?php
+  require_once '../../controller/contactControllerStart.php';
   include '../templates/head.php';
   include '../../controller/regex.php';
-  include '../../controller/login.php';
   require_once '../../controller/contactController.php';
-?>
+  ?>
 
 <div class="entry-inner-singular-wrapper">
 

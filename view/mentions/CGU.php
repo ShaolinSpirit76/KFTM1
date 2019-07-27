@@ -1,8 +1,7 @@
 <?php
+require_once '../../controller/CGUController.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-require_once '../../controller/CGUController.php';
 ?>
 
 <h1>Conditions générales d'utilisation du site http://KungFu.ThieuLam.Montivilliers.fr</h1>

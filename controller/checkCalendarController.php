@@ -1,4 +1,8 @@
 <?php
+session_start();
+// Variable pour le css
+$PageCSS = '../../assets/CSS/PageCSS/checkCalendar.css';
+
 // Variables dynamiques pour la navbar à partir de form
 $home = '../../index.php';
 $schoolDoors = '../pages/schoolDoors.php';
@@ -16,8 +20,9 @@ $shop = '../pages/shop.php';
 $connexion = 'connexion.php';
 $myAccount = 'myAccount.php';
 $checkCalendar = 'checkCalendar.php';
+$connexionPage = '../templates/connexion.php';
 
-  include '../templates/navbar.php';
+
  
 
 

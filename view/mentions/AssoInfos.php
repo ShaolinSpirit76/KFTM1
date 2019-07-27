@@ -1,8 +1,7 @@
 <?php
+require_once '../../controller/AssoInfosController.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-require_once '../../controller/AssoInfosController.php';
 ?>
 
 <h1 class="text-center">Informations légales de l'association</h1>

@@ -1,9 +1,7 @@
 <?php
+require_once '../../controller/inscriptionFormControllerStart.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-include_once '../../view/templates/successJs.php';
-require_once '../../controller/regex.php';
 require_once '../../controller/inscriptionFormController.php';
 ?>
 
@@ -37,7 +35,7 @@ require_once '../../controller/inscriptionFormController.php';
                  <fieldset>
                  <ul>
 
-                 <li class="font-weight-bolder text-white"><label for="mail">Adresse mail * : </label> <input class="inputInscription <?php echo (isset($_POST['mail']) && !preg_match($regexMail, $_POST['mail']))? 'red':'';  ?>" type="text" id="mail" name="mail" placeholder="juliedupont@exemple.com" value="<?= $_POST['mail']?>" required /><p class="errorMessage"><?= (isset($error['errorMail'])) ? $error['errorMail'] : ''; ?></p></li>
+                 <li class="font-weight-bolder text-white"><label for="mail">Adresse mail * : </label> <input class="inputInscription <?php echo (isset($_POST['mail']) && !preg_match($regexMail, $_POST['mail']))? 'red':'';  ?>" type="text" id="mail" name="mail" placeholder="juliedupont@exemple.com" value="<?= $_POST['mail']?>" required /><p class="errorMessage"><?= (isset($error['errorMail'])) ? $error['errorMail'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorMailChecking'])) ? $error['errorMailChecking'] : ''; ?></p></li>
 
             <li class="font-weight-bolder text-white"><label for="phoneNumber">Numéro de téléphone : </label> <input class="inputInscription <?php echo (isset($_POST['phoneNumber']) && !preg_match($regexPhone, $_POST['phoneNumber']))? 'red':'';  ?>" value="<?= $_POST['phoneNumber']?>" type="tel" id="phoneNumber" name="phoneNumber" placeholder=" 06xxxxxxxx " /><p class="errorMessage"><?= (isset($error['errorPhone'])) ? $error['errorPhone'] : ''; ?></p></li>
 
@@ -48,8 +46,8 @@ require_once '../../controller/inscriptionFormController.php';
 <fieldset>
             <ul>
 
-            <li class="font-weight-bolder text-white"><label for="login"><I>Identifiant * : </I></label> <input class="inputInscription <?php echo (isset($_POST['login']) && !preg_match($regexLogin, $_POST['login']))? 'red':'';  ?>" value="<?= $_POST['login']?>" type="text" name="login" id="login" placeholder="Pseudo" required /><small class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
-            <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></li>
+            <li class="font-weight-bolder text-white"><label for="userLog"><I>Identifiant * : </I></label> <input class="inputInscription <?php echo (isset($_POST['userLog']) && !preg_match($regexLogin, $_POST['userLog']))? 'red':'';  ?>" value="<?= $_POST['userLog']?>" type="text" name="userLog" id="userLog" placeholder="Pseudo ou mail" required /><small class="text-white"><br /><i>Tu peux tout simplement choisir ton adresse mail.</i></small>
+            <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorUserLogChecking'])) ? $error['errorUserLogChecking'] : ''; ?></p></li>
 
 <li class="font-weight-bolder text-white"><label for="password"><I>Mot de passe * : </I></label> <input class="inputInscription <?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></li>
 
@@ -228,7 +226,7 @@ require_once '../../controller/inscriptionFormController.php';
 <input type="checkbox" id="checkForm" name="checkForm" value="checkForm" required>
 
 
-<p><br /><button id="submitInscriptionForm" type="submit" name="button" class="float-right rounded">Valider</button></p>
+<p><br /><button id="submitInscriptionForm" type="submit" name="submitInscriptionForm" class="float-right rounded">Valider</button></p>
 
 </fieldset>
           </div>
@@ -266,4 +264,4 @@ require_once '../../controller/inscriptionFormController.php';
 
 <?php
 include '../templates/footer.php';
-?>
+include '../templates/AlertInscription.php';

@@ -61,11 +61,11 @@
                 </div>
               </li>
               <li class="nav-item">
-              <a href="#connection" data-toggle="modal"><img src="../../assets/images/yuuyake/iconfinder_Firefox_17572.png" alt="Tigre chinois" class="img-fluid" title="" width="90%" height="90%" /></a>
+              <a href="<?= $connexionPage ?>"><img src="../../assets/images/yuuyake/iconfinder_Firefox_17572.png" alt="Tigre chinois" class="img-fluid" title="" width="90%" height="90%" /></a>
                 <div class="shop dropdown">
                   <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Connexion</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#connection" data-toggle="modal">Connexion / inscription</a>
+    <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion / inscription</a>
     <a class="dropdown-item" href="">Déconnexion</a>
     <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
@@ -159,7 +159,7 @@
                 <div class="shop dropdown">
                   <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Connexion</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="#connection" data-toggle="modal">Connexion / inscription</a>
+    <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion / inscription</a>
     <a class="dropdown-item" href="">Déconnexion</a>
     <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
@@ -184,39 +184,6 @@
 
 
 
-<!-- Début modal login -->
-
-<div id="connection" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-      <div class="modal-header text-white" style="background-color:black;">
-        <h5 class="modal-title">Connexion</h5>
-        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-<form name="loginForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
-  <ul class="text-center">
-
-  <span><label for="mailConnect">Identifiant (ou adresse mail)  </label><br /> <input class="<?php echo (isset($_POST['mailConnect']) && !preg_match($regexLogin, $_POST['mailConnect']))? 'red':'';  ?>" value="<?= $_POST['mailConnect']?>" type="text" name="mailConnect" id="mailConnect" placeholder="Pseudo" required /><p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></span>
-  
-  <span><label for="passwordConnect">Mot de passe  </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect" required/><small class="text-muted"><br />Renseignés lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
-
-</ul>
-
-<button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-  <button id="loginButton" name="loginButton" type="submit" onclick="checkPasswordLogin();" class="yellow-hover btn btn-primary text-white">C'est parti !</button>
-</form>
-</div>
-<div class="modal-footer" style="background-color:#282828;">
-      <a href="../../view/form/inscriptionForm.php" class="mx-auto"><p><small><u>Pas encore inscrit ?</u></small></p></a>
-        </div>
-    </div>
-    </div>
-</div>
-
-  <!-- Fin modal login -->
 
   <div id="contents">
 
@@ -239,6 +206,7 @@ $shop = ;
 $connexion = ;
 $myAccount = ;
 $checkCalendar = ;
+$connexionPage = ;
 
 Listes des variables de liens du footer vers les pages mentions légales :
 $AssoInfos = ;

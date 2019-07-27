@@ -1,23 +1,10 @@
 <?php
+session_start();
 require '../../model/DataBase.php'; 
 require '../../model/User.php';
 
-session_start();
-
-if(isset($_POST['loginButton'])):
-    $mailConnect = htmlspecialchars($_POST['mailConnect']);
-    $passwordConnect = htmlspecialchars($_POST['passwordConnect']);
-
-    if(!empty($mailConnect)):
-        $connectUser = new User();
-        $connectUser->mail = $mailConnect;
-        $connectUserResult = $connectUser->connectionUser();
-        if($passwordConnect == $connectUserResult->password):
-            $_SESSION['student'] = $connectUserResult;
-        else:
-        endif;
-    endif;
-endif;
+// Variable pour le css
+$PageCSS = '../../assets/CSS/PageCSS/ourCircle.css';
 
 // Variables dynamiques pour la navbar à partir de pages
 $home = '../../index.php';
@@ -36,8 +23,8 @@ $shop = 'shop.php';
 $connexion = '../form/connexion.php';
 $myAccount = '../form/myAccount.php';
 $checkCalendar = '../form/checkCalendar.php';
+$connexionPage = '../templates/connexion.php';
 
-include '../templates/navbar.php';
        
 
 

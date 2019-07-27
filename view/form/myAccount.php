@@ -1,9 +1,7 @@
 <?php
-
+require_once '../../controller/myAccountControllerStart.php';
 include '../templates/head.php';
 require '../../controller/regex.php';
-include '../../controller/login.php';
-include_once '../../view/templates/successJs.php';
 require_once '../../controller/myAccountController.php';
 ?>
 

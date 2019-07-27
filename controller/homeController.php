@@ -1,4 +1,8 @@
 <?php
+session_start();
+// Variable pour le css
+$PageCSS = '../../assets/CSS/PageCSS/home.css';
+
 // Variables dynamiques pour la navbar à partir de index.php
 $home = 'index.php';
 $schoolDoors = 'view/pages/schoolDoors.php';
@@ -16,6 +20,13 @@ $shop = 'view/pages/shop.php';
 $connexion = 'view/form/connexion.php';
 $myAccount = 'view/form/myAccount.php';
 $checkCalendar = 'view/form/checkCalendar.php';
+$connexionPage = 'view/templates/connexion.php';
 
+
+// Variables dynamiques pour le footer à partir de index.php
+$AssoInfos = 'view/mentions/AssoInfos.php';
+$legalInfos = 'view/mentions/legalInfos.php';
+$CGU = 'view/mentions/CGU.php';
+$RGPD = 'view/mentions/RGPD.php';
 
 

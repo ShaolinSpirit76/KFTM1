@@ -1,8 +1,7 @@
 <?php
+require_once '../../controller/legalInfosController.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-require_once '../../controller/legalInfosController.php';
 ?>
 
 <p style="text-align:center">MENTIONS LEGALES :</p>

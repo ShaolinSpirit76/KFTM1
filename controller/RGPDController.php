@@ -1,4 +1,8 @@
 <?php
+session_start();
+// Variable pour le css
+$PageCSS = '../../assets/CSS/PageCSS/RGPD.css';
+
 // Variables dynamiques pour la navbar à partir de mentions
 $home = '../../index.php';
 $schoolDoors = '../pages/schoolDoors.php';
@@ -16,8 +20,8 @@ $shop = '../pages/shop.php';
 $connexion = '../form/connexion.php';
 $myAccount = '../form/myAccount.php';
 $checkCalendar = '../form/checkCalendar.php';
+$connexionPage = '../templates/connexion.php';
 
-include '../templates/navbar.php';
 
 // Variables dynamiques pour la navbar à partir à partir de mentions
 $AssoInfos = 'AssoInfos.php';

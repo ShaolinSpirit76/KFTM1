@@ -9,7 +9,7 @@ class User extends DB{
     public $picture;
     public $mail;
     public $phoneNumber;
-    public $login;
+    public $userLog;
     public $password;
     public $status;
     public $studentCourse;
@@ -27,8 +27,8 @@ class User extends DB{
         parent::__construct();
  }
     public function addUser(){
-        $query = 'INSERT INTO `KFTM_USERS`(`firstName`, `lastName`, `birthDate`, `picture`, `mail`, `phoneNumber`, `login`, `password`, `status`, 
-        `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :login, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation)';
+        $query = 'INSERT INTO `KFTM_USERS`(`firstName`, `lastName`, `birthDate`, `picture`, `mail`, `phoneNumber`, `userLog`, `password`, `status`, 
+        `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :userLog, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation)';
         // création de la variable $addUser qui nous a permis de préparer la requête
         $addUser = $this->db->prepare($query);
         $addUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
@@ -37,7 +37,7 @@ class User extends DB{
         $addUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
         $addUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
         $addUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
-        $addUser->bindValue(':login', $this->login, PDO::PARAM_STR);
+        $addUser->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
         $addUser->bindValue(':password', $this->password, PDO::PARAM_STR);
         $addUser->bindValue(':status', $this->status, PDO::PARAM_STR);
         $addUser->bindValue(':studentCourse', $this->studentCourse, PDO::PARAM_STR);
@@ -54,13 +54,31 @@ class User extends DB{
         }
     }
 
+    public function mailChecking() {
+        $query = 'SELECT mail FROM `KFTM_USERS` WHERE mail = :mail';
+        $mailChecking = $this->db->prepare($query);
+        $mailChecking->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $mailChecking->execute();
+        $mailCheckingFetch = $mailChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $mailCheckingFetch;
+    }
+
+    public function logChecking() {
+        $query = 'SELECT userLog FROM `KFTM_USERS` WHERE userLog = :userLog';
+        $mailChecking = $this->db->prepare($query);
+        $mailChecking->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
+        $mailChecking->execute();
+        $mailCheckingFetch = $mailChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $mailCheckingFetch;
+    }
+
 
     public function connectionUser() {
-        $query = 'SELECT * FROM `KFTM_USERS` WHERE mail = :mail';
+        $query = 'SELECT * FROM `KFTM_USERS` WHERE userLog = :userLog';
         $connectUser = $this->db->prepare($query);
-        $connectUser->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $connectUser->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
         if($connectUser->execute()):
-            $connectUserResult = $connectUser->fetch(PDO::FETCH_OBJ);
+            $connectUserResult = $connectUser->fetchAll(PDO::FETCH_ASSOC);
             return $connectUserResult;
         endif;
     }
@@ -75,7 +93,7 @@ class User extends DB{
      }
      
 public function updateUsers(){
-   $updateUser = "UPDATE `KFTM_USERS` SET lastname = :lastName, firstname = :firstName, birthdate = :birthDate, picture = :picture, mail = :mail, phoneNumber = :phoneNumber, login = :login, password = :password, status = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE id = :id";
+   $updateUser = "UPDATE `KFTM_USERS` SET lastname = :lastName, firstname = :firstName, birthdate = :birthDate, picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, password = :password, status = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE id = :id";
 
     $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         $updateUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
@@ -84,7 +102,7 @@ public function updateUsers(){
         $updateUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
         $updateUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
         $updateUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
-        $updateUser->bindValue(':login', $this->login, PDO::PARAM_STR);
+        $updateUser->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
         $updateUser->bindValue(':password', $this->password, PDO::PARAM_STR);
         $updateUser->bindValue(':status', $this->status, PDO::PARAM_STR);
         $updateUser->bindValue(':studentCourse', $this->studentCourse, PDO::PARAM_STR);

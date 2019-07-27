@@ -1,9 +1,9 @@
 <?php
+require_once '../../controller/schoolDoorsController.php';
 include '../templates/head.php';
 include '../../controller/regex.php';
-include '../../controller/login.php';
-require_once '../../controller/schoolDoorsController.php';
 ?>
+
 
 <header class="text-center">
 

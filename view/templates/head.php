@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <!-- Spécification du langage de la page et du sens de lecture -->
 <html lang="fr" dir="ltr">
@@ -19,19 +16,19 @@ session_start();
   <!-- CDN de Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../assets/CSS/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!-- Lien avec la page CSS (toujours après Bootstrap pour éviter les bug) -->
-  <link rel="stylesheet" href="../../assets/CSS/header.css" />
-  <link rel="stylesheet" href="../../assets/CSS/footer.css" />
-  <link rel="stylesheet" href="../../assets/CSS/style.css" />
-   <!-- Lien script pour animer -->
-   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
- <link href="../../assets/CSS/aos.css" rel="stylesheet">
   <!-- Lien pour le scroll to top -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../../assets/CSS/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
   <link href="../../assets/CSS/css?family=Merriweather:400,900,900i.css" rel="stylesheet">
-  <!-- Lien éventuel pour l'utilisation d'une police -->
+  <!-- Lien avec la page CSS (toujours après Bootstrap pour éviter les bug) -->
+    <link rel="stylesheet" href="../../assets/CSS/footer.css" />
+  <link rel="stylesheet" href="../../assets/CSS/style.css" />
+  <link rel="stylesheet" href="<?= $PageCSS ?>" />
+   <!-- Lien script pour animer -->
+   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+ <link href="../../assets/CSS/aos.css" rel="stylesheet">
+    <!-- Lien éventuel pour l'utilisation d'une police -->
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Merienda|Permanent+Marker&display=swap" rel="stylesheet"> 
   <link href="../../assets/CSS/police.css" rel="stylesheet">
   <!-- Lien pour placer une icone dans l'onglet, avant le titre de la page -->
@@ -40,9 +37,15 @@ session_start();
   <title>Kung-Fu.ThieuLam.Montivilliers - Don't think... Feel !</title>
 
 </head>
+<?php
+include '../../view/templates/navbar.php';
+?>
 
 <body>
 <!-- Pour le scroll to top -->
 <a id="buttonScroll" class="rounded-circle"></a>
+
+
+
 
 

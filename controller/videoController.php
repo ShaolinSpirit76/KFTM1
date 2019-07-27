@@ -1,4 +1,8 @@
 <?php
+session_start();
+// Variable pour le css
+$PageCSS = '../../assets/CSS/PageCSS/video.css';
+
 // Variables dynamiques pour la navbar à partir de pages
 $home = '../../index.php';
 $schoolDoors = 'schoolDoors.php';
@@ -16,8 +20,8 @@ $shop = 'shop.php';
 $connexion = '../form/connexion.php';
 $myAccount = '../form/myAccount.php';
 $checkCalendar = '../form/checkCalendar.php';
+$connexionPage = '../templates/connexion.php';
 
-include '../templates/navbar.php';
 
 // Variables dynamiques pour la navbar à partir à partir de pages
 $AssoInfos = '../mentions/AssoInfos.php';
