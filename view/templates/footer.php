@@ -107,6 +107,7 @@
 
   
   <!-- Lien avec la page JS (toujours après les CDN de JQuery) -->
+  <script src="../../assets/script/scroll.js"></script>
   <script src="../../assets/script/script.js"></script>
   <!-- Script pour l'animation -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

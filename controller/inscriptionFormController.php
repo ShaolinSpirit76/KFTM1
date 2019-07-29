@@ -143,22 +143,6 @@ if (isset($_POST['submitInscriptionForm'])) {
     }
 
 
-// if (isset($_POST['submitInscriptionForm'])) {
-//     $userLog = $_POST['userLog'];
-//     $users->userLog = $userLog;
-//     $userLogResult = $users->logChecking();
-//     if (count($userLogResult) > 0 ) {
-//         $error['errorUserLogChecking'] = 'Cet identifiant est déjà utilisée.';
-//     } else {
-//         if(empty($error)):
-//             $users->addUser();
-//         // alert success s'il n'y a pas d'erreur
-//         $success = true;
-
-//     endif; 
-//     }
-
-// }
 
 
 

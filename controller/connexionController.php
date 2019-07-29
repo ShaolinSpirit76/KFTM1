@@ -38,6 +38,8 @@ if(isset($_POST['loginButton'])):
 
             if (password_verify($_POST['passwordConnect'],$connectUserResult[0]['password'])){
                 $_SESSION['id'] = $connectUserResult[0]['id'];
+                $_SESSION['userInfos'] = $connectUserResult;
+                $_SESSION['connection'] = true;
                 $connectionSuccess = true;
               
         } else {

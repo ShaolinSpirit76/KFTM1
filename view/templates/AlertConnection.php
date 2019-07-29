@@ -4,8 +4,8 @@ if(isset($connectionSuccess) && $connectionSuccess == true){
   ?>
         <script>
         Swal.fire(
-          'Bonjour <?= $connectUserResult['firstName'] ?>!',
-          'Te revoilà...',
+          'Bonjour <?= $_SESSION['userInfos'][0]['firstName'] ?> !',
+          'Ravi de te revoir...',
           'success'
         );
         setTimeout(function(){

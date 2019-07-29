@@ -21,4 +21,7 @@ $shop = '../pages/shop.php';
 $connexion = '../form/connexion.php';
 $myAccount = '../form/myAccount.php';
 $checkCalendar = '../form/checkCalendar.php';
+$inscriptionPage = '../form/inscriptionForm.php';
 $connexionPage = 'connexion.php';
+$deconnexionPage = 'deconnexion.php';
+$admin = '../../admin/admin.php';

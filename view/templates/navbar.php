@@ -48,8 +48,10 @@
                 <div class="links dropdown">
                 <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/yuuyake/iconfinder_Photoshop_17588.png" alt="PS en calligraphie" class="img-fluid" title="" width="100%" height="100%" /><span class="yellow-hover"><br />Liens</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
     <a class="dropdown-item" href="<?= $pictures ?>">Photos</a>
     <a class="dropdown-item" href="<?= $video ?>">Vidéos</a>
+    <?php endif;?>
     <a class="dropdown-item" href="<?= $techniques ?>">Cahiers techniques</a>
     <a class="dropdown-item" href="<?= $otherSchools ?>">Autres écoles</a>
     <a class="dropdown-item" href="<?= $contact ?>">Contact</a>
@@ -63,12 +65,20 @@
               <li class="nav-item">
               <a href="<?= $connexionPage ?>"><img src="../../assets/images/yuuyake/iconfinder_Firefox_17572.png" alt="Tigre chinois" class="img-fluid" title="" width="90%" height="90%" /></a>
                 <div class="shop dropdown">
-                  <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Connexion</span></a>
+                  <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover"><?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>Options<?php else: ?>Connexion<?php endif;?></span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion / inscription</a>
-    <a class="dropdown-item" href="">Déconnexion</a>
-    <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
+     <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
+    <a class="dropdown-item" href="<?= $deconnexionPage ?>">Déconnexion</a>
+        <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
+    <!-- Condition pour accéder à la page admin grâce au mail -->
+    <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+    <a class="dropdown-item" href="../../admin/admin.php">Admin</a>
+    <?php endif ?>
+    <?php else: ?>
+<a class="dropdown-item" href="<?= $connexionPage ?>">Connexion</a>
+<a class="dropdown-item" href="<?= $inscriptionPage ?>">Inscription</a>
+   <?php endif;?>
   </div>             
              </li>
              </ul>
@@ -143,8 +153,10 @@
                 <div class="links dropdown">
                 <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Liens</span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
     <a class="dropdown-item" href="<?= $pictures ?>">Photos</a>
     <a class="dropdown-item" href="<?= $video ?>">Vidéos</a>
+    <?php endif;?>
     <a class="dropdown-item" href="<?= $techniques ?>">Cahiers techniques</a>
     <a class="dropdown-item" href="<?= $otherSchools ?>">Autres écoles</a>
     <a class="dropdown-item" href="<?= $contact ?>">Contact</a>
@@ -157,13 +169,21 @@
               </li>
               <li class="nav-item">
                 <div class="shop dropdown">
-                  <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">Connexion</span></a>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion / inscription</a>
-    <a class="dropdown-item" href="">Déconnexion</a>
-    <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
+                  <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover"><?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>Options<?php else: ?>Connexion<?php endif;?></span></a></span></a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+     <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
+    <a class="dropdown-item" href="<?= $deconnexionPage ?>">Déconnexion</a>
+        <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
-  </div>             
+    <!-- Condition pour accéder à la page admin grâce au mail -->
+    <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+    <a class="dropdown-item" href="../../admin/admin.php">Admin</a>
+    <?php endif ?>
+    <?php else: ?>
+    <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion</a>
+<a class="dropdown-item" href="<?= $inscriptionPage ?>">Inscription</a>
+   <?php endif;?>
+  </div>           
              </li>
              </ul>
           </div>
@@ -188,29 +208,3 @@
   <div id="contents">
 
 
-
-
-   <!-- Listes des variables de liens de la navbar vers les pages du site :#
-$home = ;
-$schoolDoors = ;
-$news = ;
-$kungfu = ;
-$taichi = ;
-$sanda = ;
-$ourCircle = ;
-$pictures = ;
-$video = ;
-$otherSchools = ;
-$contact = ;
-$shop = ;
-$connexion = ;
-$myAccount = ;
-$checkCalendar = ;
-$connexionPage = ;
-
-Listes des variables de liens du footer vers les pages mentions légales :
-$AssoInfos = ;
-$legalInfos = ;
-$CGU = ;
-$RGPD = ;
- -->

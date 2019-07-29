@@ -21,11 +21,10 @@ require_once '../../controller/myAccountController.php';
 
 <!-- Début formulaire d'inscription -->
 
-<h1 id="legend1" class="text-center"><br />Inscription</h1>
-<p class="text-center"><small>* champs obligatoires</small></p>
+<h1 id="legend1" class="text-center"><br />Mon profil</h1>
 
              <form method="POST" action="inscriptionForm.php" id="inscriptionForm" name="inscriptionForm">
-               <div class="card mx-auto" id="connexion" style="width: 30rem;">
+               <div class="card mx-auto" id="connexion" style="width: 60rem;">
   <div class="card-body">
       <fieldset>
 

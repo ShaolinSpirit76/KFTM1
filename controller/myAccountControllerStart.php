@@ -20,7 +20,10 @@ $shop = '../pages/shop.php';
 $connexion = 'connexion.php';
 $myAccount = 'myAccount.php';
 $checkCalendar = 'checkCalendar.php';
+$inscriptionPage = 'inscriptionForm.php';
 $connexionPage = '../templates/connexion.php';
+$deconnexionPage = '../templates/deconnexion.php';
+$admin = '../../admin/admin.php';
 
 // Variables dynamiques pour la navbar à partir à partir de form
 $AssoInfos = '../mentions/AssoInfos.php';

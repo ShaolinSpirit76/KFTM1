@@ -19,8 +19,11 @@ $contact = '../form/contact.php';
 $shop = 'shop.php';
 $connexion = '../form/connexion.php';
 $myAccount = '../form/myAccount.php';
+$inscriptionPage = '../form/inscriptionForm.php';
 $checkCalendar = '../form/checkCalendar.php';
 $connexionPage = '../templates/connexion.php';
+$deconnexionPage = '../templates/deconnexion.php';
+$admin = '../../admin/admin.php';
 
 
 // Variables dynamiques pour la navbar à partir à partir de pages

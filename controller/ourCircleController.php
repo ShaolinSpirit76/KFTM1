@@ -23,7 +23,10 @@ $shop = 'shop.php';
 $connexion = '../form/connexion.php';
 $myAccount = '../form/myAccount.php';
 $checkCalendar = '../form/checkCalendar.php';
+$inscriptionPage = '../form/inscriptionForm.php';
 $connexionPage = '../templates/connexion.php';
+$deconnexionPage = '../templates/deconnexion.php';
+$admin = '../../admin/admin.php';
 
        
 

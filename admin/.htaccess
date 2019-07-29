@@ -1,5 +1,0 @@
-AddDefaultCharset utf-8
-AuthName "Page d'administration protégée"
-AuthType Basic
-AuthUserFile "/home/compere/TestProjetPro/admin/.htpasswd"
-Require valid-user

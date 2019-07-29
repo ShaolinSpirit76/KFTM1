@@ -22,10 +22,10 @@
   <link href="https://fonts.googleapis.com/css?family=Merriweather:400,900,900i" rel="stylesheet">
   <link href="../../assets/CSS/css?family=Merriweather:400,900,900i.css" rel="stylesheet">
   <!-- Lien avec la page CSS (toujours après Bootstrap pour éviter les bug) -->
-    <link rel="stylesheet" href="../../assets/CSS/footer.css" />
-  <link rel="stylesheet" href="../../assets/CSS/style.css" />
   <link rel="stylesheet" href="<?= $PageCSS ?>" />
-   <!-- Lien script pour animer -->
+  <link rel="stylesheet" href="../../assets/CSS/footer.css" />
+  <link rel="stylesheet" href="../../assets/CSS/style.css" />
+     <!-- Lien script pour animer -->
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
  <link href="../../assets/CSS/aos.css" rel="stylesheet">
     <!-- Lien éventuel pour l'utilisation d'une police -->
@@ -39,6 +39,7 @@
 </head>
 <?php
 include '../../view/templates/navbar.php';
+setlocale(LC_ALL, 'fr_FR.UTF8');
 ?>
 
 <body>
