@@ -65,6 +65,41 @@ $("#maître_et_élève").click(function() {
 
 
 
+
+
+// Affichage conditionnel du formulaire mon compte
+// div cachées avant toute modification
+$('#newBirthDate').hide();
+$('#newMail').hide();
+$('#newPhoneNumber').hide();
+$('#newUserLog').hide();
+$('#newPassword').hide();
+$('#updateNewPassword').hide();
+
+$("#updateBirthDate").click(function() {
+  $('#newBirthDate').show();
+});
+
+$("#updateMail").click(function() {
+  $('#newMail').show();
+});
+
+$("#updatePhoneNumber").click(function() {
+  $('#newPhoneNumber').show();
+});
+
+$("#updateUserLog").click(function() {
+  $('#newUserLog').show();
+});
+
+$("#updatePassword").click(function() {
+  $('#newPassword').show();
+});
+
+
+
+
+
 // Pour les animations
 AOS.init();
 

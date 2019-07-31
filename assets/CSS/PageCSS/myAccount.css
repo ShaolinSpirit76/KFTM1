@@ -1,6 +1,5 @@
 /* CSS du formulaire mon compte */
 
-
 /* Bouton switch on/off */
 .onoffswitch {
   position: relative; width: 90px;
@@ -48,3 +47,12 @@
   right: 0px; 
 }
 /* Fin bouton switch on/off */
+
+form {
+  background-image: url('../../assets/images/theme/asian-41314_960_720.png'); 
+  background-image: float-left;
+}
+
+#update {
+  background: #32746d;
+}

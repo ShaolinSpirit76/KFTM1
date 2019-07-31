@@ -11,6 +11,8 @@ $error = [];
 // On teste les regex si le formulaire est rempli
 if (count($_POST) > 0):
 
+
+  
     // Déclaration de variables qui prennent les valeurs des $_POST respectives
     $lastName = $_POST['lastName'];
     $firstName = $_POST['firstName'];
@@ -84,6 +86,10 @@ if (count($_POST) > 0):
 
     if (!preg_match ($regexPassword, $_POST['confirmPassword'])):
         $error['errorConfirmPassword'] = 'La confirmation de votre mot de passe est incorrecte.';
+    endif;
+
+    if (!password_verify($_POST['passwordConnect'],$connectUserResult[0]['password'])):
+        $error['errorCheckPassword'] = 'Ceci n\'est pas ton mot de passe actuel.';
     endif;
 
 
