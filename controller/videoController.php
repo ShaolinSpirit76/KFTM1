@@ -1,5 +1,10 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['userInfos']) || $_SESSION['userInfos'] == ''){
+    header('Location: ../templates/error.php');
+    }
+
 // Variable pour le css
 $PageCSS = '../../assets/CSS/PageCSS/video.css';
 

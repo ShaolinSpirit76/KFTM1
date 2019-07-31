@@ -63,18 +63,25 @@
                 </div>
               </li>
               <li class="nav-item">
-              <a href="<?= $connexionPage ?>"><img src="../../assets/images/yuuyake/iconfinder_Firefox_17572.png" alt="Tigre chinois" class="img-fluid" title="" width="90%" height="90%" /></a>
+              <?php if (isset($_SESSION['userInfos']) && $_SESSION['connection'] == true): ?>
+              <a href="<?= $deconnexionPage ?>"><img src="../../assets/images/yuuyake/iconfinder_Internet Explorer_17581.png" alt="Tigre chinois" class="img-fluid" title="Déconnexion" width="90%" height="90%" /></a>
+              <?php else: ?>
+              <a href="<?= $connexionPage ?>"><img src="../../assets/images/yuuyake/iconfinder_Firefox_17572.png" alt="Tigre chinois" class="img-fluid" title="Connexion" width="90%" height="90%" /></a>
+              <?php endif; ?>
                 <div class="shop dropdown">
-                  <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover"><?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>Options<?php else: ?>Connexion<?php endif;?></span></a>
+                  <a style="background-color:black; color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover">
+                    <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>Options<?php else: ?>Connexion<?php endif; ?></span></a>
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
      <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
     <a class="dropdown-item" href="<?= $deconnexionPage ?>">Déconnexion</a>
         <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
+
     <!-- Condition pour accéder à la page admin grâce au mail -->
     <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
     <a class="dropdown-item" href="../../admin/admin.php">Admin</a>
     <?php endif ?>
+
     <?php else: ?>
 <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion</a>
 <a class="dropdown-item" href="<?= $inscriptionPage ?>">Inscription</a>
@@ -86,7 +93,13 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
+                <?php if (isset($_SESSION['userInfos'])): ?>
+                <br /><br />
                 <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
+                <a href="<?= $myAccount ?>" title="Mon Compte"><small ><br />Bonjour <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
+                <?php else: ?>
+                <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
+                <?php endif; ?>
               </li>
             </ul>
           </div>
@@ -167,6 +180,7 @@
                   <a class="clickTop nav-link" href="<?= $shop ?>">Boutique</a>
                 </div>
               </li>
+
               <li class="nav-item">
                 <div class="shop dropdown">
                   <a style="color:white;" class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="yellow-hover"><?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>Options<?php else: ?>Connexion<?php endif;?></span></a></span></a>
@@ -175,16 +189,25 @@
     <a class="dropdown-item" href="<?= $deconnexionPage ?>">Déconnexion</a>
         <a class="dropdown-item" href="<?= $myAccount ?>">Mon compte</a>
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
+
     <!-- Condition pour accéder à la page admin grâce au mail -->
     <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
     <a class="dropdown-item" href="../../admin/admin.php">Admin</a>
     <?php endif ?>
+
     <?php else: ?>
     <a class="dropdown-item" href="<?= $connexionPage ?>">Connexion</a>
 <a class="dropdown-item" href="<?= $inscriptionPage ?>">Inscription</a>
    <?php endif;?>
   </div>           
              </li>
+<?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
+             <li class="nav-item dropdown">
+                <div class="hello">
+                  <a href="<?= $myAccount ?>" title="Mon compte"><small >Bonjour <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
+                </div>
+              </li>
+<?php endif; ?>
              </ul>
           </div>
           <div class="col-1">

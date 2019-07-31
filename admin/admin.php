@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require '../controller/adminControllerStart.php';
 require '../controller/adminController.php';
 include '../view/templates/headHome.php';
@@ -30,4 +28,4 @@ body {
 
 <?php
 include '../view/templates/footerAdmin.php';
-?>
+
