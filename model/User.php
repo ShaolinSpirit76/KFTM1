@@ -27,6 +27,7 @@ class User extends DB{
         parent::__construct();
  }
     public function addUser(){
+        var_dump('OK AddUser');
         $query = 'INSERT INTO `KFTM_USERS`(`firstName`, `lastName`, `birthDate`, `picture`, `mail`, `phoneNumber`, `userLog`, `password`, `status`, 
         `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :userLog, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation)';
         // création de la variable $addUser qui nous a permis de préparer la requête
@@ -65,11 +66,11 @@ class User extends DB{
 
     public function logChecking() {
         $query = 'SELECT userLog FROM `KFTM_USERS` WHERE userLog = :userLog';
-        $mailChecking = $this->db->prepare($query);
-        $mailChecking->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
-        $mailChecking->execute();
-        $mailCheckingFetch = $mailChecking->fetchAll(PDO::FETCH_ASSOC);
-        return $mailCheckingFetch;
+        $logChecking = $this->db->prepare($query);
+        $logChecking->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
+        $logChecking->execute();
+        $logCheckingFetch = $logChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $logCheckingFetch;
     }
 
 
@@ -95,7 +96,7 @@ class User extends DB{
 public function updateUsers(){
    $updateUser = "UPDATE `KFTM_USERS` SET lastname = :lastName, firstname = :firstName, birthdate = :birthDate, picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, password = :password, status = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE id = :id";
 
-    $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
         $updateUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
         $updateUser->bindValue(':firstName', $this->firstName, PDO::PARAM_STR);
         $updateUser->bindValue(':birthDate', $this->birthDate, PDO::PARAM_STR); 

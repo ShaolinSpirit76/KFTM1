@@ -10,7 +10,7 @@ if(isset($success) && $success == true){
         );
         setTimeout(function(){
            document.location.href = "../../index.php"; 
-        }, 6000);
+        }, 5000);
         </script>
         <?php
 }
@@ -25,7 +25,7 @@ if(isset($oups) && $oups == true){
 });
 setTimeout(function(){
       
-    }, 6000);
+    }, 5000);
 </script>
         <?php
 }

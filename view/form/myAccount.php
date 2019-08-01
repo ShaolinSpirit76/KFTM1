@@ -38,11 +38,19 @@ require_once '../../controller/myAccountController.php';
                 <li class="font-weight-bolder text-white">
                 <label for="firstName">Prénom : <?= ($_SESSION['userInfos'][0]['firstName']) ?></label> </li>
 
+<?php if (isset($_SESSION['userInfos'][0]['birthDate'])): ?>
+
                 <li class="font-weight-bolder text-white">
                 <label for="birthDate">Date de naissance : <?= ucfirst(strftime('%A %d %B %Y',strtotime($_SESSION['userInfos'][0]['birthDate']))) ?></label>
               <div>
               <label class="text-white"><i>Modifier : </i></label> <input class="inputInscription <?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p>
               </div> </li>
+
+<?php else: ?>
+
+<li class="font-weight-bolder text-white"><label for="birthDate">Ajouter ma date de naissance : </label> <input class="inputInscription <?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
+
+<?php endif; ?>
 
                                   
                  <li class="font-weight-bolder text-white"><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" accept="image/*" />

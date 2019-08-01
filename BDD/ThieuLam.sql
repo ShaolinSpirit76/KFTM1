@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  localhost:3306
--- Généré le :  Mer 24 Juillet 2019 à 11:35
--- Version du serveur :  5.7.26-0ubuntu0.18.04.1
+-- Généré le :  Mer 31 Juillet 2019 à 19:44
+-- Version du serveur :  5.7.27-0ubuntu0.18.04.1
 -- Version de PHP :  7.2.19-0ubuntu0.18.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -122,9 +122,9 @@ CREATE TABLE `KFTM_USERS` (
   `birthDate` date DEFAULT NULL,
   `phoneNumber` varchar(50) DEFAULT NULL,
   `mail` varchar(50) NOT NULL,
-  `picture` varchar(200),
-  `login` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `picture` varchar(200) DEFAULT NULL,
+  `userLog` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `status` varchar(50) DEFAULT NULL,
   `studentCourse` varchar(50) DEFAULT NULL,
   `studentYear` varchar(50) DEFAULT NULL,
@@ -136,14 +136,6 @@ CREATE TABLE `KFTM_USERS` (
   `presentation` text,
   `verification` tinyint(4) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Contenu de la table `KFTM_USERS`
---
-
-INSERT INTO `KFTM_USERS` (`ID`, `lastName`, `firstName`, `birthDate`, `phoneNumber`, `mail`, `picture`, `login`, `password`, `status`, `studentCourse`, `studentYear`, `childBelt`, `studentBelt`, `teacherCourse`, `teacherRank`, `groupAge`, `presentation`, `verification`) VALUES
-(86, 'Compère', 'Paul', '2019-07-01', '0687945632', 'paul.compere@gmail.com', 0x5363616e303030362e6a7067, 'eternaltiger', 'Zombie76!', 'maître_et_élève', 'Kung-Fu', '2ème année', NULL, 'Ceinture blanche 1ère barrette', 'Taïchi Chuan & Qi Gong', 'Sibak', NULL, 'eternaltiger', NULL),
-(87, 'Bidois', 'Laura', '2019-07-24', '0687945632', 'juliedupont@gmail.com', 0x4e4c69636a7a5f5258592e6a7067, 'Lolo', 'Hello76!', 'élève', 'Sanda & Shoubo', 'Vétéran', 'Ceinture rouge-Tigre 1ère barrette', NULL, NULL, NULL, 'Enfants', 'Lolo', NULL);
 
 -- --------------------------------------------------------
 
@@ -253,7 +245,7 @@ ALTER TABLE `KFTM_SHOPCART`
 -- AUTO_INCREMENT pour la table `KFTM_USERS`
 --
 ALTER TABLE `KFTM_USERS`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 --
 -- Contraintes pour les tables exportées
 --

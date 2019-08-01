@@ -55,6 +55,8 @@ if (count($_POST) > 0):
 
     if ( !preg_match ($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) ) )):
         $error['errorBirthDate'] = 'Votre date de naissance est incorrecte.';
+        elseif (empty($birthDate)):
+            $birthDate = NULL;
         elseif (preg_match ($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) ))):
             $users->birthDate = $birthDate;
     endif; 
@@ -136,7 +138,9 @@ if (isset($_POST['submitInscriptionForm'])) {
         if(empty($error)):
             $users->addUser();
         // alert success s'il n'y a pas d'erreur
-        $success = true;
+        var_dump($addUser);
+        var_dump($users);
+        // $success = true;
 
     endif; 
     }
