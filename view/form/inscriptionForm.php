@@ -46,7 +46,7 @@ require_once '../../controller/inscriptionFormController.php';
 <fieldset>
             <ul>
 
-            <li class="font-weight-bolder text-white"><label for="userLog"><I>Identifiant * : </I></label> <input class="inputInscription <?php echo (isset($_POST['userLog']) && !preg_match($regexLogin, $_POST['userLog']))? 'red':'';  ?>" value="<?= $_POST['userLog']?>" type="text" name="userLog" id="userLog" placeholder="Pseudo ou mail" required /><small class="text-white"><br /><i>Tu peux tout simplement choisir ton adresse mail.</i></small>
+            <li class="font-weight-bolder text-white"><label for="userLog"><I>Identifiant * : </I></label> <input class="inputInscription <?php echo (isset($_POST['userLog']) && !preg_match($regexLogin, $_POST['userLog']))? 'red':'';  ?>" value="<?= $_POST['userLog']?>" type="text" name="userLog" id="userLog" placeholder="Pseudo ou mail" required /><small class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
             <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorUserLogChecking'])) ? $error['errorUserLogChecking'] : ''; ?></p></li>
 
 <li class="font-weight-bolder text-white"><label for="password"><I>Mot de passe * : </I></label> <input class="inputInscription <?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>" value="<?= $_POST['password']?>" type="password" name="password" id="password" required/><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></li>

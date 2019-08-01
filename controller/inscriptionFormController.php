@@ -44,6 +44,7 @@ if (count($_POST) > 0):
     if ( !preg_match ($regexName, $_POST['lastName'] ) ):
         $error['errorLastName'] = 'Votre nom de famille est incorrect.';
         elseif (preg_match ($regexName, $_POST['lastName'] )):
+//objet qui contient les attributs et les méthodes de la class User
             $users->lastName = $lastName;
     endif;
 
@@ -61,6 +62,12 @@ if (count($_POST) > 0):
             $users->birthDate = $birthDate;
     endif; 
 
+    if (empty($picture)):
+        $picture = NULL;
+    else:
+        $users->picture = $picture; 
+    endif;
+
     if ( !preg_match ($regexMail, $_POST['mail'] ) ):
         $error['errorMail'] = 'Votre adresse mail est incorrecte.';
         elseif (preg_match ($regexMail, $_POST['mail'] )):
@@ -71,6 +78,8 @@ if (count($_POST) > 0):
         $error['errorPhone'] = 'Votre numéro de téléphone est incorrect.';
         elseif(preg_match ($regexPhone, $_POST['phoneNumber'])):
             $users->phoneNumber = $phoneNumber;
+            elseif (empty($phoneNumber)):
+                $phoneNumber = NULL;
     endif; 
 
     if (!preg_match ($regexLogin, $_POST['userLog'])):
@@ -89,30 +98,66 @@ if (count($_POST) > 0):
         $error['errorConfirmPassword'] = 'La confirmation de votre mot de passe est incorrecte.';
     endif;
 
+    if (empty($status)):
+        $status = NULL;
+    else:
+        $users->status = $status;
+    endif;
+
+    if (empty($studentCourse)):
+        $studentCourse = NULL;
+    else: 
+        $users->studentCourse = $studentCourse;
+    endif;
+
+    if (empty($teacherCourse)):
+        $teacherCourse = NULL;
+    else: 
+        $users->teacherCourse = $teacherCourse;
+    endif;
+
+    if (empty($groupAge)):
+        $groupAge = NULL;
+    else: 
+        $users->groupAge = $groupAge;
+    endif;
+
+    if (empty($studentYear)):
+        $studentYear = NULL;
+    else: 
+        $users->studentYear = $studentYear;
+    endif;
+
+    if (empty($childBelt)):
+        $childBelt = NULL;
+    else: 
+        $users->childBelt = $childBelt;
+    endif;
+
+    if (empty($studentBelt)):
+        $studentBelt = NULL;
+    else: 
+        $users->studentBelt = $studentBelt;
+    endif;
+    
+    if (empty($teacherRank)):
+        $teacherRank = NULL;
+    else: 
+        $users->teacherRank = $teacherRank;
+    endif;
+
+    if (empty($presentation)):
+        $presentation = NULL;
+    else: 
+        $users->presentation = $presentation;
+    endif;
+
+    // $users->verification = $verification;
  
     // modal error s'il y a une erreur
     if(!empty($error)):
         $oups = true;
         endif; 
-
-
-
-
-
-
-//objet qui contient les attributs et les méthodes de la class User
-    
-    $users->picture = $picture;    
-    $users->status = $status;
-    $users->studentCourse = $studentCourse;
-    $users->teacherCourse = $teacherCourse;
-    $users->groupAge = $groupAge;
-    $users->studentYear = $studentYear;
-    $users->childBelt = $childBelt;
-    $users->studentBelt = $studentBelt;
-    $users->teacherRank = $teacherRank;
-    $users->presentation = $presentation;
-    // $users->verification = $verification;
    
 endif;
 
@@ -125,23 +170,20 @@ if (isset($_POST['submitInscriptionForm'])) {
     $users->mail = $mail;
     $mailResult = $users->mailChecking();
     if (count($mailResult) > 0 ) {
-        $oups = true;
+        $swalErrorForm = true;
         $error['errorMailChecking'] = 'Cette adresse mail est déjà utilisée.';
     } 
     $userLog = $_POST['userLog'];
     $users->userLog = $userLog;
     $userLogResult = $users->logChecking();
     if (count($userLogResult) > 0 ) {
-        $oups = true;
+        $swalErrorForm = true;
         $error['errorUserLogChecking'] = 'Cet identifiant est déjà utilisé.';
     } else {
         if(empty($error)):
             $users->addUser();
         // alert success s'il n'y a pas d'erreur
-        var_dump($addUser);
-        var_dump($users);
-        // $success = true;
-
+        $success = true;
     endif; 
     }
     }

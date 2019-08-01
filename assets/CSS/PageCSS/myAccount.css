@@ -56,3 +56,12 @@ form {
 #update {
   background: #32746d;
 }
+
+.red {
+  border: red solid 2px;
+  }
+  
+  .errorMessage {
+  color: red;
+  font-family: 'Permanent Marker', cursive;
+  }

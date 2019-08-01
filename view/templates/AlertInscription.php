@@ -5,7 +5,7 @@ if(isset($success) && $success == true){
         <script>
         Swal.fire(
           'Bien joué !',
-          'Ton inscription a bien été enregistrée !',
+          'Votre inscription a bien été enregistrée !',
           'success'
         );
         setTimeout(function(){
@@ -14,12 +14,15 @@ if(isset($success) && $success == true){
         </script>
         <?php
 }
-if(isset($oups) && $oups == true){
+
+
+
+if(isset($swalErrorForm) && $swalErrorForm == true){
   ?>
         <script>
   Swal.fire({
   title: 'Oups !',
-  text: 'Il doit y avoir une erreur dans ton formulaire... :(',
+  text: 'Il doit y avoir une erreur dans votre formulaire... :(',
   type: 'error',
   confirmButtonText: 'Ok'
 });
@@ -31,3 +34,20 @@ setTimeout(function(){
 }
 // Fin alerts d'inscription
 
+
+
+// Alert de mise à jour du profil
+if(isset($updateSuccess) && $updateSuccess == true){
+  ?>
+        <script>
+        Swal.fire(
+          'Bien joué !',
+          'Votre profil a bien été mis à jour !',
+          'success'
+        );
+        setTimeout(function(){
+           document.location.href = "myAccount.php"; 
+        }, 4000);
+        </script>
+        <?php
+}

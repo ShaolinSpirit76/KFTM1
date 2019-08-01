@@ -75,6 +75,7 @@ $('#newPhoneNumber').hide();
 $('#newUserLog').hide();
 $('#newPassword').hide();
 $('#updateNewPassword').hide();
+$('#newPicture').hide();
 
 $("#updateBirthDate").click(function() {
   $('#newBirthDate').show();
@@ -94,6 +95,10 @@ $("#updateUserLog").click(function() {
 
 $("#updatePassword").click(function() {
   $('#newPassword').show();
+});
+
+$("#updatePicture").click(function() {
+  $('#newPicture').show();
 });
 
 

@@ -27,7 +27,7 @@ class User extends DB{
         parent::__construct();
  }
     public function addUser(){
-        var_dump('OK AddUser');
+        
         $query = 'INSERT INTO `KFTM_USERS`(`firstName`, `lastName`, `birthDate`, `picture`, `mail`, `phoneNumber`, `userLog`, `password`, `status`, 
         `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :userLog, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation)';
         // création de la variable $addUser qui nous a permis de préparer la requête
@@ -94,30 +94,29 @@ class User extends DB{
      }
      
 public function updateUsers(){
-   $updateUser = "UPDATE `KFTM_USERS` SET lastname = :lastName, firstname = :firstName, birthdate = :birthDate, picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, password = :password, status = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE id = :id";
+    echo ('LETS UPDATE2');
+    $query = 'UPDATE `KFTM_USERS` SET picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, password = :password, status = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE id = :id';
+    $updateUser = $this->db->prepare($query);
 
-        $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
-        $updateUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
-        $updateUser->bindValue(':firstName', $this->firstName, PDO::PARAM_STR);
-        $updateUser->bindValue(':birthDate', $this->birthDate, PDO::PARAM_STR); 
-        $updateUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
-        $updateUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
-        $updateUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
-        $updateUser->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
-        $updateUser->bindValue(':password', $this->password, PDO::PARAM_STR);
-        $updateUser->bindValue(':status', $this->status, PDO::PARAM_STR);
-        $updateUser->bindValue(':studentCourse', $this->studentCourse, PDO::PARAM_STR);
-        $updateUser->bindValue(':teacherCourse', $this->teacherCourse, PDO::PARAM_STR);
-        $updateUser->bindValue(':groupAge', $this->groupAge, PDO::PARAM_STR);
-        $updateUser->bindValue(':studentYear', $this->studentYear, PDO::PARAM_STR);
-        $updateUser->bindValue(':childBelt', $this->childBelt, PDO::PARAM_STR);
-        $updateUser->bindValue(':studentBelt', $this->studentBelt, PDO::PARAM_STR);
-        $updateUser->bindValue(':teacherRank', $this->teacherRank, PDO::PARAM_STR);
-        $updateUser->bindValue(':presentation', $this->presentation, PDO::PARAM_STR);
+    $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+    $updateUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
+    $updateUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
+    $updateUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
+    $updateUser->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
+    $updateUser->bindValue(':password', $this->password, PDO::PARAM_STR);
+    $updateUser->bindValue(':status', $this->status, PDO::PARAM_STR);
+    $updateUser->bindValue(':studentCourse', $this->studentCourse, PDO::PARAM_STR);
+    $updateUser->bindValue(':teacherCourse', $this->teacherCourse, PDO::PARAM_STR);
+    $updateUser->bindValue(':groupAge', $this->groupAge, PDO::PARAM_STR);
+    $updateUser->bindValue(':studentYear', $this->studentYear, PDO::PARAM_STR);
+    $updateUser->bindValue(':childBelt', $this->childBelt, PDO::PARAM_STR);
+    $updateUser->bindValue(':studentBelt', $this->studentBelt, PDO::PARAM_STR);
+    $updateUser->bindValue(':teacherRank', $this->teacherRank, PDO::PARAM_STR);
+    $updateUser->bindValue(':presentation', $this->presentation, PDO::PARAM_STR);
 
-        if($updateUser->execute()){
-            return true;
-        }
+    if($updateUser->execute()){
+        return true;
+    }
 }
 //     $modifRequest = "SELECT * FROM `KFTM_USERS` WHERE id = :id";
 // // on récupère l'id et on le lie
