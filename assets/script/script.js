@@ -69,39 +69,25 @@ $("#maître_et_élève").click(function() {
 
 // Affichage conditionnel du formulaire mon compte
 // div cachées avant toute modification
-$('#newBirthDate').hide();
-$('#newMail').hide();
-$('#newPhoneNumber').hide();
-$('#newUserLog').hide();
-$('#newPassword').hide();
-$('#updateNewPassword').hide();
+$('#newID').hide();
 $('#newPicture').hide();
-
-$("#updateBirthDate").click(function() {
-  $('#newBirthDate').show();
-});
-
-$("#updateMail").click(function() {
-  $('#newMail').show();
-});
-
-$("#updatePhoneNumber").click(function() {
-  $('#newPhoneNumber').show();
-});
-
-$("#updateUserLog").click(function() {
-  $('#newUserLog').show();
-});
-
-$("#updatePassword").click(function() {
-  $('#newPassword').show();
-});
+$('#countDelete').hide();
 
 $("#updatePicture").click(function() {
   $('#newPicture').show();
 });
 
+$("#countDeleteButton").click(function() {
+  $('#countDelete').show();
+});
 
+$("#crossBackDelete").click(function() {
+  $('#countDelete').hide();
+});
+
+$("#backDelete").click(function() {
+  $('#countDelete').hide();
+});
 
 
 

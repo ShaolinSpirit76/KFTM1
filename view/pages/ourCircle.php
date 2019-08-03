@@ -32,12 +32,7 @@ include '../../controller/regex.php';
                    <p class="text-white">Ceinture adulte : <?= $displayUser['studentBelt']?> </p>
                    <p class="text-white">Grade : <?= $displayUser['teacherRank']?> </p>
                    <p class="text-white">Présentation : <?= $displayUser['presentation']?> </p>
-                   <ul>
-                   <li class="list-group-item">
-            <div class="text-center"><a href="ourCircle.php?deleteId=<?= $donnees['id']; ?>"><button type="button"
-                  class="btn btn-primary">Suppression</button></a></div>
-          </li>
-        </ul>
+                   
       </div>
 </div>
     </div>

@@ -2,7 +2,7 @@
 //class User qui hérite de DataBase.php (DB)
 class User extends DB{
 
-    public $id;
+    public $ID;
     public $firstName;
     public $lastName;
     public $birthDate;
@@ -93,12 +93,13 @@ class User extends DB{
         return $displayUsers;
      }
      
-public function updateUsers(){
-    echo ('LETS UPDATE2');
-    $query = 'UPDATE `KFTM_USERS` SET picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, password = :password, status = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE id = :id';
+public function updateUser(){
+            
+       $query = 'UPDATE `KFTM_USERS` SET picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, `password` = :password, `status` = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE ID = :ID';
+
     $updateUser = $this->db->prepare($query);
 
-    $updateUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+   
     $updateUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
     $updateUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
     $updateUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
@@ -113,11 +114,39 @@ public function updateUsers(){
     $updateUser->bindValue(':studentBelt', $this->studentBelt, PDO::PARAM_STR);
     $updateUser->bindValue(':teacherRank', $this->teacherRank, PDO::PARAM_STR);
     $updateUser->bindValue(':presentation', $this->presentation, PDO::PARAM_STR);
+    $updateUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_INT);
+    
+    
 
+    
     if($updateUser->execute()){
-        return true;
+       return true;
     }
 }
+
+
+
+
+
+public function update(Personnage $perso)
+{
+  $q = $this->_db->prepare('UPDATE personnages SET forcePerso = :forcePerso, degats = :degats, niveau = :niveau, experience = :experience WHERE id = :id');
+
+  $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
+  $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+  $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
+  $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
+  $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
+
+  $q->execute();
+}
+
+
+
+
+
+
+
 //     $modifRequest = "SELECT * FROM `KFTM_USERS` WHERE id = :id";
 // // on récupère l'id et on le lie
 //     $modifRequest->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
@@ -128,12 +157,16 @@ public function updateUsers(){
 // }
      
      public function deleteUser(){
-        $query = 'DELETE FROM `KFTM_USERS` WHERE id=:id';
-        $deleteUser=$this->db->prepare($query);
-        $deleteUser->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $query = "DELETE FROM `KFTM_USERS` WHERE ID = :ID";
+        $deleteUser = $this->db->prepare($query);
+        $deleteUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_INT);
         if($deleteUser->execute()){
-           return true;
+            return true;
         }
 
      }
+
+
+     
+    
 }

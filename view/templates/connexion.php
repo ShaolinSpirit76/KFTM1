@@ -1,9 +1,24 @@
 <?php
 require '../../controller/connexionControllerStart.php';
-include '../templates/head.php';
+include '../templates/headHome.php';
 include '../../controller/regex.php';
 require '../../controller/connexionController.php';
 ?>
+
+
+<style>
+body {
+    /* Code pour que l'image reste fixe et responsive */
+    margin: 0;
+    padding: 0;
+    background: url(../../assets/images/theme/china-1760838_960_720.jpg) no-repeat center fixed;
+    -webkit-background-size: cover;
+    /* pour anciens Chrome et Safari */
+    background-size: cover;
+    /* version standardisée */
+  }
+</style>
+
 
 <!-- Début modal login -->
 
@@ -17,7 +32,7 @@ require '../../controller/connexionController.php';
         </button></a>
       </div>
       <div class="modal-body">
-<form name="loginForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
+<form id="loginForm" name="loginForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
   <div class="text-center">
 
   <span><label for="mailConnect">Identifiant </label><br /> <input class="<?php echo (isset($_POST['mailConnect']) && !preg_match($regexLogin, $_POST['mailConnect']))? 'red':'';  ?>" value="<?= $_POST['mailConnect']?>" type="text" name="mailConnect" id="mailConnect" placeholder="Pseudo ou mail" required /><p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p></span>

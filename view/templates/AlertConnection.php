@@ -5,7 +5,7 @@ if(isset($connectionSuccess) && $connectionSuccess == true){
         <script>
         Swal.fire(
           'Bonjour <?= $_SESSION['userInfos'][0]['firstName'] ?> !',
-          'Ravi de te revoir...',
+          'Ravi de vous revoir...',
           'success'
         );
         setTimeout(function(){
@@ -38,10 +38,37 @@ if(isset($mdpFailed) && $mdpFailed == true){
   type: 'error',
   confirmButtonText: 'Ok'
 });
-setTimeout(function(){
-      
-    }, 6000);
 </script>
         <?php
 }
 // Fin alerts connexion
+
+// Alert de vérification
+if(isset($identificationSuccess) && $identificationSuccess == true){
+  ?>
+        <script>
+        Swal.fire({
+    title: "A vous de jouer <?= $_SESSION['userInfos'][0]['firstName'] ?> !",
+    text: "Vous êtes le maître...",
+    type: "success"
+}).then(function() {
+    $('#newID').show();
+});              
+        </script>
+        <?php
+}
+
+// Alert de suppression de compte
+if(isset($deleteSuccess) && $deleteSuccess == true){
+  ?>
+        <script>
+        Swal.fire({
+    title: "Au-revoir  <?= $_SESSION['userInfos'][0]['firstName'] ?> !",
+    text: "Vous nous manquerez...",
+    type: "success"
+}).then(function() {
+    document.location.href = "../../index.php"; 
+});              
+        </script>
+        <?php
+}

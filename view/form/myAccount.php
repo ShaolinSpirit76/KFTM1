@@ -75,7 +75,7 @@ require_once '../../controller/myAccountController.php';
     <div id="newPicture">
 
           <span class="font-weight-bolder text-white"><label for="picture">Nouvelle photo de profil : </label> <input
-              type="file" name="picture" id="picture" accept="image/*" />
+              type="file" name="picture" id="picture" value="<?= $_POST['picture']?>" accept="image/*" />
             <small class="text-white"><br /><i>De préférence un .jpg</i></small></span>
 
     </div>
@@ -113,7 +113,7 @@ require_once '../../controller/myAccountController.php';
         <li class="font-weight-bolder text-white"><label for="phoneNumber">Ajouter un numéro de téléphone : </label>
           <input
             class="inputInscription <?php echo (isset($_POST['phoneNumber']) && !preg_match($regexPhone, $_POST['phoneNumber']))? 'red':'';  ?>"
-            type="tel" id="phoneNumber" name="phoneNumber" placeholder=" 06.xx.xx.xx.xx " />
+            type="tel" id="phoneNumber" name="phoneNumber" placeholder=" 06.xx.xx.xx.xx " value="<?= $_POST['phoneNumber']?>" />
           <p class="errorMessage"><?= (isset($error['errorPhone'])) ? $error['errorPhone'] : ''; ?></p>
         </li>
 
@@ -133,55 +133,20 @@ require_once '../../controller/myAccountController.php';
             <?= ($_SESSION['userInfos'][0]['userLog']) ?></label></li>
 
         <li class="font-weight-bolder text-white">
-          <button type="button" class="badge badge-secondary" id="updateUserLog">Changer l'identifiant</button>
+          <button type="button" id="updateID" class="badge badge-secondary" data-toggle="modal" data-target="#verification">Changer l'identifiant et/ou le mot de passe</button>
         </li>
 
-        <div id="newUserLog">
-
-          <span class="font-weight-bolder text-white"><label for="passwordConnect">Mot de passe actuel </label><br />
-            <input
-              class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>"
-              value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect"
-              placeholder="Mot de passe" /> <small class="text-white"><br /><i>Renseignez votre mot de passe pour
-                confirmer l'action.</i></small>
-            <p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?> </p>
-            <p class="errorMessage"><?= (isset($error['errorCheckPassword'])) ? $error['errorCheckPassword'] : ''; ?>
-            </p>
-          </span>
+        <div id="newID">
 
           <span class="font-weight-bolder text-white"><label for="userLog">Nouvel identifiant </label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['userLog']) && !preg_match($regexLogin, $_POST['userLog']))? 'red':'';  ?>"
-              value="<?= ($_SESSION['userInfos'][0]['userLog']) ?>" type="text" name="userLog" id="userLog" placeholder="Pseudo" /><small
+              value="<?= $_POST['userLog'] ?>" type="text" name="userLog" id="userLog" placeholder="Pseudo" /><small
               class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
             <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorUserLogChecking'])) ? $error['errorUserLogChecking'] : ''; ?></p>
           </span>
 
-        </div>
-
-
-
-
-        <li class="font-weight-bolder text-white">
-          <button type="button" class="badge badge-secondary" id="updatePassword">Changer le mot de passe</button>
-        </li>
-
-        <div id="newPassword">
-
-          <span class="font-weight-bolder text-white"><label for="passwordConnect">Mot de passe actuel </label><br />
-            <input
-              class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>"
-              value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect"
-              placeholder="Mot de passe" /> <small class="text-white"><br /><i>Renseignez votre mot de passe pour
-                confirmer l'action.</i></small>
-            <p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?> </p>
-            <p class="errorMessage"><?= (isset($error['errorCheckPassword'])) ? $error['errorCheckPassword'] : ''; ?>
-            </p>
-          </span>
-
-
-
-          <span class="font-weight-bolder text-white"><label for="passwordConnect">Nouveau mot de passe </label><br />
+                 <span class="font-weight-bolder text-white"><label for="passwordConnect">Nouveau mot de passe </label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['password']) && !preg_match($regexPassword, $_POST['password']))? 'red':'';  ?>"
               value="<?= $_POST['password']?>" type="password" name="password" id="password" />
@@ -575,34 +540,17 @@ require_once '../../controller/myAccountController.php';
 
         <div>
 
-          <?php if ((!empty($presentation)) || (isset($_SESSION['userInfos'][0]['presentation']))): ?>
-          <p class="font-weight-bolder text-white">
-            <label for="presentation"><i>Présentation : </i> </label></p>
+            <p class="font-weight-bolder text-white">
+            <label for="presentation"><i>Modifier votre présentation : </i> </label></p>
           <textarea id="presentation" name="presentation" rows="5" cols="33" maxlength="518">
 <?= ($_SESSION['userInfos'][0]['presentation']) ?>
 </textarea>
-
-
-          <p class="font-weight-bolder text-white text-justify"><label for="presentation"><br /><br />Modifier votre
-              présentation : </label></p>
-          <!--Pour le maxlenght du textarea, il ne commence qu'à 18 caractères. Il faut donc mettre le nombre souhaité +18-->
-          <textarea id="presentation" class="mx-auto" name="presentation" rows="5" cols="33" maxlength="518">
-
-                </textarea>
-          <p class="card-text"><small class="text-white"><i>Max. 500 caractères</i></small></p>
-
-          <?php else: ?>
-
-          <p class="font-weight-bolder text-white text-justify"><label for="presentation"><br /><br />Un slogan, une
+<p class="card-text"><small class="text-white"><i>Max. 500 caractères</i></small></p>
+          <p class="font-weight-bolder text-white text-justify"><label for="presentation">Un slogan, une
               citation préférée, ou tout simplement votre parcours dans les arts martiaux ? Dites-nous en plus !</label>
           </p>
           <!--Pour le maxlenght du textarea, il ne commence qu'à 18 caractères. Il faut donc mettre le nombre souhaité +18-->
-          <textarea id="presentation" name="presentation" rows="5" cols="33" maxlength="518">
-
-                </textarea>
-          <p class="card-text"><small class="text-white"><i>Max. 500 caractères</i></small></p>
-
-          <?php endif; ?>
+         
         </div>
 
       </ul>
@@ -616,6 +564,43 @@ require_once '../../controller/myAccountController.php';
       <p><br /><button id="modifRequest" type="submit" name="modifRequest" class="float-right rounded">Enregistrer les
           modifications</button></p>
 
+          <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer mon compte</button>
+
+
+
+           <!-- Début modal sécurité pour la suppression -->
+
+<div id="countDelete" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header text-white" style="background-color:black;">
+        <h5 class="modal-title">Action irréversible</h5>
+        <button type="button" id="crossBackDelete" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<!-- action : permet de désigner la page actuelle -->
+<form name="deleteForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
+  <div class="text-center">
+
+  <span><label for="passwordConnect">Mot de passe </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
+
+  <p><button type="button" id="backDelete" class="btn btn-secondary"data-dismiss="modal">Retour</button>
+  <button id="deleteRequest" name="deleteRequest" class="yellow-hover btn btn-primary text-white">Confirmer la suppression</button><br /></p>
+</form>
+</div>
+<div class="modal-footer" style="background-color:#282828;">
+<p><small class="text-white"><i>Vous vous apprétez à supprimer définitivement votre compte. Il vous sera bien sûr possible par la suite de vous réinscrire si vous le désirez, mais toutes les données relatives à ce compte seront perdues.</i></small></p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- Fin modal sécurité pour la suppression -->
+
+
+
     </fieldset>
   </div>
   </div>
@@ -623,6 +608,49 @@ require_once '../../controller/myAccountController.php';
 </form>
 
 
+
+
+
+
+
+
+
+
+<!-- Début modal vérification de sécurité -->
+
+<div class="modal fade" id="verification" tabindex="-1" role="dialog" aria-labelledby="verificationLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+      <div class="modal-header text-white" style="background-color:black;">
+        <h5 class="modal-title">Vérification requise</h5>
+        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- action : permet de désigner la page actuelle -->
+<form name="secureForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
+  <div class="text-center">
+
+  <span><label for="passwordConnect">Mot de passe actuel </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" required/><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
+
+  <p><button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
+  <button id="verificationButton" name="verificationButton" class="yellow-hover btn btn-primary text-white">M'authentifier</button><br /></p>
+</form>
+</div>
+
+<div class="modal-footer" style="background-color:#282828;">
+      <small class="text-white"><i>Vous vous apprétez à modifier des données sensibles. Par mesure de sécurité, nous préférons vous re-demander votre mot de passe actuel, afin de nous assurer que l'auteur de la demande est bien le détenteur du compte.</i></small>
+        </div>
+    </div>
+    </div>
+</div>
+
+  <!-- Fin modal vérification de sécurité -->
+
+  
+
 <?php
-include '../templates/footer.php';
+include '../templates/footerAdmin.php';
 include '../templates/AlertInscription.php';
+include '../templates/AlertConnection.php';

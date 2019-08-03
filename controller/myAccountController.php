@@ -35,7 +35,7 @@ if (count($_POST) > 0):
     $teacherRank = $_POST['teacherRank'];
     $presentation = $_POST['presentation'];
     
-    // $verification = $_POST['verification'];
+
 
     
     $_POST = array_map('strip_tags', $_POST); // Ligne à mettre absolument pour la sécurité : interdit l'injection de script (balises non autorisées)
@@ -54,11 +54,13 @@ if (count($_POST) > 0):
         $users->picture = $picture; 
     endif;
 
+    if (isset($_POST['mail'])):
     if ( !preg_match ($regexMail, $_POST['mail'] ) ):
         $error['errorMail'] = 'Votre adresse mail est incorrecte.';
         elseif (preg_match ($regexMail, $_POST['mail'] )):
             $users->mail = $mail;
     endif;
+endif;
 
     if (!preg_match ($regexPhone, $_POST['phoneNumber'])):
         $error['errorPhone'] = 'Votre numéro de téléphone est incorrect.';
@@ -84,9 +86,7 @@ if (count($_POST) > 0):
     //     $error['errorConfirmPassword'] = 'La confirmation de votre mot de passe est incorrecte.';
     // endif;
 
-    if ((isset($_POST['passwordConnect'])) && !password_verify($_POST['passwordConnect'], $_SESSION['userInfos'][0]['password'])):
-        $error['errorCheckPassword'] = 'Ceci n\'est pas votre mot de passe actuel.';
-    endif;
+    
 
     if (empty($status)):
         $status = NULL;
@@ -146,12 +146,28 @@ if (count($_POST) > 0):
  
     // modal error s'il y a une erreur
     if(!empty($error)):
-        var_dump($updateUsers);
-            var_dump($users);
         $swalErrorForm = true;
         endif; 
    
 endif;
+
+
+
+
+// Modification des données sensibles
+if(isset($_POST['verificationButton'])):
+    $passwordConnect = htmlspecialchars($_POST['passwordConnect']);
+    if ((isset($_POST['passwordConnect'])) && !password_verify($_POST['passwordConnect'], $_SESSION['userInfos'][0]['password'])):
+        $error['errorCheckPassword'] = 'Ceci n\'est pas votre mot de passe actuel.';
+        $mdpFailed = true; 
+    else:
+        $identificationSuccess = true;
+        endif;
+endif;
+
+
+
+
 
 
 // Filtre des doublons
@@ -183,15 +199,31 @@ if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
         }
 
     }
+
+
+    // Validation de la mise à jour du profil
     if(empty($error)):
-        echo ('lets UPDATE');
-        var_dump($users);
-            $users->updateUsers();
+            var_dump($users);
+            $users->updateUser();
     // alert success s'il n'y a pas d'erreur
-        $updateSuccess = true;
+        // $updateSuccess = true;
     endif; 
+
     }
     
+
+    if (isset($_POST['deleteRequest'])) {
+        $passwordConnect = htmlspecialchars($_POST['passwordConnect']);
+        if ((isset($_POST['passwordConnect'])) && !password_verify($_POST['passwordConnect'], $_SESSION['userInfos'][0]['password'])):
+            $error['errorCheckPassword'] = 'Ceci n\'est pas votre mot de passe actuel.';
+            $mdpFailed = true; 
+        else:
+            $deleteSuccess = true;
+            $users->deleteUser();
+            session_destroy();
+            endif;
+           
+    }
 
 
     
