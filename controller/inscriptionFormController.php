@@ -18,11 +18,6 @@ if (count($_POST) > 0):
     $firstName = $_POST['firstName'];
     $birthDate = $_POST['birthDate'];
     $picture = $_POST['picture'];
-
-//   $imgFile = $_FILES['picture']['name'];
-//   $tmp_dir = $_FILES['picture']['tmp_name'];
-//   $imgSize = $_FILES['picture']['size'];
-
     $mail = $_POST['mail'];
     $phoneNumber = $_POST['phoneNumber'];
     $userLog = $_POST['userLog'];

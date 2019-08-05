@@ -70,11 +70,11 @@ $("#maître_et_élève").click(function() {
 // Affichage conditionnel du formulaire mon compte
 // div cachées avant toute modification
 $('#newID').hide();
-$('#newPicture').hide();
+$('#newPic').hide();
 $('#countDelete').hide();
 
 $("#updatePicture").click(function() {
-  $('#newPicture').show();
+  $('#newPic').show();
 });
 
 $("#countDeleteButton").click(function() {
@@ -132,6 +132,28 @@ $(document).ready(function() {
           } else {
             $("#password").css("border", "solid 2px green");
             $("#confirmPassword").css("border", "solid 2px green");
+          }
+        });
+
+// Et du formulaire de mise à jour
+
+        $("#newConfirmPassword").focusout(function() {
+          var newPassword = $("#newPassword").val();
+          var newConfirmPassword = $("#newConfirmPassword").val();
+          if (newPassword == "") {
+            $("#newPassword").css("border", "solid 2px red");
+            $("#newConfirmPassword").css("border", "solid 2px red");
+            alert("Veuillez entrer votre mot de passe dans le premier champs !");
+          } else if (newConfirmPassword == "") {
+            $("#newPassword").css("border", "solid 2px green");
+            $("#newConfirmPassword").css("border", "solid 2px red");
+            alert("Veuillez entrer votre mot de passe dans le second champs !");
+          } else if (newPassword != newConfirmPassword) {
+            $("#newConfirmPassword").css("border", "solid 2px red");
+            alert("Confirmation du mot de passe invalide");
+          } else {
+            $("#newPassword").css("border", "solid 2px green");
+            $("#newConfirmPassword").css("border", "solid 2px green");
           }
         });
 
