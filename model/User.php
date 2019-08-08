@@ -93,34 +93,37 @@ class User extends DB{
         return $displayUsers;
      }
      
+
 public function updateUser(){
-            
-       $query = 'UPDATE `KFTM_USERS` SET picture = :picture, mail = :mail, phoneNumber = :phoneNumber, userLog = :userLog, `password` = :password, `status` = :status, studentCourse = :studentCourse, teacherCourse = :teacherCourse, groupAge = :groupAge, studentYear = :studentYear, childBelt = :childBelt, studentBelt = :studentBelt, teacherRank = :teacherRank, presentation = :presentation WHERE ID = :ID';
+   
+       $query = 'UPDATE `KFTM_USERS` SET lastName = :newLastName, firstName = :newFirstName, birthDate = :newBirthDate, picture = :newPicture, mail = :newMail, phoneNumber = :newPhoneNumber, userLog = :newUserLog, password = :newPassword, status = :newStatus, studentCourse = :newStudentCourse, teacherCourse = :newTeacherCourse, groupAge = :newGroupAge, studentYear = :newStudentYear, childBelt = :newChildBelt, studentBelt = :newStudentBelt, teacherRank = :newTeacherRank, presentation = :newPresentation WHERE ID = :ID';
 
     $updateUser = $this->db->prepare($query);
 
-   
-    $updateUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
-    $updateUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
-    $updateUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
-    $updateUser->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
-    $updateUser->bindValue(':password', $this->password, PDO::PARAM_STR);
-    $updateUser->bindValue(':status', $this->status, PDO::PARAM_STR);
-    $updateUser->bindValue(':studentCourse', $this->studentCourse, PDO::PARAM_STR);
-    $updateUser->bindValue(':teacherCourse', $this->teacherCourse, PDO::PARAM_STR);
-    $updateUser->bindValue(':groupAge', $this->groupAge, PDO::PARAM_STR);
-    $updateUser->bindValue(':studentYear', $this->studentYear, PDO::PARAM_STR);
-    $updateUser->bindValue(':childBelt', $this->childBelt, PDO::PARAM_STR);
-    $updateUser->bindValue(':studentBelt', $this->studentBelt, PDO::PARAM_STR);
-    $updateUser->bindValue(':teacherRank', $this->teacherRank, PDO::PARAM_STR);
-    $updateUser->bindValue(':presentation', $this->presentation, PDO::PARAM_STR);
     $updateUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_INT);
+    $updateUser->bindValue(':newLastName', $this->lastName, PDO::PARAM_STR);
+    $updateUser->bindValue(':newFirstName', $this->firstName, PDO::PARAM_STR);
+    $updateUser->bindValue(':newBirthDate', $this->birthDate, PDO::PARAM_STR);
+    $updateUser->bindValue(':newPicture', $this->picture, PDO::PARAM_STR); 
+    $updateUser->bindValue(':newMail', $this->mail, PDO::PARAM_STR); 
+    $updateUser->bindValue(':newPhoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
+    $updateUser->bindValue(':newUserLog', $this->userLog, PDO::PARAM_STR);
+    $updateUser->bindValue(':newPassword', $this->password, PDO::PARAM_STR);
+    $updateUser->bindValue(':newStatus', $this->status, PDO::PARAM_STR);
+    $updateUser->bindValue(':newStudentCourse', $this->studentCourse, PDO::PARAM_STR);
+    $updateUser->bindValue(':newTeacherCourse', $this->teacherCourse, PDO::PARAM_STR);
+    $updateUser->bindValue(':newGroupAge', $this->groupAge, PDO::PARAM_STR);
+    $updateUser->bindValue(':newStudentYear', $this->studentYear, PDO::PARAM_STR);
+    $updateUser->bindValue(':newChildBelt', $this->childBelt, PDO::PARAM_STR);
+    $updateUser->bindValue(':newStudentBelt', $this->studentBelt, PDO::PARAM_STR);
+    $updateUser->bindValue(':newTeacherRank', $this->teacherRank, PDO::PARAM_STR);
+    $updateUser->bindValue(':newPresentation', $this->presentation, PDO::PARAM_STR);
     
     
-
+   
     
     if($updateUser->execute()){
-       return true;
+        return true;
     }
 }
 
@@ -128,18 +131,18 @@ public function updateUser(){
 
 
 
-public function update(Personnage $perso)
-{
-  $q = $this->_db->prepare('UPDATE personnages SET forcePerso = :forcePerso, degats = :degats, niveau = :niveau, experience = :experience WHERE id = :id');
+// public function update(Personnage $perso)
+// {
+//   $q = $this->_db->prepare('UPDATE personnages SET forcePerso = :forcePerso, degats = :degats, niveau = :niveau, experience = :experience WHERE id = :id');
 
-  $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
-  $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
-  $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
-  $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
-  $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
+//   $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
+//   $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
+//   $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
+//   $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
+//   $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
 
-  $q->execute();
-}
+//   $q->execute();
+// }
 
 
 
@@ -161,7 +164,7 @@ public function update(Personnage $perso)
         $deleteUser = $this->db->prepare($query);
         $deleteUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_INT);
         if($deleteUser->execute()){
-            return true;
+           return true;
         }
 
      }

@@ -38,6 +38,10 @@
 
 </head>
 
+<?php
+setlocale(LC_ALL, 'fr_FR.UTF8');
+?>
+
 <body>
 <!-- Pour le scroll to top -->
 <a id="buttonScroll" class="rounded-circle"></a>
