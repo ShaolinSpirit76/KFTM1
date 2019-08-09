@@ -32,6 +32,24 @@ if (count($_POST) > 0):
     $newStudentBelt = $_POST['newStudentBelt'];
     $newTeacherRank = $_POST['newTeacherRank'];
     $newPresentation = $_POST['newPresentation'];
+
+    $lastName = $_SESSION['userInfos'][0]['lastName'];
+    $firstName = $_SESSION['userInfos'][0]['firstName'];
+    $birthDate = $_SESSION['userInfos'][0]['birthDate'];
+    $picture = $_SESSION['userInfos'][0]['picture'];
+    $mail = $_SESSION['userInfos'][0]['mail'];
+    $phoneNumber = $_SESSION['userInfos'][0]['phoneNumber'];
+    $userLog = $_SESSION['userInfos'][0]['userLog'];
+    $password = $_SESSION['userInfos'][0]['password'];
+    $status = $_SESSION['userInfos'][0]['status'];
+    $studentCourse = $_SESSION['userInfos'][0]['studentCourse'];
+    $teacherCourse = $_SESSION['userInfos'][0]['teacherCourse'];
+    $groupAge = $_SESSION['userInfos'][0]['groupAge'];
+    $studentYear = $_SESSION['userInfos'][0]['studentYear'];
+    $childBelt = $_SESSION['userInfos'][0]['childBelt'];
+    $studentBelt = $_SESSION['userInfos'][0]['studentBelt'];
+    $teacherRank = $_SESSION['userInfos'][0]['teacherRank'];
+    $presentation = $_SESSION['userInfos'][0]['presentation'];
     
 
 
@@ -121,6 +139,7 @@ if (isset($_POST['newUserLog'])):
 else:
     $user->userLog = $_SESSION['userInfos'][0]['userLog'];
  endif; 
+
 
 
 if (isset($_POST['newPassword'])):
@@ -233,12 +252,12 @@ endif;
 
 if (isset($_POST['newPresentation'])):
     if (empty($_POST['newPresentation'])):
-        $newPresentation = $_SESSION['userInfos'][0]['presentation'];
+       $user->presentation = $presentation;
     else: 
         $user->presentation = $newPresentation;
     endif;
 else: 
-    $newPresentation = $_SESSION['userInfos'][0]['presentation'];   
+    $user->presentation = $presentation;   
 endif;
 
 
@@ -277,38 +296,65 @@ endif;
 if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
 
 // on check le doublon du mail on prenant en compte du mail de session
-    $newMail = $_POST['newMail'];
-    $user->mail = $newMail;
-    $mailResult = $user->mailChecking();
-    if ($mailResult[0]['mail'] != $_SESSION['userInfos'][0]['mail']){
+    $mail = $_POST['newMail'];
+    $user->mail = $mail;
+    $mailResult = $user->mailChecking2();
+    if ($mail != $_SESSION['userInfos'][0]['mail']){
         
         if (count($mailResult) > 0){
             $swalErrorForm = true;
             $error['errorMailChecking'] = 'Cette adresse mail est déjà utilisée.';
+        } else {
+
+            if (isset($_POST['newMail'])):
+                if ( !preg_match ($regexMail, $_POST['newMail'] ) ):
+                $error['errorMail'] = 'Votre adresse mail est incorrecte.';
+                elseif (empty($_POST['newMail'])):
+                    $user->mail = $_SESSION['userInfos'][0]['mail'];
+                elseif (preg_match ($regexMail, $_POST['newMail'] )):
+                    $user->mail = $newMail;
+            endif;
+        else: 
+            $user->mail = $_SESSION['userInfos'][0]['mail'];
+        endif;
+
         }
 
-    }
+    } 
 
 
-    $newUserLog = $_POST['newUserLog'];
-    $user->userLog = $newUserLog;
-    $userLogResult = $user->logChecking();
+    $userLog = $_POST['newUserLog'];
+    $user->userLog = $userLog;
+    $userLogResult = $user->logChecking2();
     if ($userLogResult[0]['userLog'] != $_SESSION['userInfos'][0]['userLog']){
 
         if (count($userLogResult) > 0){
             $swalErrorForm = true;
             $error['errorUserLogChecking'] = 'Cet identifiant est déjà utilisé.';
+        } else {
+
+            if (isset($_POST['newUserLog'])):
+                if ( !preg_match ($regexLogin, $_POST['newUserLog'] ) ):
+                    $error['errorLogin'] = 'Votre login est non conforme.';
+                    elseif (empty($_POST['newUserLog'])):
+                        $user->userLog = $_SESSION['userInfos'][0]['userLog'];
+                    elseif(preg_match ($regexLogin, $_POST['newUserLog'])):
+                        $user->userLog = $newUserLog;
+                endif;
+            else:
+                $user->userLog = $_SESSION['userInfos'][0]['userLog'];
+             endif; 
+
         }
 
-    }
+    } 
 
 
     // Validation de la mise à jour du profil
     if(empty($error)):
-            var_dump($user);
-            $user->updateUser();
+        $user->updateUser();
     // alert success s'il n'y a pas d'erreur
-        // $updateSuccess = true;
+        $updateSuccess = true;
     endif; 
 
     }

@@ -80,7 +80,7 @@ require_once '../../controller/myAccountController.php';
 
 
                  
-          <?php if (!empty($picture)): ?>
+          <?php if (isset($_SESSION['userInfos'][0]['picture'])): ?>
 
 <li class="font-weight-bolder text-white"><label for="picture">Photo de profil :
     <?= ($_SESSION['userInfos'][0]['picture']) ?></label> <button type="button" class="badge badge-secondary"
@@ -117,7 +117,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-                 <?php if (!empty($phoneNumber)): ?>
+                 <?php if (isset($_SESSION['userInfos'][0]['birthDate'])): ?>
 
 <li class="font-weight-bolder text-white"><label for="newPhoneNumber">Numéro de téléphone : </label> <input title="Cliquez pour modifier"
     class="inputInscription <?php echo (isset($_POST['newPhoneNumber']) && !preg_match($regexPhone, $_POST['newPhoneNumber']))? 'red':'';  ?>"
@@ -160,11 +160,12 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
           <span class="font-weight-bolder text-white"><label for="newUserLog">Nouvel identifiant </label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['newUserLog']) && !preg_match($regexLogin, $_POST['newUserLog']))? 'red':'';  ?>"
-              value="<?= $_POST['newUserLog'] ?>" type="text" name="newUserLog" id="newUserLog" placeholder="Pseudo ou mail" /><small
+              value="<?= $_POST['newUserLog'] ?>" type="text" name="newUserLog" id="newUserLog"  placeholder="<?= ($_SESSION['userInfos'][0]['userLog']) ?>" /><small
               class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
             <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorUserLogChecking'])) ? $error['errorUserLogChecking'] : ''; ?></p>
           </span>
 
+          
                  <span class="font-weight-bolder text-white"><label for="newPassword">Nouveau mot de passe </label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['newPassword']) && !preg_match($regexPassword, $_POST['newPassword']))? 'red':'';  ?>"
@@ -566,7 +567,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
             <p class="font-weight-bolder text-white">
             <label for="newPresentation"><i>Modifier votre présentation : </i> </label></p>
           <textarea id="newPresentation" name="newPresentation" rows="5" cols="33" maxlength="518" value="<?= $_POST['newPresentation']?>">
-<?= ($_SESSION['userInfos'][0]['presentation']) ?>
+         <?= ($_SESSION['userInfos'][0]['presentation']) ?>
 </textarea>
 <p class="card-text"><small class="text-white"><i>Max. 500 caractères</i></small></p>
           <p class="font-weight-bolder text-white text-justify"><label for="presentation">Un slogan, une

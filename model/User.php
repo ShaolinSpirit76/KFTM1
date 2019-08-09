@@ -64,10 +64,28 @@ class User extends DB{
         return $mailCheckingFetch;
     }
 
+    public function mailChecking2() {
+        $query = 'SELECT mail FROM `KFTM_USERS` WHERE mail = :newMail';
+        $mailChecking = $this->db->prepare($query);
+        $mailChecking->bindValue(':newMail', $this->mail, PDO::PARAM_STR);
+        $mailChecking->execute();
+        $mailCheckingFetch = $mailChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $mailCheckingFetch;
+    }
+
     public function logChecking() {
         $query = 'SELECT userLog FROM `KFTM_USERS` WHERE userLog = :userLog';
         $logChecking = $this->db->prepare($query);
         $logChecking->bindValue(':userLog', $this->userLog, PDO::PARAM_STR);
+        $logChecking->execute();
+        $logCheckingFetch = $logChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $logCheckingFetch;
+    }
+
+    public function logChecking2() {
+        $query = 'SELECT userLog FROM `KFTM_USERS` WHERE userLog = :newUserLog';
+        $logChecking = $this->db->prepare($query);
+        $logChecking->bindValue(':newUserLog', $this->userLog, PDO::PARAM_STR);
         $logChecking->execute();
         $logCheckingFetch = $logChecking->fetchAll(PDO::FETCH_ASSOC);
         return $logCheckingFetch;
@@ -130,34 +148,6 @@ public function updateUser(){
 
 
 
-
-// public function update(Personnage $perso)
-// {
-//   $q = $this->_db->prepare('UPDATE personnages SET forcePerso = :forcePerso, degats = :degats, niveau = :niveau, experience = :experience WHERE id = :id');
-
-//   $q->bindValue(':forcePerso', $perso->forcePerso(), PDO::PARAM_INT);
-//   $q->bindValue(':degats', $perso->degats(), PDO::PARAM_INT);
-//   $q->bindValue(':niveau', $perso->niveau(), PDO::PARAM_INT);
-//   $q->bindValue(':experience', $perso->experience(), PDO::PARAM_INT);
-//   $q->bindValue(':id', $perso->id(), PDO::PARAM_INT);
-
-//   $q->execute();
-// }
-
-
-
-
-
-
-
-//     $modifRequest = "SELECT * FROM `KFTM_USERS` WHERE id = :id";
-// // on récupère l'id et on le lie
-//     $modifRequest->bindValue(':id', $_GET['id'], PDO::PARAM_STR);
-
-
-//     // On exécute notre requête préparée
-//     $modifRequest->execute();
-// }
      
      public function deleteUser(){
         $query = "DELETE FROM `KFTM_USERS` WHERE ID = :ID";

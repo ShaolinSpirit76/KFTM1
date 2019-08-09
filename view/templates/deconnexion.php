@@ -21,7 +21,7 @@ body {
 Swal.fire({
   position: 'top-end',
   type: 'success',
-  title: 'Vous avez bien été déconnecté ! ;)',
+  title: 'Vous avez bien été déconnecté ;)',
   text: 'A bientôt <?= $_SESSION['userInfos'][0]['firstName'] ?>...',
   showConfirmButton: false,
   timer: 2500

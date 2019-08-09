@@ -5,7 +5,7 @@ if(isset($success) && $success == true){
         <script>
         Swal.fire(
           'Bien joué !',
-          'Votre inscription a bien été enregistrée !',
+          'Votre inscription a bien été enregistrée :)',
           'success'
         );
         setTimeout(function(){
@@ -42,11 +42,14 @@ if(isset($updateSuccess) && $updateSuccess == true){
         <script>
         Swal.fire(
           'Bien joué !',
-          'Votre profil a bien été mis à jour !',
+          'Votre profil a bien été mis à jour ;)',
           'success'
         );
         setTimeout(function(){
-           document.location.href = "myAccount.php"; 
+           document.location.href = "../pages/ourCircle.php"; 
+           <?php
+           session_destroy();
+           ?>
         }, 4000);
         </script>
         <?php
