@@ -349,6 +349,7 @@ if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
 
     } 
 
+    
 
     // Validation de la mise à jour du profil
     if(empty($error)):

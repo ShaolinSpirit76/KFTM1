@@ -1,12 +1,32 @@
 /* CSS formulaire d'inscription */
 
-/* {
-  outline: none;
-  border: none;
-  border-bottom: 1px solid #9ee0c4;
-  background-color: transparent;
-} */
+body {
+  /* Code pour que l'image reste fixe et responsive */
+  margin: 0;
+  padding: 0;
+  background: url(../../images/theme/china-1651550_960_720.jpg) no-repeat center fixed;
+  -webkit-background-size: cover;
+  /* pour anciens Chrome et Safari */
+  background-size: cover;
+  /* version standardisée */
+}
 
+#inscriptionTitle {
+  margin-top: 20rem;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+#inscriptionEnd {
+  margin-bottom: 25rem;
+}
+
+.police {
+  font-family: 'Permanent Marker', cursive;
+}
+
+.space {
+  margin-bottom: 2rem;
+}
 
 .inputInscription{
   outline: none;
@@ -14,8 +34,16 @@
   border-bottom: 1px solid #9ee0c4;
   background-color: transparent;
   width: 18rem;
-  color: white;
+  color: #336699;
+  font-weight: bold;
 }
+
+textarea {
+  color: #336699;
+  font-weight: bold;
+}
+
+
 
 #legend1 {
 margin-top: -12rem;
@@ -47,7 +75,7 @@ margin-bottom: -6rem;
 
 .card {
 margin-top: 3rem;
-background: #32746d;
+background-color: rgba(255, 255, 255, 0.65);
 }
 
 .red {

@@ -5,23 +5,15 @@ require '../../controller/regexMyAccount.php';
 require_once '../../controller/myAccountController.php';
 ?>
 
-<!-- Bouton switch on/off -->
-<div class="text-center">
-  <label>Afficher mon profil dans la page "Notre cercle"</label>
-  <div class="onoffswitch">
-    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-    <label class="onoffswitch-label" for="myonoffswitch">
-      <span class="onoffswitch-inner"></span>
-      <span class="onoffswitch-switch"></span>
-    </label>
-  </div>
-</div>
+
+
 
 
 
 <!-- Début affichage du compte -->
-
-<h1 id="legend1" class="text-center"><br />Mon profil</h1>
+<div id="myAccountTitle" class="container">
+<h1 id="legend1" class="police text-center">Mon profil</h1>
+</div>
 
 
 
@@ -48,27 +40,41 @@ require_once '../../controller/myAccountController.php';
 
 
 <form method="POST" action="myAccount.php" id="updateForm" name="updateForm">
-  <div class="card mx-auto" id="update" style="width: 60rem;">
+  <div class="card mx-auto" id="update" style="width: 50rem;">
     <div class="card-body">
       <fieldset>
 
-          <h5 for="Identity" class="card-title font-weight-bolder text-white"><strong>1. Identité</strong><br /><br /></h5>
+      <!-- Bouton switch on/off -->
+
+<p class="text-center   ">Afficher mon profil dans la page "Notre cercle" : 
+  <div class="onoffswitch">
+    <input type="checkbox" name="showProfil" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+      <span class="onoffswitch-inner"></span>
+      <span class="onoffswitch-switch"></span>
+    </label>
+  </div>
+</p>
+
+
+
+          <p for="Identity" class="card-title police"><strong>1. Identité</strong><br /><br /></p>
     
               <ul>
               
-              <li class="font-weight-bolder text-white"><label for="newLastName">Nom : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newLastName']) && !preg_match($regexName, $_POST['newLastName']))? 'red':'';  ?>" value="<?= $_POST['newLastName']?>" id="newLastName" type="text" name="newLastName" placeholder="<?= $_SESSION['userInfos'][0]['lastName'] ?>" /><p class="errorMessage"><?= (isset($error['errorLastName'])) ? $error['errorLastName'] : ''; ?></p></li>
+              <li class="font-weight-bolder   "><label for="newLastName">Nom : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newLastName']) && !preg_match($regexName, $_POST['newLastName']))? 'red':'';  ?>" value="<?= $_POST['newLastName']?>" id="newLastName" type="text" name="newLastName" placeholder="<?= $_SESSION['userInfos'][0]['lastName'] ?>" /><p class="errorMessage"><?= (isset($error['errorLastName'])) ? $error['errorLastName'] : ''; ?></p></li>
 
-                 <li class="font-weight-bolder text-white"><label for="newFirstName">Prénom : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newFirstName']) && !preg_match($regexName, $_POST['newFirstName']))? 'red':'';  ?>" value="<?= $_POST['newFirstName']?>" id="newFirstName" type="text" name="newFirstName" placeholder="<?= $_SESSION['userInfos'][0]['firstName'] ?>" /><p class="errorMessage"><?= (isset($error['errorFirstName'])) ? $error['errorFirstName'] : ''; ?></p></li>
+                 <li class="font-weight-bolder   "><label for="newFirstName">Prénom : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newFirstName']) && !preg_match($regexName, $_POST['newFirstName']))? 'red':'';  ?>" value="<?= $_POST['newFirstName']?>" id="newFirstName" type="text" name="newFirstName" placeholder="<?= $_SESSION['userInfos'][0]['firstName'] ?>" /><p class="errorMessage"><?= (isset($error['errorFirstName'])) ? $error['errorFirstName'] : ''; ?></p></li>
 
 
                  <?php if (isset($_SESSION['userInfos'][0]['birthDate'])): ?>
 
-                 <li class="font-weight-bolder text-white"><label for="birthDate">Date de naissance : <?= strftime('%A %d %B %Y',strtotime($_SESSION['userInfos'][0]['birthDate'])) ?> </label></li>
-                 <label for="newBirthDate" class="font-weight-bolder text-white"><br />Modifier : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newBirthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['newBirthDate']) )))? 'red':'';  ?>" value="<?= $_POST['newBirthDate']?>" type="date" name="newBirthDate" id="newBirthDate" placeholder="<?= $_SESSION['userInfos'][0]['birthDate'] ?>"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p>
+                 <li class="font-weight-bolder   "><label for="birthDate">Date de naissance : <?= strftime('%A %d %B %Y',strtotime($_SESSION['userInfos'][0]['birthDate'])) ?> </label></li>
+                 <label for="newBirthDate" class="font-weight-bolder   "><br />Modifier : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newBirthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['newBirthDate']) )))? 'red':'';  ?>" value="<?= $_POST['newBirthDate']?>" type="date" name="newBirthDate" id="newBirthDate" placeholder="<?= $_SESSION['userInfos'][0]['birthDate'] ?>"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p>
 
                  <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newBirthDate">Ajouter ma date de naissance : </label>
+          <li class="font-weight-bolder   "><label for="newBirthDate">Ajouter ma date de naissance : </label>
             <input
               class="inputInscription <?php echo (isset($_POST['newBirthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['newBirthDate']) )))? 'red':'';  ?>"
               value="<?= $_POST['newBirthDate']?>" type="date" name="newBirthDate" id="newBirthDate" placeholder="jj/mm/aaaa" />
@@ -82,23 +88,23 @@ require_once '../../controller/myAccountController.php';
                  
           <?php if (isset($_SESSION['userInfos'][0]['picture'])): ?>
 
-<li class="font-weight-bolder text-white"><label for="picture">Photo de profil :
+<li class="font-weight-bolder space"><label for="picture">Photo de profil :
     <?= ($_SESSION['userInfos'][0]['picture']) ?></label> <button type="button" class="badge badge-secondary"
-    id="updatePicture">Changer ma photo de profil</button>
+    id="updatePicture">Changer ma photo de profil</button></li>
 
       <?php else: ?>
 
-<li class="font-weight-bolder text-white"><label for="newPicture">Ajouter une photo de profil : </label> <input
+<li class="font-weight-bolder space"><label for="newPicture">Ajouter une photo de profil : </label> <input
 type="file" name="newPicture" id="newPicture" accept="image/*" />
-<small class="text-white"><br /><i>De préférence un .jpg</i></small></li>
+<small class="  "><br /><i>De préférence un .jpg</i></small></li>
 
 <?php endif; ?>
 
 <div id="newPic">
 
-<span class="font-weight-bolder text-white"><label for="newPicture">Nouvelle photo de profil : </label> <input
+<span class="font-weight-bolder   "><label for="newPicture">Nouvelle photo de profil : </label> <input
     type="file" name="newPicture" id="newPicture" value="<?= $_POST['newPicture']?>" accept="image/*" />
-  <small class="text-white"><br /><i>De préférence un .jpg</i></small></span>
+  <small class="  "><br /><i>De préférence un .jpg</i></small></span>
 
 </div>
 
@@ -108,19 +114,19 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-                 <h5 for="contactInformation" class="card-title font-weight-bolder text-white"><strong>2. Coordonnées</strong><br /><br /></h5>
+                 <p for="contactInformation" class="card-title police"><strong>2. Coordonnées</strong><br /><br /></p>
 
                  <fieldset>
                  <ul>
 
-                 <li class="font-weight-bolder text-white"><label for="newMail">Adresse mail : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newMail']) && !preg_match($regexMail, $_POST['newMail']))? 'red':'';  ?>" type="text" id="newMail" name="newMail" placeholder="<?= $_SESSION['userInfos'][0]['mail'] ?>" value="<?= $_POST['newMail']?>" /><p class="errorMessage"><?= (isset($error['errorMail'])) ? $error['errorMail'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorMailChecking'])) ? $error['errorMailChecking'] : ''; ?></p></li>
+                 <li class="font-weight-bolder   "><label for="newMail">Adresse mail : </label> <input title="Cliquez pour modifier" class="inputInscription <?php echo (isset($_POST['newMail']) && !preg_match($regexMail, $_POST['newMail']))? 'red':'';  ?>" type="text" id="newMail" name="newMail" placeholder="<?= $_SESSION['userInfos'][0]['mail'] ?>" value="<?= $_POST['newMail']?>" /><p class="errorMessage"><?= (isset($error['errorMail'])) ? $error['errorMail'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorMailChecking'])) ? $error['errorMailChecking'] : ''; ?></p></li>
 
 
 
                  <?php if (isset($_SESSION['userInfos'][0]['birthDate'])): ?>
 
-<li class="font-weight-bolder text-white"><label for="newPhoneNumber">Numéro de téléphone : </label> <input title="Cliquez pour modifier"
-    class="inputInscription <?php echo (isset($_POST['newPhoneNumber']) && !preg_match($regexPhone, $_POST['newPhoneNumber']))? 'red':'';  ?>"
+<li class="font-weight-bolder   "><label for="newPhoneNumber">Numéro de téléphone : </label> <input title="Cliquez pour modifier"
+    class="inputInscription space <?php echo (isset($_POST['newPhoneNumber']) && !preg_match($regexPhone, $_POST['newPhoneNumber']))? 'red':'';  ?>"
     value="<?= $_POST['newPhoneNumber']?>" type="tel" id="newPhoneNumber" name="newPhoneNumber"
     placeholder="<?= ($_SESSION['userInfos'][0]['phoneNumber']) ?>" />
   <p class="errorMessage"><?= (isset($error['errorPhone'])) ? $error['errorPhone'] : ''; ?></p>
@@ -128,9 +134,9 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 <?php else: ?>
 
-<li class="font-weight-bolder text-white"><label for="newPhoneNumber">Ajouter un numéro de téléphone : </label>
+<li class="font-weight-bolder   "><label for="newPhoneNumber">Ajouter un numéro de téléphone : </label>
   <input
-    class="inputInscription <?php echo (isset($_POST['newPhoneNumber']) && !preg_match($regexPhone, $_POST['newPhoneNumber']))? 'red':'';  ?>"
+    class="inputInscription space <?php echo (isset($_POST['newPhoneNumber']) && !preg_match($regexPhone, $_POST['newPhoneNumber']))? 'red':'';  ?>"
     type="tel" id="newPhoneNumber" name="newPhoneNumber" placeholder=" 06.xx.xx.xx.xx " value="<?= $_POST['newPhoneNumber']?>" />
   <p class="errorMessage"><?= (isset($error['errorPhone'])) ? $error['errorPhone'] : ''; ?></p>
 </li>
@@ -143,30 +149,30 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-            <h5 for="Identity" class="card-title font-weight-bolder text-white"><strong>3. Identifiants de connexion</strong><br /><br /></h5>
+            <p for="Identity" class="card-title police"><strong>3. Identifiants de connexion</strong><br /><br /></p>
 <fieldset>
             <ul>
 
             
-            <li class="font-weight-bolder text-white"><label for="userLog"><I>Identifiant : </I>
+            <li class="font-weight-bolder   "><label for="userLog"><I>Identifiant : </I>
             <?= ($_SESSION['userInfos'][0]['userLog']) ?></label></li>
 
-        <li class="font-weight-bolder text-white">
-          <button type="button" id="updateID" class="badge badge-secondary" data-toggle="modal" data-target="#verification">Changer l'identifiant et/ou le mot de passe</button>
+        <li class="font-weight-bolder   ">
+          <button type="button" id="updateID" class="space badge badge-secondary" data-toggle="modal" data-target="#verification">Changer l'identifiant et/ou le mot de passe</button>
         </li>
 
         <div id="newID">
 
-          <span class="font-weight-bolder text-white"><label for="newUserLog">Nouvel identifiant </label><br />
+          <span class="font-weight-bolder   "><label for="newUserLog">Nouvel identifiant </label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['newUserLog']) && !preg_match($regexLogin, $_POST['newUserLog']))? 'red':'';  ?>"
               value="<?= $_POST['newUserLog'] ?>" type="text" name="newUserLog" id="newUserLog"  placeholder="<?= ($_SESSION['userInfos'][0]['userLog']) ?>" /><small
-              class="text-white"><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
+              class="  "><br /><i>Vous pouvez tout simplement choisir votre adresse mail.</i></small>
             <p class="errorMessage"><?= (isset($error['errorLogin'])) ? $error['errorLogin'] : ''; ?></p><p class="errorMessage"><?= (isset($error['errorUserLogChecking'])) ? $error['errorUserLogChecking'] : ''; ?></p>
           </span>
 
           
-                 <span class="font-weight-bolder text-white"><label for="newPassword">Nouveau mot de passe </label><br />
+                 <span class="font-weight-bolder   "><label for="newPassword">Nouveau mot de passe </label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['newPassword']) && !preg_match($regexPassword, $_POST['newPassword']))? 'red':'';  ?>"
               value="<?= $_POST['newPassword']?>" type="password" name="newPassword" id="newPassword" />
@@ -174,11 +180,11 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
           </span>
 
 
-          <span class="font-weight-bolder text-white"><label for="newConfirmPassword"><i>Confirmation * </i></label><br />
+          <span class="font-weight-bolder   "><label for="newConfirmPassword"><i>Confirmation * </i></label><br />
             <input
               class="inputInscription <?php echo (isset($_POST['newConfirmPassword']) && !preg_match($regexPassword, $_POST['newConfirmPassword']))? 'red':'';  ?>"
               value="<?= $_POST['newConfirmPassword']?>" type="password" name="newConfirmPassword" id="newConfirmPassword" />
-            <p class="card-text"><small class="text-white"><i>Entre 8 et 15 caractères, contenant au moins une minuscule
+            <p class="card-text"><small class="  "><i>Entre 8 et 15 caractères, contenant au moins une minuscule
                   et une majuscule, un chiffre et un caractère spécial.</i></small></p>
             <p class="errorMessage">
               <?= (isset($error['errorConfirmPassword'])) ? $error['errorConfirmPassword'] : ''; ?></p>
@@ -194,17 +200,17 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-            <h5 for="statut" class="card-title font-weight-bolder text-white"><strong>4. Statut </strong><br /><br /></h5>
+            <p for="statut" class="card-title police"><strong>4. Statut </strong><br /><br /></p>
     <fieldset>
       <ul>
 
 
         <?php if (isset($_SESSION['userInfos'][0]['status'])): ?>
-        <li class="font-weight-bolder text-white"><label for="status"><i>Rang : </i><?= ($_SESSION['userInfos'][0]['status']) ?></label></li>
+        <li class="font-weight-bolder   "><label for="status"><i>Rang : </i><?= ($_SESSION['userInfos'][0]['status']) ?></label></li>
 
 
-        <div id="status">
-          <span class="font-weight-bolder text-white">
+        <div id="status" class="space">
+          <span class="font-weight-bolder   ">
             <label for="newStatus">Modifier : </label>
 
             <input type="radio" id="élève" name="newStatus" value="élève">
@@ -216,13 +222,13 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
             <input type="radio" id="maître_et_élève" name="newStatus" value="maître et élève">
             <label for="maître et élève">Maître et élève</label>
             </span>
-            <p><small class="text-white"><i>Cliquez pour afficher et modifier</i></small></p>
+            <p><small class="  "><i>Cliquez pour afficher et modifier</i></small></p>
         </div>
 
         <?php else: ?>
 
-        <div id="status">
-          <li class="font-weight-bolder text-white">
+        <div id="status" class="space">
+          <li class="font-weight-bolder   ">
             <label for="newStatus">Choisir un rang : </label>
 
             <input type="radio" id="élève" name="newStatus" value="élève">
@@ -242,14 +248,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-        <div id="studentCourse">
+        <div id="studentCourse" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['studentCourse'])): ?>
-          <li class="font-weight-bolder text-white"><label for="studentCourse"><i>Discipline (élève) : </i>
+          <li class="font-weight-bolder   "><label for="studentCourse"><i>Discipline (élève) : </i>
               <?= ($_SESSION['userInfos'][0]['studentCourse']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white"><label for="newStudentCourse">Modifier : </label>
+          <span class="font-weight-bolder   "><label for="newStudentCourse">Modifier : </label>
             <select name="newStudentCourse" class="inputInscription" value="<?= $_POST['newStudentCourse']?>">
               <option value="" selected disabled>Discipline (élève)</option>
               <option value="Kung-Fu">Kung-Fu</option>
@@ -260,7 +266,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newStudentCourse">Ajouter une discipline (élève) : </label>
+          <li class="font-weight-bolder   "><label for="newStudentCourse">Ajouter une discipline (élève) : </label>
             <select name="newStudentCourse" class="inputInscription" value="<?= $_POST['newStudentCourse']?>">
               <option value="" selected disabled>Choisissez</option>
               <option value="Kung-Fu">Kung-Fu</option>
@@ -273,14 +279,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
         </div>
 
 
-        <div id="teacherCourse">
+        <div id="teacherCourse" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['teacherCourse'])): ?>
-          <li class="font-weight-bolder text-white"><label for="teacherCourse"><i>Cours (maître) : </i>
+          <li class="font-weight-bolder   "><label for="teacherCourse"><i>Cours (maître) : </i>
               <?= ($_SESSION['userInfos'][0]['teacherCourse']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white"><label for="newTeacherCourse">Modifier : </label>
+          <span class="font-weight-bolder   "><label for="newTeacherCourse">Modifier : </label>
             <select name="newTeacherCourse" class="inputInscription" value="<?= $_POST['newTeacherCourse']?>">
               <option value="" selected disabled>Cours (maître)</option>
               <option value="Kung-Fu">Kung-Fu</option>
@@ -290,7 +296,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newTeacherCourse">Ajouter un cours (maître) : </label>
+          <li class="font-weight-bolder   "><label for="newTeacherCourse">Ajouter un cours (maître) : </label>
             <select name="newTeacherCourse" class="inputInscription" value="<?= $_POST['newTeacherCourse']?>">
               <option value="" selected disabled>Choisissez</option>
               <option value="Kung-Fu">Kung-Fu</option>
@@ -303,14 +309,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
         </div>
 
 
-        <div id="groupAge">
+        <div id="groupAge" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['groupAge'])): ?>
-          <li class="font-weight-bolder text-white">
+          <li class="font-weight-bolder   ">
             <label for="groupAge"><i>Groupe : </i> <?= ($_SESSION['userInfos'][0]['groupAge']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white">
+          <span class="font-weight-bolder   ">
             <label for="newGroupAge">Modifier : </label>
 
             <input type="radio" id="Enfants" name="newGroupAge" value="Enfants">
@@ -327,7 +333,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white">
+          <li class="font-weight-bolder   ">
             <label for="newGroupAge">Ajouter un groupe : </label>
 
             <input type="radio" id="Enfants" name="newGroupAge" value="Enfants">
@@ -345,14 +351,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-        <div id="studentYear">
+        <div id="studentYear" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['studentYear'])): ?>
-          <li class="font-weight-bolder text-white">
+          <li class="font-weight-bolder   ">
             <label for="studentYear"><i>Année : </i> <?= ($_SESSION['userInfos'][0]['studentYear']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white"><label for="newStudentYear">Modifier : </label>
+          <span class="font-weight-bolder   "><label for="newStudentYear">Modifier : </label>
             <select name="newStudentYear" id="newStudentYear" class="inputInscription" value="<?= $_POST['newStudentYear']?>">
               <option value="" selected disabled>Année</option>
               <option value="1ère année">1ère</option>
@@ -370,7 +376,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newStudentYear">Ajouter l'année : </label>
+          <li class="font-weight-bolder   "><label for="newStudentYear">Ajouter l'année : </label>
             <select name="newStudentYear" id="newStudentYear" class="inputInscription" value="<?= $_POST['newStudentYear']?>">
               <option value="" selected disabled>Année</option>
               <option value="1ère année">1ère</option>
@@ -391,14 +397,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
         </div>
 
 
-        <div id="childBelt">
+        <div id="childBelt" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['childBelt'])): ?>
-          <li class="font-weight-bolder text-white">
+          <li class="font-weight-bolder   ">
             <label for="childBelt"><i>Ceinture : </i> <?= ($_SESSION['userInfos'][0]['childBelt']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white"><label for="newChildBelt">Modifier : </label>
+          <span class="font-weight-bolder   "><label for="newChildBelt">Modifier : </label>
             <select name="newChildBelt" class="inputInscription" value="<?= $_POST['newChildBelt']?>">
               <option value="" selected disabled>Ceinture</option>
 
@@ -422,7 +428,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newChildBelt">Ajouter une ceinture : </label>
+          <li class="font-weight-bolder   "><label for="newChildBelt">Ajouter une ceinture : </label>
             <select name="newChildBelt" class="inputInscription" value="<?= $_POST['newChildBelt']?>">
               <option value="" selected disabled>Ceinture</option>
 
@@ -451,14 +457,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
 
 
-        <div id="studentBelt">
+        <div id="studentBelt" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['studentBelt'])): ?>
-          <li class="font-weight-bolder text-white">
+          <li class="font-weight-bolder   ">
             <label for="studentBelt"><i>Ceinture : </i> <?= ($_SESSION['userInfos'][0]['studentBelt']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white"><label for="newStudentBelt">Modifier : </label>
+          <span class="font-weight-bolder   "><label for="newStudentBelt">Modifier : </label>
             <select name="newStudentBelt" class="inputInscription" value="<?= $_POST['newStudentBelt']?>">
               <option value="" selected disabled>Ceinture</option>
               <optgroup label="Blanche">
@@ -486,7 +492,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newStudentBelt">Ajouter une ceinture : </label>
+          <li class="font-weight-bolder   "><label for="newStudentBelt">Ajouter une ceinture : </label>
             <select name="newStudentBelt" class="inputInscription" value="<?= $_POST['newStudentBelt']?>">
               <option value="" selected disabled>Ceinture</option>
               <optgroup label="Blanche">
@@ -517,14 +523,14 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
         </div>
 
 
-        <div id="teacherRank">
+        <div id="teacherRank" class="space">
 
           <?php if (isset($_SESSION['userInfos'][0]['teacherRank'])): ?>
-          <li class="font-weight-bolder text-white">
+          <li class="font-weight-bolder   ">
             <label for="teacherRank"><i>Grade : </i> <?= ($_SESSION['userInfos'][0]['teacherRank']) ?></label></li>
 
 
-          <span class="font-weight-bolder text-white"><label for="newTeacherRank">Modifier : </label>
+          <span class="font-weight-bolder   "><label for="newTeacherRank">Modifier : </label>
             <select name="newTeacherRank" class="inputInscription" value="<?= $_POST['newTeacherRank']?>">
               <option value="" selected disabled>Grade</option>
               <option value="Sibak">Sibak</option>
@@ -541,7 +547,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder text-white"><label for="newTeacherRank">Ajouter un grade : </label>
+          <li class="font-weight-bolder   "><label for="newTeacherRank">Ajouter un grade : </label>
             <select name="newTeacherRank" class="inputInscription" value="<?= $_POST['newTeacherRank']?>">
               <option value="" selected disabled>Grade</option>
               <option value="Sibak">Sibak</option>
@@ -564,13 +570,13 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 
         <div>
 
-            <p class="font-weight-bolder text-white">
+            <p class="font-weight-bolder   ">
             <label for="newPresentation"><i>Modifier votre présentation : </i> </label></p>
           <textarea id="newPresentation" name="newPresentation" rows="5" cols="33" maxlength="518" value="<?= $_POST['newPresentation']?>">
          <?= ($_SESSION['userInfos'][0]['presentation']) ?>
 </textarea>
-<p class="card-text"><small class="text-white"><i>Max. 500 caractères</i></small></p>
-          <p class="font-weight-bolder text-white text-justify"><label for="presentation">Un slogan, une
+<p class="card-text"><small class="  "><i>Max. 500 caractères</i></small></p>
+          <p class="font-weight-bolder    text-justify"><label class="space" for="presentation">Un slogan, une
               citation préférée, ou tout simplement votre parcours dans les arts martiaux ? Dites-nous en plus !</label>
           </p>
           <!--Pour le maxlenght du textarea, il ne commence qu'à 18 caractères. Il faut donc mettre le nombre souhaité +18-->
@@ -580,12 +586,12 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
       </ul>
 
 
-      <label for="checkForm" class="text-white">Je certifie sur l'honneur l'exactitude des informations<br />
+      <label for="checkForm" class="font-weight-bolder">Je certifie sur l'honneur l'exactitude des informations<br />
         renseignées ci-dessus.</label>
       <input type="checkbox" id="checkForm" name="checkForm" value="checkForm" checked required>
 
 
-      <p><br /><button id="modifRequest" type="submit" name="modifRequest" class="float-right rounded">Enregistrer les
+      <p><br /><button id="modifRequest" type="submit" name="modifRequest" class="updateBtn police float-right rounded">Enregistrer les
           modifications</button></p>
 
           <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer mon compte</button>
@@ -639,10 +645,10 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 <form name="deleteForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
   <div class="text-center">
 
-  <span><label for="passwordConnect">Mot de passe </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
+  <span><label for="passwordConnect">Mot de passe </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
 
   <p><button type="button" id="backDelete" class="btn btn-secondary"data-dismiss="modal">Retour</button>
-  <button id="deleteRequest" name="deleteRequest" class="yellow-hover btn btn-primary text-white">Confirmer la suppression</button><br /></p>
+  <button id="deleteRequest" name="deleteRequest" class="yellow-hover btn btn-primary   ">Confirmer la suppression</button><br /></p>
 </form>
 </div>
 <div class="modal-footer" style="background-color:#282828;">
@@ -687,10 +693,10 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 <form name="secureForm" method="POST" action="<?php $_SERVER['REQUEST_URI']; ?>">
   <div class="text-center">
 
-  <span><label for="passwordConnect">Mot de passe actuel </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" value="<?= $_POST['passwordConnect']?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
+  <span><label for="passwordConnect">Mot de passe actuel </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
 
   <p><button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-  <button id="verificationButton" name="verificationButton" class="yellow-hover btn btn-primary text-white">M'authentifier</button><br /></p>
+  <button id="verificationButton" name="verificationButton" class="yellow-hover btn btn-primary   ">M'authentifier</button><br /></p>
 </form>
 </div>
 
@@ -702,6 +708,7 @@ type="file" name="newPicture" id="newPicture" accept="image/*" />
 </div>
 
   <!-- Fin modal vérification de sécurité -->
+
 
   
 

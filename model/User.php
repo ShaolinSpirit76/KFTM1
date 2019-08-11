@@ -110,6 +110,8 @@ class User extends DB{
         $displayUsers=$selectUser->fetchAll(PDO::FETCH_ASSOC);
         return $displayUsers;
      }
+
+   
      
 
 public function updateUser(){
