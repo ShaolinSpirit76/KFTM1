@@ -42,11 +42,12 @@ include '../../view/templates/navbar.php';
 setlocale(LC_ALL, 'fr_FR.UTF8');
 ?>
 
-<body>
+<body onkeydown="activite_detectee = true; statut('actif');" onmousemove="activite_detectee = true; statut('actif');">
 <!-- Pour le scroll to top -->
 <a id="buttonScroll" class="rounded-circle"></a>
 
-
+<!-- Pour la déconnexion après inactivité -->
+<div id="statut" style="color:#ff0000;">Vous êtes inactif depuis 0 secondes.</div>
 
 
 

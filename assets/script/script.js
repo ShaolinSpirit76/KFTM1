@@ -1,3 +1,5 @@
+$('#statut').hide();
+
 // Affichage conditionnel du formulaire d'inscription
 // div cachées avant tout choix
 $('#studentCourse').hide();

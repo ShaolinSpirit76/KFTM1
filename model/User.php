@@ -55,6 +55,14 @@ class User extends DB{
         }
     }
 
+    public function rankChecking() {
+        $query = 'SELECT teacherRank FROM `KFTM_USERS`';
+        $rankChecking = $this->db->prepare($query);
+        $rankChecking->execute();
+        $rankCheckingFetch = $rankChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $rankCheckingFetch;
+    }
+
     public function mailChecking() {
         $query = 'SELECT mail FROM `KFTM_USERS` WHERE mail = :mail';
         $mailChecking = $this->db->prepare($query);
