@@ -1,4 +1,18 @@
 /* CSS page admin */
+
+body {
+  /* Code pour que l'image reste fixe et responsive */
+  margin: 0;
+  padding: 0;
+  background: url(../../images/theme/knocker-2163643_960_720.jpg) no-repeat center fixed;
+ 
+  -webkit-background-size: auto;
+  /* pour anciens Chrome et Safari */
+  background-size: auto;
+  /* version standardisée */
+}
+
+
 #h1Police {
   font-family: 'Permanent Marker', cursive;
 }

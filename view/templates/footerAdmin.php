@@ -24,6 +24,7 @@
   <script src="../../assets/script/scroll.js"></script>
   <script src="../../assets/script/script.js"></script>
   <script src="../../assets/script/timeoutSession.js"></script>
+  <script src="../../assets/script/dragNdrop.js"></script>
   <!-- Script pour l'animation -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="../../assets/script/aos.js"></script>

@@ -12,7 +12,7 @@ require_once '../../controller/inscriptionFormController.php';
 <p class="text-center"><small>* champs obligatoires</small></p>
 </div>
 
-             <form method="POST" action="inscriptionForm.php" id="inscriptionForm" name="inscriptionForm">
+             <form method="POST" action="inscriptionForm.php" id="inscriptionForm" name="inscriptionForm" enctype="multipart/form-data">
                <div class="card mx-auto" id="connexion" style="width: 30rem;">
   <div class="card-body">
       <fieldset>
@@ -28,8 +28,40 @@ require_once '../../controller/inscriptionFormController.php';
 
                  <li class="font-weight-bolder  "><label for="birthDate">Date de naissance : </label> <input class="inputInscription <?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
                  
-                 <li class="font-weight-bolder  "><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" accept="image/*" />
+                 <li class="font-weight-bolder  "><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" />
                  <small class=" "><br /><i>De préférence un .jpg</i></small></li>
+
+                
+    
+          
+        
+     
+   
+
+                 <!-- Méthode 1 -->
+                 <!-- <div id="dropfile">Déposez une image de votre ordinateur</div> -->
+
+                 <!-- Méthode 2 -->
+<!-- <div id="mabox" name="mabox"><br />Déposer ici</div>
+<input type="hidden" id="test" name="test" value=""/> -->
+
+<!-- Méthode 3 -->
+<!-- <div class="dropper">
+
+    <div class="draggable">#1</div>
+    <div class="draggable">#2</div>
+    
+</div>
+
+<div class="dropper">
+    
+    <div class="draggable">#3</div>
+    <div class="draggable">#4</div>
+    
+</div> -->
+
+
+
 </ul>
 </fieldset>
 
@@ -228,6 +260,10 @@ require_once '../../controller/inscriptionFormController.php';
 <label for="checkForm" class="font-weight-bolder">Je certifie sur l'honneur l'exactitude des informations<br /> renseignées ci-dessus.</label>
 <input type="checkbox" id="checkForm" name="checkForm" value="checkForm" required>
 
+<div class="g-recaptcha" id="recaptcha"
+          data-sitekey="6Leno7MUAAAAAMZSGnEvxMzJCw-k7fX556kdwqUz">
+          </div>
+
 
 <p><br /><button id="submitInscriptionForm" type="submit" name="submitInscriptionForm" class="police float-right rounded">Valider</button></p>
 
@@ -269,3 +305,4 @@ require_once '../../controller/inscriptionFormController.php';
 <?php
 include '../templates/footer.php';
 include '../templates/AlertInscription.php';
+

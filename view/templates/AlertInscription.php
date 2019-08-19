@@ -36,6 +36,7 @@ setTimeout(function(){
 
 
 
+
 // Alert de mise à jour du profil
 if(isset($updateSuccess) && $updateSuccess == true){
   ?>
@@ -54,3 +55,24 @@ if(isset($updateSuccess) && $updateSuccess == true){
         </script>
         <?php
 }
+
+
+
+
+// Alert pour le reCapatcha v2
+if(isset($reCaptchaError) && $reCaptchaError == true){
+  ?>
+        <script>
+  Swal.fire({
+  title: 'Oups !',
+  text: 'Il doit y avoir une erreur avec le reCaptcha... :(',
+  type: 'error',
+  confirmButtonText: 'Ok'
+});
+setTimeout(function(){
+      
+    }, 5000);
+</script>
+        <?php
+}
+
