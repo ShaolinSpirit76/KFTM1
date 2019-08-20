@@ -29,27 +29,6 @@ class User extends DB{
 
 
 
- 
-// Méthode 2 
-//  public function add_picture() {
-//      $this->form_validation->set_rules('file', 'file', 'trim|xss_clean|required');
-  
-//      if ($this->form_validation->run()) {
-//           $file = $this->input->post('file');
-//           $name = md5(rand().time()."DuSelPourRenforcerMonHash").'.jpg';
-  
-//           // Encode it correctly
-//           $encodedData = str_replace(' ','+',$file);
-//           $decodedData = base64_decode($encodedData);
-  
-//           // Finally, save the image
-//           file_put_contents('/../../assets/images/profil/'.$name, $decodedData) ;
-//           return TRUE;
-                                   
-//       }
-//       show_404();
-//  }
- 
 
 
 
@@ -146,6 +125,16 @@ class User extends DB{
         $selectUser->execute();
         $displayUsers=$selectUser->fetchAll(PDO::FETCH_ASSOC);
         return $displayUsers;
+     }
+
+     public function displayPicture(){
+        $query = 'SELECT * FROM `KFTM_USERS` WHERE picture = :picture';
+        $displayPicture = $this->db->prepare($query);
+        $displayPicture->bindValue(':picture', $this->picture, PDO::PARAM_STR);
+        if($displayPicture->execute()):
+            $displayPictureResult = $displayPicture->fetchAll(PDO::FETCH_ASSOC);
+            return $displayPictureResult;
+        endif;
      }
 
    

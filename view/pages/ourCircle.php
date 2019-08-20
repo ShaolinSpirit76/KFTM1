@@ -22,19 +22,19 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
 
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+    <a class="btn btn-primary mx-auto" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>
@@ -142,7 +142,7 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -154,7 +154,7 @@ include '../../controller/regex.php';
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>
@@ -261,7 +261,7 @@ include '../../controller/regex.php';
         <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -273,7 +273,7 @@ include '../../controller/regex.php';
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>
@@ -379,7 +379,7 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -391,7 +391,7 @@ include '../../controller/regex.php';
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>
@@ -501,7 +501,7 @@ include '../../controller/regex.php';
        <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -513,7 +513,7 @@ include '../../controller/regex.php';
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>
@@ -631,7 +631,7 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -643,7 +643,7 @@ include '../../controller/regex.php';
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>
@@ -742,7 +742,9 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="..." class="card-img-top img-fluid" alt="<?=$displayUser['picture']?>">
+      <div class="mx-auto text-center">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>"  style="width: 18rem; height: 16rem;" class="pictureSize card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+</div>
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -754,7 +756,7 @@ include '../../controller/regex.php';
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
 
-  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+  <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
 
 <?php if (isset($displayUser['phoneNumber'])): ?>
   <p class="text-white">Téléphone : <?=$displayUser['phoneNumber']?> </p>

@@ -12,7 +12,7 @@ require_once '../../controller/inscriptionFormController.php';
 <p class="text-center"><small>* champs obligatoires</small></p>
 </div>
 
-             <form method="POST" action="inscriptionForm.php" id="inscriptionForm" name="inscriptionForm" enctype="multipart/form-data">
+            <form method="POST" action="inscriptionForm.php" id="inscriptionForm" name="inscriptionForm" enctype="multipart/form-data">
                <div class="card mx-auto" id="connexion" style="width: 30rem;">
   <div class="card-body">
       <fieldset>
@@ -27,43 +27,49 @@ require_once '../../controller/inscriptionFormController.php';
                  <li class="font-weight-bolder  "><label for="firstName">Prénom * : </label> <input class="inputInscription <?php echo (isset($_POST['firstName']) && !preg_match($regexName, $_POST['firstName']))? 'red':'';  ?>" value="<?= $_POST['firstName']?>" id="firstName" type="text" name="firstName" placeholder="Prénom" required /><p class="errorMessage"><?= (isset($error['errorFirstName'])) ? $error['errorFirstName'] : ''; ?></p></li>
 
                  <li class="font-weight-bolder  "><label for="birthDate">Date de naissance : </label> <input class="inputInscription <?php echo (isset($_POST['birthDate']) && !preg_match($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) )))? 'red':'';  ?>" value="<?= $_POST['birthDate']?>" type="date" name="birthDate" id="birthDate" placeholder="jj/mm/aaaa"  /><p class="errorMessage"><?= (isset($error['errorBirthDate'])) ? $error['errorBirthDate'] : ''; ?></p></li>
+
+
+
+ <!-- Code pour upload la photo de profil. On ne récupère que le nom dans la BDD -->
+                 <?php 
+// on test si un fichier a été sélectionné en upload
+if (isset($_FILES['picture']['tmp_name'])) { 
+  // $taille est un Array contenant les infos de l'image
+  $taille = getimagesize($_FILES['picture']['tmp_name']); 
+
+  // on récupère la largeur et la hauteur de l'image
+  $largeur = $taille[0]; 
+  $hauteur = $taille[1];
+
+  // Transformation selon les besoins de la miniature
+  $largeur_miniature = 300;
+  $hauteur_miniature = $hauteur / $largeur * 300;
+
+  $im = imagecreatefromjpeg($_FILES['picture']['tmp_name']);
+  $im_miniature = imagecreatetruecolor($largeur_miniature, $hauteur_miniature);
+  
+  imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
+  
+  imagejpeg($im_miniature, 'miniatures/'.$_FILES['picture']['name'], 90);
+  
+echo '<img src="miniatures/' . $_FILES['picture']['name'] . '">';
+}
+// Nous faisons un var_dump du nom de l'image
+echo($_FILES['picture']['name']);                  
+
+                  ?>
                  
-                 <li class="font-weight-bolder  "><label for="picture">Photo de profil : </label> <input type="file" name="picture" id="picture" />
-                 <small class=" "><br /><i>De préférence un .jpg</i></small></li>
-
-                
-    
-          
+                 <li class="font-weight-bolder  "> <label for="picture">Photo de profil : </label>
+        <input type="file" name="picture" id="picture" />
+        <small><i><br />De préférence un .jpg</i></small>
         
-     
-   
+                 
 
-                 <!-- Méthode 1 -->
-                 <!-- <div id="dropfile">Déposez une image de votre ordinateur</div> -->
-
-                 <!-- Méthode 2 -->
-<!-- <div id="mabox" name="mabox"><br />Déposer ici</div>
-<input type="hidden" id="test" name="test" value=""/> -->
-
-<!-- Méthode 3 -->
-<!-- <div class="dropper">
-
-    <div class="draggable">#1</div>
-    <div class="draggable">#2</div>
-    
-</div>
-
-<div class="dropper">
-    
-    <div class="draggable">#3</div>
-    <div class="draggable">#4</div>
-    
-</div> -->
-
-
-
-</ul>
+  </ul>
 </fieldset>
+
+
+
 
                  <p for="contactInformation" class="police card-title"><strong>2. Coordonnées</strong><br /><br /></p>
 

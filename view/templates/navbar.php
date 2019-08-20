@@ -78,7 +78,7 @@
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
 
     <!-- Condition pour accéder à la page admin grâce au mail -->
-    <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+    <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
     <a class="dropdown-item" href="../../admin/admin.php">Admin</a>
     <?php endif ?>
 
@@ -191,7 +191,7 @@
     <a class="dropdown-item" href="<?= $checkCalendar ?>">Gérer le calendrier</a>
 
     <!-- Condition pour accéder à la page admin grâce au mail -->
-    <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'patricia.cantrel@gmail.com'):?>
+    <?php if (isset($_SESSION['userInfos'][0]['mail']) && ($_SESSION['userInfos'][0]['mail']) === 'levray.jm@wanadoo.fr'):?>
     <a class="dropdown-item" href="../../admin/admin.php">Admin</a>
     <?php endif ?>
 

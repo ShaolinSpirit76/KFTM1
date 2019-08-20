@@ -18,7 +18,7 @@ if (count($_POST) > 0):
     $newLastName = $_POST['newLastName'];
     $newFirstName = $_POST['newFirstName'];
     $newBirthDate = $_POST['newBirthDate'];
-    $newPicture = $_POST['newPicture'];
+    $newPicture = $_FILES['newPicture']['name'];
     $newMail = $_POST['newMail'];
     $newPhoneNumber = $_POST['newPhoneNumber'];
     $newUserLog = $_POST['newUserLog'];
@@ -36,7 +36,7 @@ if (count($_POST) > 0):
     $lastName = $_SESSION['userInfos'][0]['lastName'];
     $firstName = $_SESSION['userInfos'][0]['firstName'];
     $birthDate = $_SESSION['userInfos'][0]['birthDate'];
-    $picture = $_SESSION['userInfos'][0]['picture'];
+    $picture = $_FILES['picture']['name'];
     $mail = $_SESSION['userInfos'][0]['mail'];
     $phoneNumber = $_SESSION['userInfos'][0]['phoneNumber'];
     $userLog = $_SESSION['userInfos'][0]['userLog'];
@@ -95,12 +95,12 @@ endif;
 
 if (isset($_POST['newPicture'])):
     if (empty($_POST['newPicture'])):
-        $user->picture = $_SESSION['userInfos'][0]['picture'];
+        $user->picture = $_FILES['picture']['name'];
     else: 
-        $user->picture = $newPicture;
+        $user->picture = $_FILES['newPicture']['name'];
     endif;
 else:
-    $user->picture = $_SESSION['userInfos'][0]['picture'];
+    $user->picture = $_FILES['picture']['name'];
 endif;
 
     if (isset($_POST['newMail'])):

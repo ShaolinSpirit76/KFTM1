@@ -28,12 +28,50 @@ include 'view/templates/navbar.php';
 
   <div id="home">
 
-  
-    <div class="mx-auto text-center">
-      <img id="affiche" src="../../assets/images/1098360_574799055894754_409396215_n.jpg" width="30%" height="30%" />
 
-      <img id="calendrier" src="../../assets/images/37766491_2147381731969804_6551757075704184832_n.png" width="45%" height="45%" />
+
+
+  <div class="container-fluid">
+  <div class="row no-gutters">
+    <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12 mx-auto">
+      <img id="affiche" src="../../assets/images/1098360_574799055894754_409396215_n.jpg" width="65%" height="85%" alt="Affiche">
+      </div>
+    <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12 mx-auto">
+      <img id="calendrier" src="../../assets/images/37766491_2147381731969804_6551757075704184832_n.png" width="100%" height="70%" alt="Emploi du temps">
     </div>
-
+  </div>
   </div>
 
+
+
+
+    <!-- <div class="container-fluid">
+    <div class="row">
+    
+
+    <div class="col-md-4 col-sm-12 mr-auto">
+      <div class="card" style="width: 22rem;">
+
+      <img id="affiche" src="../../assets/images/1098360_574799055894754_409396215_n.jpg" width="100%" height="100%" alt="Affiche" />
+
+     </div>
+</div>
+
+<div class="col-md-4 col-sm-12 mr-auto">
+      <div class="card" style="width: 34rem;">
+
+      <img id="calendrier" src="../../assets/images/37766491_2147381731969804_6551757075704184832_n.png" width="100%" height="100%" alt="Emploi du temps" />
+
+    </div>
+</div>
+
+
+
+</div>
+</div> -->
+
+
+
+
+
+</div>

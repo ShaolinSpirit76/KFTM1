@@ -52,9 +52,11 @@ if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ) : ?>
 <!-- Pour le scroll to top -->
 <a id="buttonScroll" class="rounded-circle"></a>
 
+<?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ) : ?>
 <!-- Pour la déconnexion après inactivité -->
 <div id="statut" style="color:#ff0000;">Vous êtes inactif depuis 0 secondes.</div>
 <!-- De la même couleur que le body pour paraître invisible mais fonctionner quand même -->
+<?php endif; ?>
 
 
 
