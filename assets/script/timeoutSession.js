@@ -21,7 +21,7 @@ function testerActivite() {
          // Si le temps d'inactivite dépasse les 300 secondes
          
       
-         if(temps_inactivite >= 300000){ 
+         if(temps_inactivite >= 600000){ 
                  
          Swal.fire({
          title: 'Oups !',

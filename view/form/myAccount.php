@@ -695,7 +695,7 @@ type="file" name="firstPicture" id="firstPicture" />
     <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header text-white" style="background-color:black;">
-        <h5 class="modal-title">Action irréversible</h5>
+        <h5 class="modal-title red">Action irréversible</h5>
         <button type="button" id="crossBackDelete" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -708,7 +708,7 @@ type="file" name="firstPicture" id="firstPicture" />
   <span><label for="passwordConnect">Mot de passe </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
 
   <p><button type="button" id="backDelete" class="btn btn-secondary"data-dismiss="modal">Retour</button>
-  <button id="deleteRequest" name="deleteRequest" class="yellow-hover btn btn-primary   ">Confirmer la suppression</button><br /></p>
+  <button id="deleteRequest" name="deleteRequest" class="yellow-hover btn btn-primary">Confirmer la suppression</button><br /></p>
 </form>
 </div>
 <div class="modal-footer" style="background-color:#282828;">
@@ -743,7 +743,7 @@ type="file" name="firstPicture" id="firstPicture" />
     <div class="modal-dialog" role="document">
       <div class="modal-content">
       <div class="modal-header text-white" style="background-color:black;">
-        <h5 class="modal-title">Vérification requise</h5>
+        <h5 class="modal-title red">Vérification requise</h5>
         <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -756,7 +756,7 @@ type="file" name="firstPicture" id="firstPicture" />
   <span><label for="passwordConnect">Mot de passe actuel </label><br /> <input class="<?php echo (isset($_POST['passwordConnect']) && !preg_match($regexPassword, $_POST['passwordConnect']))? 'red':'';  ?>" type="password" name="passwordConnect" id="passwordConnect" placeholder="Mot de passe" /><small class="text-muted"><br />Renseigné lors de votre inscription.</small><p class="errorMessage"><?= (isset($error['errorPassword'])) ? $error['errorPassword'] : ''; ?></p></span>
 
   <p><button type="button" class="btn btn-secondary" data-dismiss="modal">Retour</button>
-  <button id="verificationButton" name="verificationButton" class="yellow-hover btn btn-primary   ">M'authentifier</button><br /></p>
+  <button id="verificationButton" name="verificationButton" class="yellow-hover btn btn-primary">M'authentifier</button><br /></p>
 </form>
 </div>
 

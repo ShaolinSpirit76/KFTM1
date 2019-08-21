@@ -34,10 +34,10 @@ include 'view/templates/navbar.php';
   <div class="container-fluid">
   <div class="row no-gutters">
     <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12 mx-auto">
-      <img id="affiche" src="../../assets/images/1098360_574799055894754_409396215_n.jpg" width="65%" height="85%" alt="Affiche">
+    <a href="../../assets/images/1098360_574799055894754_409396215_n.jpg" target="_blank"><img id="affiche" src="../../assets/images/1098360_574799055894754_409396215_n.jpg" width="65%" height="85%" alt="Affiche" title="Cliquez pour agrandir"></a>
       </div>
     <div class="col-md-12 col-lg-6 col-xl-6 col-sm-12 mx-auto">
-      <img id="calendrier" src="../../assets/images/37766491_2147381731969804_6551757075704184832_n.png" width="100%" height="70%" alt="Emploi du temps">
+    <a href="../../assets/images/emploi_du_temps_saison_2019_2020.png" target="_blank"><img id="calendrier" src="../../assets/images/emploi_du_temps_saison_2019_2020.png" width="100%" height="70%" alt="Emploi du temps" title="Cliquez pour agrandir"></a>
     </div>
   </div>
   </div>

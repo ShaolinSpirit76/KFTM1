@@ -1,5 +1,4 @@
 <!-- Début navbar -->
-
 <nav id="menu" class="navbar navbar-expand-lg">
      
      
@@ -90,13 +89,14 @@
              </li>
              </ul>
           </div>
+          
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
                 <?php if (isset($_SESSION['userInfos'])): ?>
                 <br /><br />
-                <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
-                <a href="<?= $myAccount ?>" title="Mon Compte"><small ><br />Bonjour <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
+                <img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="logo YinYang ThieuLam" width="100%" height="100%" />
+                <a href="<?= $myAccount ?>" title="Mon Compte"><small > <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
                 <?php else: ?>
                 <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
                 <?php endif; ?>
@@ -203,12 +203,20 @@
              </li>
 <?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
              <li class="nav-item dropdown">
-                <div class="hello">
-                  <a href="<?= $myAccount ?>" title="Mon compte"><small >Bonjour <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
+                <div>
+                  <a href="<?= $myAccount ?>" title="Mon compte"><small > <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
                 </div>
               </li>
-<?php endif; ?>
              </ul>
+          </div>
+          <div class="col-1">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item text-center">
+                <img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="logo YinYang ThieuLam" width="50%" height="50%" />
+              </li>
+            </ul>
+          </div>
+          <?php else: ?>
           </div>
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
@@ -217,6 +225,7 @@
               </li>
             </ul>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </nav>

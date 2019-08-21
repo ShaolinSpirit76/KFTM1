@@ -19,7 +19,7 @@ if(isset($connectionFailed) && $connectionFailed == true){
         <script>
   Swal.fire({
   title: 'Oups !',
-  text: 'L\'identifiant semble incorrect... :(',
+  text: 'L\'identifiant et/ou le mot de passe semble incorrect... :(',
   type: 'error',
   confirmButtonText: 'Ok'
 });
@@ -34,7 +34,7 @@ if(isset($mdpFailed) && $mdpFailed == true){
         <script>
   Swal.fire({
   title: 'Oups !',
-  text: 'Le mot de passe semble incorrect... :(',
+  text: 'L\'identifiant et/ou le mot de passe semble incorrect... :(',
   type: 'error',
   confirmButtonText: 'Ok'
 });
@@ -68,6 +68,23 @@ if(isset($deleteSuccess) && $deleteSuccess == true){
     type: "success"
 }).then(function() {
     document.location.href = "../../index.php"; 
+});              
+        </script>
+        <?php
+}
+
+
+
+// Alert de suppression de compte
+if(isset($adminDeleteSuccess) && $adminDeleteSuccess == true){
+  ?>
+        <script>
+        Swal.fire({
+    title: "Vous venez de supprimer",
+    text: "<?= $_SESSION['userInfos'][0]['firstName'] ?>",
+    type: "success"
+}).then(function() {
+  header("Refresh:0");
 });              
         </script>
         <?php

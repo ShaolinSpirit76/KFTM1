@@ -187,7 +187,16 @@ public function updateUser(){
 
      }
 
+     public function adminDeleteUser(){
+        $query = "DELETE FROM `KFTM_USERS` WHERE ID = :ID";
+        $adminDeleteUser = $this->db->prepare($query);
+        $adminDeleteUser->bindValue(':ID', $this->ID, PDO::PARAM_INT);
+        if($adminDeleteUser->execute()){
+           return true;
+        }
 
+     }
+   
      
     
 }

@@ -7,8 +7,8 @@ include 'navbarAdmin.php';
 
 <div id="adminPage" class="mx-auto text-center">
 
-<h1 class="police text-white">WELCOME SUR LA PAGE ADMIN</h1>
-<p class="text-white"><?= $_SESSION['userInfos'][0]['mail'] ?></p>
+<h1 class="police text-white">BIENVENUE SUR LA PAGE ADMIN</h1>
+<p class="police text-white"><?= $_SESSION['userInfos'][0]['firstName'] ?></p>
 
 
 </div>

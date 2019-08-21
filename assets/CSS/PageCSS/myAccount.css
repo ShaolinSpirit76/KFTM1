@@ -22,7 +22,7 @@ body {
   margin-bottom: 10rem;
 }
 
-form {
+#updateForm {
   margin-bottom: 20rem;
 }
 
@@ -39,6 +39,10 @@ placeholder {
   color: black;
   background-color: #fcd600;
 } 
+
+.red{
+  color:red;
+}
 
 
 
