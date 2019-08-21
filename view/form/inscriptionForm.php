@@ -61,7 +61,7 @@ echo($_FILES['picture']['name']);
                  
                  <li class="font-weight-bolder  "> <label for="picture">Photo de profil : </label>
         <input type="file" name="picture" id="picture" />
-        <small><i><br />De préférence un .jpg</i></small>
+        <small><i><br />Nous n'acceptons que les .jpg</i></small>
         
                  
 

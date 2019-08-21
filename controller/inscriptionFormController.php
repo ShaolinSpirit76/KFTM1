@@ -190,7 +190,9 @@ $api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
 	    . "&response=" . $response
 	    . "&remoteip=" . $remoteip ;
 	
-	$decode = json_decode(file_get_contents($api_url), true);
+    $decode = json_decode(file_get_contents($api_url), true);
+    
+    
 	
 	if ($decode['success'] == true) { 
         if(empty($error)):

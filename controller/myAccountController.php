@@ -18,7 +18,11 @@ if (count($_POST) > 0):
     $newLastName = $_POST['newLastName'];
     $newFirstName = $_POST['newFirstName'];
     $newBirthDate = $_POST['newBirthDate'];
-    $newPicture = $_FILES['newPicture']['name'];
+    if(isset($_FILES['newPicture'])){
+        $newPicture = $_FILES['newPicture']['name'];
+    }else{
+        $newPicture = $_FILES['firstPicture']['name'];
+    }
     $newMail = $_POST['newMail'];
     $newPhoneNumber = $_POST['newPhoneNumber'];
     $newUserLog = $_POST['newUserLog'];
@@ -93,12 +97,8 @@ else:
     $user->birthDate = $_SESSION['userInfos'][0]['birthDate'];
 endif;
 
-if (isset($_POST['newPicture'])):
-    if (empty($_POST['newPicture'])):
-        $user->picture = $_FILES['picture']['name'];
-    else: 
-        $user->picture = $_FILES['newPicture']['name'];
-    endif;
+if (isset($newPicture)):
+        $user->picture = $newPicture;
 else:
     $user->picture = $_FILES['picture']['name'];
 endif;

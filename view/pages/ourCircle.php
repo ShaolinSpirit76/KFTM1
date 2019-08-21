@@ -22,14 +22,15 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
-    <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
+        <div class="mx-auto text-center">
+          <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary mx-auto" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+    <a class="btn btn-primary text-center mx-auto" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
@@ -142,14 +143,15 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
+      <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
     <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
@@ -261,14 +263,15 @@ include '../../controller/regex.php';
         <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
+      <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
     <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
@@ -379,14 +382,15 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
+      <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
     <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
@@ -501,14 +505,15 @@ include '../../controller/regex.php';
        <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
+      <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
     <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
@@ -631,14 +636,15 @@ include '../../controller/regex.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (isset($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
+      <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
     <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">
@@ -748,10 +754,11 @@ include '../../controller/regex.php';
       <?php endif; ?>
 
       <div class="card-body mx-auto">
-
+      <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
     <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">En savoir plus</a>
+</div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
   <div class="card card-body">

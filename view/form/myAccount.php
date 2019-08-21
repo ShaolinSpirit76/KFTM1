@@ -39,14 +39,14 @@ require_once '../../controller/myAccountController.php';
 
 
 
-<form method="POST" action="myAccount.php" id="updateForm" name="updateForm">
+<form method="POST" action="myAccount.php" id="updateForm" name="updateForm" enctype="multipart/form-data">
   <div class="card mx-auto" id="update" style="width: 50rem;">
     <div class="card-body">
       <fieldset>
 
       <!-- Bouton switch on/off -->
 
-<p class="text-center   ">Afficher mon profil dans la page "Notre cercle" : 
+<p class="text-center">Afficher mon profil dans la page "Notre cercle" : 
   <div class="onoffswitch">
     <input type="checkbox" name="showProfil" class="onoffswitch-checkbox" id="myonoffswitch" checked>
     <label class="onoffswitch-label" for="myonoffswitch">
@@ -88,48 +88,15 @@ require_once '../../controller/myAccountController.php';
                  
           <?php if (isset($_SESSION['userInfos'][0]['picture'])): ?>
             
-<li class="font-weight-bolder space"><label for="picture">Photo de profil : <?= ($_SESSION['userInfos'][0]['picture']) ?></label> <button type="button" class="badge badge-secondary"
-    id="updatePicture">Changer ma photo de profil</button></li>
+<li class="font-weight-bolder space"><label for="picture">Photo de profil : 
+  <?php
 
-      <?php else: 
-
-// on test si un fichier a été sélectionné en upload
-if (isset($_FILES['picture']['tmp_name'])) { 
-  // $taille est un Array contenant les infos de l'image
-  $taille = getimagesize($_FILES['picture']['tmp_name']); 
-
-  // on récupère la largeur et la hauteur de l'image
-  $largeur = $taille[0]; 
-  $hauteur = $taille[1];
-
-  // Transformation selon les besoins de la miniature
-  $largeur_miniature = 300;
-  $hauteur_miniature = $hauteur / $largeur * 300;
-
-  $im = imagecreatefromjpeg($_FILES['picture']['tmp_name']);
-  $im_miniature = imagecreatetruecolor($largeur_miniature, $hauteur_miniature);
-  
-  imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
-  
-  imagejpeg($im_miniature, 'miniatures/'.$_FILES['picture']['name'], 90);
-  
-echo '<img src="miniatures/' . $_FILES['picture']['name'] . '">';
-}
-// Nous faisons un var_dump du nom de l'image
-echo($_FILES['picture']['name']);                  
-
-                  ?>
-
-<li class="font-weight-bolder space"><label for="newPicture">Ajouter une photo de profil : </label> <input
-type="file" name="newPicture" id="newPicture" />
-<small class="  "><br /><i>De préférence un .jpg</i></small></li>
-
-
-<?php endif; ?>
-
-<div id="newPic">
-
-<?php 
+// Nous faisons un echo du nom de l'image
+echo ($_SESSION['userInfos'][0]['picture']) ?></label> <button type="button" class="badge badge-secondary" id="updatePicture">Changer ma photo de profil</button></li>
+    
+    <div id="newPic">
+       <!-- Code pour upload la photo de profil. On ne récupère que le nom dans la BDD -->
+       <?php 
 // on test si un fichier a été sélectionné en upload
 if (isset($_FILES['newPicture']['tmp_name'])) { 
   // $taille est un Array contenant les infos de l'image
@@ -156,12 +123,50 @@ echo '<img src="miniatures/' . $_FILES['newPicture']['name'] . '">';
 echo($_FILES['newPicture']['name']);                  
 
                   ?>
-
-<span class="font-weight-bolder   "><label for="newPicture">Nouvelle photo de profil : </label> <input
-    type="file" name="newPicture" id="newPicture" value="<?= $_POST['newPicture']?>" />
-  <small class="  "><br /><i>De préférence un .jpg</i></small></span>
+<span class="font-weight-bolder"><label for="newPicture">Nouvelle photo de profil : </label> <input type="file" name="newPicture" id="newPicture"/>
+  <small><br /><i>Nous n'acceptons que les .jpg</i></small></span>
 
 </div>
+
+      <?php else:
+
+//  Code pour upload la photo de profil. On ne récupère que le nom dans la BDD 
+
+// on test si un fichier a été sélectionné en upload
+if (isset($_FILES['firstPicture']['tmp_name'])) { 
+// $taille est un Array contenant les infos de l'image
+$taille = getimagesize($_FILES['firstPicture']['tmp_name']); 
+
+// on récupère la largeur et la hauteur de l'image
+$largeur = $taille[0]; 
+$hauteur = $taille[1];
+
+// Transformation selon les besoins de la miniature
+$largeur_miniature = 300;
+$hauteur_miniature = $hauteur / $largeur * 300;
+
+$im = imagecreatefromjpeg($_FILES['firstPicture']['tmp_name']);
+$im_miniature = imagecreatetruecolor($largeur_miniature, $hauteur_miniature);
+
+imagecopyresampled($im_miniature, $im, 0, 0, 0, 0, $largeur_miniature, $hauteur_miniature, $largeur, $hauteur);
+
+imagejpeg($im_miniature, 'miniatures/'.$_FILES['firstPicture']['name'], 90);
+
+echo '<img src="miniatures/' . $_FILES['firstPicture']['name'] . '">';
+}
+// Nous faisons un var_dump du nom de l'image
+echo($_FILES['firstPicture']['name']);                  
+
+ ?>
+
+<li class="font-weight-bolder space"><label for="firstPicture">Ajouter une photo de profil : </label> <input
+type="file" name="firstPicture" id="firstPicture" />
+<small><br /><i>Nous n'acceptons que les .jpg</i></small></li>
+
+
+<?php endif; ?>
+
+
 
 </ul>
 </fieldset>

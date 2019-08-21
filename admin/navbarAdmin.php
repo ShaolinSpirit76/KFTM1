@@ -60,6 +60,9 @@
             <li>
                 <a href="#">Messages</a>
             </li>
+            <li>
+                <a href="../index.php">Accueil du site</a>
+            </li>
         </ul>
         <a role="button" id="sidebarCollapse" class="btn btn-info" data-toggle="collapse" href="#sidebar" aria-expanded="false" aria-controls="sidebar">
             <i class="fas fa-align-left"></i>
