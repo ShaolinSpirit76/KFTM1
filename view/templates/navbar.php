@@ -93,9 +93,14 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
-                <?php if (isset($_SESSION['userInfos'])): ?>
+
+              <?php if ( (isset($_SESSION['connection']) && $_SESSION['connection'] == true ) && (empty($_SESSION['userInfos'][0]['picture'])) ): ?>
+              <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" /><br /><br />
+              <a href="<?= $myAccount ?>" title="Mon Compte"><small > <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
+             
+              <?php elseif ( (isset($_SESSION['connection']) && $_SESSION['connection'] == true ) && (!empty($_SESSION['userInfos'][0]['picture'])) ): ?>
                 <br /><br />
-                <img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="logo YinYang ThieuLam" width="100%" height="100%" />
+                <a href="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" target="_blank" title="Cliquez pour agrandir"><img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="photo de profil" width="100%" height="100%" /></a>
                 <a href="<?= $myAccount ?>" title="Mon Compte"><small > <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
                 <?php else: ?>
                 <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="100%" height="100%" />
@@ -108,6 +113,8 @@
     </nav>
 
     <!-- Fin navbar -->
+
+
 
 
 
@@ -127,7 +134,7 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="70%" height="70%" />
+                <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="60%" height="60%" />
               </li>
             </ul>
           </div>
@@ -201,8 +208,23 @@
    <?php endif;?>
   </div>           
              </li>
-<?php if(isset($_SESSION['connection']) && $_SESSION['connection'] == true ):?>
+             <?php if ( (isset($_SESSION['connection']) && $_SESSION['connection'] == true ) && (empty($_SESSION['userInfos'][0]['picture'])) ): ?>
              <li class="nav-item dropdown">
+                <div>
+                 <a href="<?= $myAccount ?>" title="Mon compte"><small > <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
+                </div>
+              </li>
+             </ul>
+          </div>
+          <div class="col-1">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item text-center">
+              <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="60%" height="60%" />
+              </li>
+            </ul>
+          </div>
+          <?php elseif ( (isset($_SESSION['connection']) && $_SESSION['connection'] == true ) && (!empty($_SESSION['userInfos'][0]['picture'])) ): ?>
+          <li class="nav-item dropdown">
                 <div>
                   <a href="<?= $myAccount ?>" title="Mon compte"><small > <?= ($_SESSION['userInfos'][0]['firstName']) ?></small></a>
                 </div>
@@ -212,16 +234,16 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
-                <img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="logo YinYang ThieuLam" width="50%" height="50%" />
+              <a href="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" target="_blank" title="Cliquez pour agrandir"><img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="logo YinYang ThieuLam" width="50%" height="50%" /></a>
               </li>
             </ul>
           </div>
-          <?php else: ?>
+          <?php else : ?>
           </div>
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
-                <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="70%" height="70%" />
+                <img src="../../assets/images/756974331.gif" class="img-fluid rounded-circle" alt="logo YinYang ThieuLam" width="60%" height="60%" />
               </li>
             </ul>
           </div>
@@ -238,5 +260,3 @@
 
 
   <div id="contents">
-
-

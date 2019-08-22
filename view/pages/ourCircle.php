@@ -10,10 +10,12 @@ include '../../controller/regex.php';
 
 <div class="container-fluid">
   <div class="row">
-<?php foreach($displayUsersResult as $displayUser){?>
-<?php if ($displayUser['teacherRank'] === 'Sifu'): ?>
+<?php foreach($displayUsersResult as $displayUser){
+  if ($displayUser['teacherRank'] === 'Sifu'): ?>
 
-
+<!-- On rajoute une colonne dans la BDD en Tiny int. Elle prend 0 si
+l'utilisateur ne veut pas afficher son profil, sinon 1. -->
+<!-- if ($displayUser['teacherRank'] === 'Sifu' && $displayUser['show'] === "1"): -->
 
 
 
@@ -21,8 +23,10 @@ include '../../controller/regex.php';
   <div class="col-md-4 col-sm-12 mx-auto">
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -142,8 +146,10 @@ include '../../controller/regex.php';
   <div class="col-md-4 col-sm-12 mx-auto">
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -262,8 +268,10 @@ include '../../controller/regex.php';
   <div class="col-md-4 col-sm-12 mx-auto">
         <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -381,8 +389,10 @@ include '../../controller/regex.php';
   <div class="col-md-4 col-sm-12 mx-auto">
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -504,8 +514,10 @@ include '../../controller/regex.php';
   <div class="col-md-4 col-sm-12 mx-auto">
        <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -635,8 +647,10 @@ include '../../controller/regex.php';
 
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -747,10 +761,12 @@ include '../../controller/regex.php';
 
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
+      <?php if (!empty($displayUser['picture'])): ?>
       <div class="mx-auto text-center">
       <img src="../form/miniatures/<?=$displayUser['picture'];?>"  style="width: 18rem; height: 16rem;" class="pictureSize card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
 </div>
+<?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">

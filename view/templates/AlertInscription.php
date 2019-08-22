@@ -48,10 +48,22 @@ if(isset($updateSuccess) && $updateSuccess == true){
         );
         setTimeout(function(){
            document.location.href = "../pages/ourCircle.php"; 
-           <?php
-           session_destroy();
-           ?>
-        }, 4000);
+         }, 3000);
+        </script>
+        <?php
+}
+
+if(isset($IDmodifSuccess) && $IDmodifSuccess == true){
+  ?>
+        <script>
+        Swal.fire(
+          'Bien joué !',
+          'Vos identifiants ont bien été mis à jour ;)',
+          'success'
+        );
+        setTimeout(function(){
+           document.location.href = "myAccount.php"; 
+         }, 3000);
         </script>
         <?php
 }

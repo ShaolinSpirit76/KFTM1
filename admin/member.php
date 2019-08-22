@@ -26,8 +26,10 @@ include 'navbarAdmin.php';
   <div class="col-md-4 col-sm-12 mx-auto">
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -137,15 +139,13 @@ include 'navbarAdmin.php';
   
 
 
-  
-
-
-
   <div class="col-md-4 col-sm-12 mx-auto">
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -261,8 +261,10 @@ include 'navbarAdmin.php';
   <div class="col-md-4 col-sm-12 mx-auto">
         <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+        <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -378,8 +380,10 @@ include 'navbarAdmin.php';
   <div class="col-md-4 col-sm-12 mx-auto">
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -498,8 +502,10 @@ include 'navbarAdmin.php';
   <div class="col-md-4 col-sm-12 mx-auto">
        <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+       <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -626,8 +632,10 @@ include 'navbarAdmin.php';
 
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">
@@ -736,10 +744,10 @@ include 'navbarAdmin.php';
 
       <div class="card mx-auto" style="width: 18rem;">
 
-      <?php if (isset($displayUser['picture'])): ?>
-      <div class="mx-auto text-center">
-      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>"  style="width: 18rem; height: 16rem;" class="pictureSize card-img-top img-fluid" alt="Photo de profil <?=$displayUser['picture'];?>">
-</div>
+      <?php if (!empty($displayUser['picture'])): ?>
+      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <?php else: ?>
+      <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
 
       <div class="card-body mx-auto">

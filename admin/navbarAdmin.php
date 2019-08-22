@@ -47,6 +47,12 @@
                     <li>
                         <a href="#">Page Sanda & Shoubo</a>
                     </li>
+                    <li>
+                        <a href="#">Page Accueil</a>
+                    </li>
+                    <li>
+                        <a href="#">Page Portes de l'école</a>
+                    </li>
                 </ul>
             </li>
             <li>
@@ -92,9 +98,6 @@
                     </ul>
 </li>
             <li>
-                <a href="#">Page d'accueil</a>
-            </li>
-            <li>
                 <a href="member.php">Membres</a>
             </li>
             <li>
@@ -102,6 +105,9 @@
             </li>
             <li>
                 <a href="../index.php">Accueil du site</a>
+            </li>
+            <li>
+                <a href="../view/templates/deconnexion.php">Déconnexion</a>
             </li>
             <li>
             <a role="button" id="sidebarCollapse" class="btn btn-info" data-toggle="collapse" href="#sidebar" aria-expanded="false" aria-controls="sidebar">

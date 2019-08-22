@@ -159,3 +159,7 @@ border: red solid 2px;
 color: red;
 font-family: 'Permanent Marker', cursive;
 }
+
+#IDForm {
+  margin-top: 12rem;
+}

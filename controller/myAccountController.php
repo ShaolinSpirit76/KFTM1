@@ -18,10 +18,12 @@ if (count($_POST) > 0):
     $newLastName = $_POST['newLastName'];
     $newFirstName = $_POST['newFirstName'];
     $newBirthDate = $_POST['newBirthDate'];
-    if(isset($_FILES['newPicture'])){
+    if(isset($_FILES['newPicture']) && !empty($_FILES['newPicture']['name'])){
         $newPicture = $_FILES['newPicture']['name'];
-    }else{
+    }else if(isset($_FILES['firstPicture']) && !empty($_FILES['firstPicture']['name'])){
         $newPicture = $_FILES['firstPicture']['name'];
+    }else{
+        $newPicture = $_SESSION['userInfos'][0]['picture'];
     }
     $newMail = $_POST['newMail'];
     $newPhoneNumber = $_POST['newPhoneNumber'];
@@ -40,7 +42,7 @@ if (count($_POST) > 0):
     $lastName = $_SESSION['userInfos'][0]['lastName'];
     $firstName = $_SESSION['userInfos'][0]['firstName'];
     $birthDate = $_SESSION['userInfos'][0]['birthDate'];
-    $picture = $_FILES['picture']['name'];
+    $picture = $_SESSION['userInfos'][0]['picture'];
     $mail = $_SESSION['userInfos'][0]['mail'];
     $phoneNumber = $_SESSION['userInfos'][0]['phoneNumber'];
     $userLog = $_SESSION['userInfos'][0]['userLog'];
@@ -97,11 +99,13 @@ else:
     $user->birthDate = $_SESSION['userInfos'][0]['birthDate'];
 endif;
 
+
 if (isset($newPicture)):
         $user->picture = $newPicture;
 else:
-    $user->picture = $_FILES['picture']['name'];
+    $user->picture = $_SESSION['userInfos'][0]['picture'];
 endif;
+
 
     if (isset($_POST['newMail'])):
         if ( !preg_match ($regexMail, $_POST['newMail'] ) ):
@@ -354,12 +358,80 @@ if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
     // Validation de la mise à jour du profil
     if(empty($error)):
         $user->updateUser();
+
+    $_SESSION['userInfos'][0]['lastName'] = $_POST['newLastName'];
+    $_SESSION['userInfos'][0]['firstName'] = $_POST['newFirstName'];
+    $_SESSION['userInfos'][0]['birthDate'] = $_POST['newBirthDate'];
+    if(isset($_FILES['newPicture']) && !empty($_FILES['newPicture']['name'])){
+    $_SESSION['userInfos'][0]['picture'] = $_FILES['newPicture']['name'];
+}else if (isset($_FILES['firstPicture']) && !empty($_FILES['firstPicture']['name'])){
+    $_SESSION['userInfos'][0]['picture'] = $_FILES['firstPicture']['name'];
+}else {
+    $_SESSION['userInfos'][0]['picture'] = $_SESSION['userInfos'][0]['picture'];
+}
+    $_SESSION['userInfos'][0]['mail'] = $_POST['newMail'];
+    $_SESSION['userInfos'][0]['phoneNumber'] = $_POST['newPhoneNumber'];
+    if(isset($_POST['newStatus'])){
+    $_SESSION['userInfos'][0]['status'] = $_POST['newStatus'];
+}else{
+    $_SESSION['userInfos'][0]['status'] = $_SESSION['userInfos'][0]['status'];
+}
+if(isset($_POST['newStudentCourse'])){
+$_SESSION['userInfos'][0]['studentCourse'] = $_POST['newStudentCourse'];
+}else{
+    $_SESSION['userInfos'][0]['studentCourse'] = $_SESSION['userInfos'][0]['studentCourse'];
+}
+if(isset($_POST['newTeacherCourse'])){
+    $_SESSION['userInfos'][0]['teacherCourse'] = $_POST['newTeacherCourse'];
+}else{
+    $_SESSION['userInfos'][0]['teacherCourse'] = $_SESSION['userInfos'][0]['teacherCourse'];
+}
+    if(isset($_POST['newGroupAge'])){
+    $_SESSION['userInfos'][0]['groupAge'] = $_POST['newGroupAge'];
+}else{
+    $_SESSION['userInfos'][0]['groupAge'] = $_SESSION['userInfos'][0]['groupAge'];
+}
+if(isset($_POST['newStudentYear'])){
+    $_SESSION['userInfos'][0]['studentYear'] = $_POST['newStudentYear'];
+}else{
+    $_SESSION['userInfos'][0]['studentYear'] =  $_SESSION['userInfos'][0]['studentYear'];
+}
+if(isset($_POST['newChildBelt'])){
+    $_SESSION['userInfos'][0]['childBelt'] = $_POST['newChildBelt'];
+}else{
+    $_SESSION['userInfos'][0]['childBelt'] = $_SESSION['userInfos'][0]['childBelt'];
+}
+if(isset($_POST['newStudentBelt'])){
+    $_SESSION['userInfos'][0]['studentBelt'] = $_POST['newStudentBelt'];
+}else{
+    $_SESSION['userInfos'][0]['studentBelt'] =  $_SESSION['userInfos'][0]['studentBelt'];
+}
+if(isset($_POST['newTeacherRank'])){
+    $_SESSION['userInfos'][0]['teacherRank'] = $_POST['newTeacherRank'];
+}else{
+    $_SESSION['userInfos'][0]['teacherRank'] = $_SESSION['userInfos'][0]['teacherRank'];
+}
+
+
+    $_SESSION['userInfos'][0]['presentation'] = $_POST['newPresentation'];
     // alert success s'il n'y a pas d'erreur
         $updateSuccess = true;
     endif; 
 
     }
     
+ 
+    if (isset($_POST['IDmodifRequest'])) { // test bouton d'enregistrement / update
+        if(empty($error)):
+        $user->updateIDUser();
+    $_SESSION['userInfos'][0]['userLog'] = $_POST['newUserLog'];
+    $_SESSION['userInfos'][0]['password'] = $_POST['newPassword'];
+// alert success s'il n'y a pas d'erreur
+$IDmodifSuccess = true;
+        endif;
+    }
+
+
 
 
 // Supprimer le profil

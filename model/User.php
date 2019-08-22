@@ -142,7 +142,7 @@ class User extends DB{
 
 public function updateUser(){
    
-       $query = 'UPDATE `KFTM_USERS` SET lastName = :newLastName, firstName = :newFirstName, birthDate = :newBirthDate, picture = :newPicture, mail = :newMail, phoneNumber = :newPhoneNumber, userLog = :newUserLog, password = :newPassword, status = :newStatus, studentCourse = :newStudentCourse, teacherCourse = :newTeacherCourse, groupAge = :newGroupAge, studentYear = :newStudentYear, childBelt = :newChildBelt, studentBelt = :newStudentBelt, teacherRank = :newTeacherRank, presentation = :newPresentation WHERE ID = :ID';
+       $query = 'UPDATE `KFTM_USERS` SET lastName = :newLastName, firstName = :newFirstName, birthDate = :newBirthDate, picture = :newPicture, mail = :newMail, phoneNumber = :newPhoneNumber, status = :newStatus, studentCourse = :newStudentCourse, teacherCourse = :newTeacherCourse, groupAge = :newGroupAge, studentYear = :newStudentYear, childBelt = :newChildBelt, studentBelt = :newStudentBelt, teacherRank = :newTeacherRank, presentation = :newPresentation WHERE ID = :ID';
 
     $updateUser = $this->db->prepare($query);
 
@@ -153,8 +153,6 @@ public function updateUser(){
     $updateUser->bindValue(':newPicture', $this->picture, PDO::PARAM_STR); 
     $updateUser->bindValue(':newMail', $this->mail, PDO::PARAM_STR); 
     $updateUser->bindValue(':newPhoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
-    $updateUser->bindValue(':newUserLog', $this->userLog, PDO::PARAM_STR);
-    $updateUser->bindValue(':newPassword', $this->password, PDO::PARAM_STR);
     $updateUser->bindValue(':newStatus', $this->status, PDO::PARAM_STR);
     $updateUser->bindValue(':newStudentCourse', $this->studentCourse, PDO::PARAM_STR);
     $updateUser->bindValue(':newTeacherCourse', $this->teacherCourse, PDO::PARAM_STR);
@@ -171,6 +169,25 @@ public function updateUser(){
     if($updateUser->execute()){
         return true;
     }
+}
+
+
+
+public function updateIDUser(){
+   
+    $query = 'UPDATE `KFTM_USERS` SET userLog = :newUserLog, password = :newPassword WHERE ID = :ID';
+
+ $updateUser = $this->db->prepare($query);
+
+ $updateUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_INT);
+ $updateUser->bindValue(':newUserLog', $this->userLog, PDO::PARAM_STR);
+ $updateUser->bindValue(':newPassword', $this->password, PDO::PARAM_STR);
+
+
+ 
+ if($updateUser->execute()){
+     return true;
+ }
 }
 
 
