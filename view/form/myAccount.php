@@ -547,6 +547,8 @@ type="file" name="firstPicture" id="firstPicture" />
           <span class="font-weight-bolder"><label for="newTeacherRank">Modifier : </label>
             <select name="newTeacherRank" class="inputInscription" value="<?= (!empty($_POST['newTeacherRank']))? $_POST['newTeacherRank'] : $_SESSION['userInfos'][0]['teacherRank']?>">
               <option value="" selected disabled>Grade</option>
+              <option value="Sisook">Sisook</option>
+              <option value="Simui">Simui</option>
               <option value="Sibak">Sibak</option>
               <option value="Jiaoshe">Jiaoshe</option>
               <option value="Taïjiaoshe">Taïjiaoshe</option>
@@ -564,6 +566,8 @@ type="file" name="firstPicture" id="firstPicture" />
           <li class="font-weight-bolder"><label for="newTeacherRank">Ajouter un grade : </label>
             <select name="newTeacherRank" class="inputInscription" value="<?=(!empty($_POST['newTeacherRank']))? $_POST['newTeacherRank'] : $_SESSION['userInfos'][0]['teacherRank']?>">
               <option value="" selected disabled>Grade</option>
+              <option value="Sisook">Sisook</option>
+              <option value="Simui">Simui</option>
               <option value="Sibak">Sibak</option>
               <option value="Jiaoshe">Jiaoshe</option>
               <option value="Taïjiaoshe">Taïjiaoshe</option>

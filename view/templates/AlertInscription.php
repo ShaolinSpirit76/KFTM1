@@ -10,7 +10,7 @@ if(isset($success) && $success == true){
         );
         setTimeout(function(){
            document.location.href = "../../index.php"; 
-        }, 5000);
+        }, 3000);
         </script>
         <?php
 }
@@ -28,7 +28,7 @@ if(isset($swalErrorForm) && $swalErrorForm == true){
 });
 setTimeout(function(){
       
-    }, 5000);
+    }, 3000);
 </script>
         <?php
 }
@@ -83,7 +83,7 @@ if(isset($reCaptchaError) && $reCaptchaError == true){
 });
 setTimeout(function(){
       
-    }, 5000);
+    }, 3000);
 </script>
         <?php
 }

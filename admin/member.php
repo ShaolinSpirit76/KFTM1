@@ -27,7 +27,7 @@ include 'navbarAdmin.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -143,7 +143,7 @@ include 'navbarAdmin.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -152,7 +152,8 @@ include 'navbarAdmin.php';
       <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a><br /><br />
+    <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer le compte</button>
 </div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
@@ -262,7 +263,7 @@ include 'navbarAdmin.php';
         <div class="card mx-auto" style="width: 18rem;">
 
         <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -271,7 +272,8 @@ include 'navbarAdmin.php';
       <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a><br /><br />
+    <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer le compte</button>
 </div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
@@ -381,7 +383,7 @@ include 'navbarAdmin.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -390,7 +392,8 @@ include 'navbarAdmin.php';
       <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a><br /><br />
+    <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer le compte</button>
 </div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
@@ -503,7 +506,7 @@ include 'navbarAdmin.php';
        <div class="card mx-auto" style="width: 18rem;">
 
        <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -512,7 +515,8 @@ include 'navbarAdmin.php';
       <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a><br /><br />
+    <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer le compte</button>
 </div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
@@ -633,7 +637,7 @@ include 'navbarAdmin.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -642,7 +646,8 @@ include 'navbarAdmin.php';
       <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a><br /><br />
+    <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer le compte</button>
 </div>
     
         <div class="collapse" id="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">
@@ -745,7 +750,7 @@ include 'navbarAdmin.php';
       <div class="card mx-auto" style="width: 18rem;">
 
       <?php if (!empty($displayUser['picture'])): ?>
-      <img src="../form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
+      <img src="../view/form/miniatures/<?=$displayUser['picture'];?>" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil <?=$displayUser['picture'];?>">
       <?php else: ?>
       <img src="../../assets/images/iconfinder_Asian_boss_131491.png" class="card-img-top img-fluid" style="width: 18rem; height: 16rem;" alt="Photo de profil par défaut">
       <?php endif; ?>
@@ -754,7 +759,7 @@ include 'navbarAdmin.php';
       <div class="mx-auto text-center">
     <h5 class="card-title"> <?=$displayUser['firstName']?> <?=$displayUser['lastName']?></h5>
     <p class="card-text text-center"><?=ucfirst($displayUser['status'])?></p>
-    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a>
+    <a class="btn btn-primary" data-toggle="collapse" href="#<?=$displayUser['lastName']?><?=$displayUser['ID']?>" role="button" aria-expanded="false" aria-controls="<?=$displayUser['lastName']?><?=$displayUser['ID']?>">Voir les infos</a><br /><br />
     <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer le compte</button>
 </div>
     

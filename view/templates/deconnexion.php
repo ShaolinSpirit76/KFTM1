@@ -28,7 +28,7 @@ Swal.fire({
 })
 setTimeout(function(){
     document.location.href = "../../index.php";
-    }, 3000);
+    }, 2000);
 </script>
 
 <?php

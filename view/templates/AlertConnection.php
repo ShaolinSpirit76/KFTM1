@@ -25,19 +25,22 @@ if(isset($connectionFailed) && $connectionFailed == true){
 });
 setTimeout(function(){
       
-    }, 6000);
+    }, 3000);
 </script>
         <?php
 }
 if(isset($mdpFailed) && $mdpFailed == true){
   ?>
-        <script>
+         <script>
   Swal.fire({
   title: 'Oups !',
   text: 'L\'identifiant et/ou le mot de passe semble incorrect... :(',
   type: 'error',
   confirmButtonText: 'Ok'
 });
+setTimeout(function(){
+      
+    }, 3000);
 </script>
         <?php
 }

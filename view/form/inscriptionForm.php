@@ -239,6 +239,8 @@ echo($_FILES['picture']['name']);
           <li class="font-weight-bolder  "><label for="teacherRank">Grade : </label>
             <select name="teacherRank" class="inputInscription">
             <option value="" selected disabled>Choisissez</option>
+                <option value="Sisook">Sisook</option>
+                <option value="Simui">Simui</option>
                 <option value="Sibak">Sibak</option>
                 <option value="Jiaoshe">Jiaoshe</option> 
                 <option value="Taïjiaoshe">Taïjiaoshe</option>
