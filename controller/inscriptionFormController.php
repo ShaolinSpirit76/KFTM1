@@ -162,7 +162,14 @@ endif;
 // Filtre des doublons et reCaptcha v2
 
 if (isset($_POST['submitInscriptionForm'])) {
-    
+
+    $picture = $_FILES['picture']['name'];
+    $users->picture = $picture;
+    $pictureResult = $users->pictureChecking();
+    if (count($pictureResult) > 0 ) {
+        $swalErrorPicture = true;
+        $error['errorPictureChecking'] = 'Ce nom de photo est déjà utilisé.';
+    }    
     $mail = $_POST['mail'];
     $users->mail = $mail;
     $mailResult = $users->mailChecking();

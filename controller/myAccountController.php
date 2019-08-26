@@ -299,7 +299,7 @@ endif;
 
 if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
 
-// on check le doublon du mail on prenant en compte du mail de session
+// on check le doublon du mail on prenant compte du mail de session
     $mail = $_POST['newMail'];
     $user->mail = $mail;
     $mailResult = $user->mailChecking2();
@@ -326,7 +326,7 @@ if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
 
     } 
 
-
+// On check le doublon de l'identifiant en prenant en compte l'identifiant de session
     $userLog = $_POST['newUserLog'];
     $user->userLog = $userLog;
     $userLogResult = $user->logChecking2();
@@ -353,7 +353,11 @@ if (isset($_POST['modifRequest'])) { // test bouton d'enregistrement / update
 
     } 
 
-    
+
+
+
+
+
 
     // Validation de la mise à jour du profil
     if(empty($error)):
@@ -443,6 +447,8 @@ $IDmodifSuccess = true;
         else:
             $deleteSuccess = true;
             $user->deleteUser();
+            // fonction pour supprimer la photo du dossier miniatures
+            unlink('miniatures/'.($_SESSION['userInfos'][0]['picture']));
             session_destroy();
             endif;
            

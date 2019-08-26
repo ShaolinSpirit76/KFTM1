@@ -33,7 +33,7 @@ require_once '../../controller/inscriptionFormController.php';
  <!-- Code pour upload la photo de profil. On ne récupère que le nom dans la BDD -->
                  <?php 
 // on test si un fichier a été sélectionné en upload
-if (isset($_FILES['picture']['tmp_name'])) { 
+if ( (isset($_FILES['picture']['tmp_name'])) && (!empty($_FILES['picture']['tmp_name'])) ) { 
   // $taille est un Array contenant les infos de l'image
   $taille = getimagesize($_FILES['picture']['tmp_name']); 
 
@@ -52,10 +52,9 @@ if (isset($_FILES['picture']['tmp_name'])) {
   
   imagejpeg($im_miniature, 'miniatures/'.$_FILES['picture']['name'], 90);
   
-echo '<img src="miniatures/' . $_FILES['picture']['name'] . '">';
 }
-// Nous faisons un var_dump du nom de l'image
-echo($_FILES['picture']['name']);                  
+
+             
 
                   ?>
                  

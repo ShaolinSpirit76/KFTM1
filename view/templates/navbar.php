@@ -234,7 +234,7 @@
           <div class="col-1">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item text-center">
-              <a href="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" target="_blank" title="Cliquez pour agrandir"><img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="logo YinYang ThieuLam" width="50%" height="50%" /></a>
+              <a href="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" target="_blank" title="Cliquez pour agrandir"><img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="photo de profil" width="50%" height="50%" /></a>
               </li>
             </ul>
           </div>

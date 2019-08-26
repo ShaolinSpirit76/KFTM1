@@ -108,6 +108,27 @@ class User extends DB{
     }
 
 
+    public function pictureChecking() {
+        $query = 'SELECT picture FROM `KFTM_USERS` WHERE picture = :picture';
+        $pictureChecking = $this->db->prepare($query);
+        $pictureChecking->bindValue(':picture', $this->picture, PDO::PARAM_STR);
+        $pictureChecking->execute();
+        $pictureCheckingFetch = $pictureChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $pictureCheckingFetch;
+    }
+
+    public function pictureChecking2() {
+        $query = 'SELECT picture FROM `KFTM_USERS` WHERE picture = :newPicture';
+        $pictureChecking = $this->db->prepare($query);
+        $pictureChecking->bindValue(':newPicture', $this->picture, PDO::PARAM_STR);
+        $pictureChecking->execute();
+        $pictureCheckingFetch = $pictureChecking->fetchAll(PDO::FETCH_ASSOC);
+        return $pictureCheckingFetch;
+    }
+
+
+
+
     public function connectionUser() {
         $query = 'SELECT * FROM `KFTM_USERS` WHERE userLog = :userLog';
         $connectUser = $this->db->prepare($query);

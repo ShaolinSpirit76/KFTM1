@@ -1,5 +1,6 @@
 <?php
 // Alerts d'inscription
+// En cas de succès
 if(isset($success) && $success == true){
   ?>
         <script>
@@ -16,7 +17,7 @@ if(isset($success) && $success == true){
 }
 
 
-
+//  En cas d'échec
 if(isset($swalErrorForm) && $swalErrorForm == true){
   ?>
         <script>
@@ -32,6 +33,25 @@ setTimeout(function(){
 </script>
         <?php
 }
+
+
+//  Doublon avec la photo de profil
+if(isset($swalErrorPicture) && $swalErrorPicture == true){
+  ?>
+        <script>
+  Swal.fire({
+  title: 'Oups !',
+  text: 'Ce nom de photo est déjà utilisé... :(',
+  type: 'error',
+  confirmButtonText: 'Ok'
+});
+setTimeout(function(){
+      
+    }, 3000);
+</script>
+        <?php
+}
+
 // Fin alerts d'inscription
 
 

@@ -93,7 +93,7 @@ require_once '../../controller/myAccountController.php';
   <a href="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" target="_blank" title="Cliquez pour agrandir"><img src="../../view/form/miniatures/<?=$_SESSION['userInfos'][0]['picture']?>" class="img-fluid rounded" alt="photo de profil" width="15%" height="15%" /></a>
 <?php
 // Nous faisons un echo du nom de l'image
-echo ($_SESSION['userInfos'][0]['picture']) ?></label><button type="button" class="badge badge-secondary" id="updatePicture">Changer ma photo de profil</button></li>
+echo ($_SESSION['userInfos'][0]['picture']) ?></label><br /><button type="button" class="badge badge-secondary" id="updatePicture">Changer ma photo de profil</button></li>
     
     <div id="newPic">
        <!-- Code pour upload la photo de profil. On ne récupère que le nom dans la BDD -->
