@@ -18,10 +18,10 @@ function testerActivite() {
        // Si l'inactivite est persistante [on met à jour temps_inactivite]
        if(inactivite_persistante) {
          temps_inactivite += intervalle;
-         // Si le temps d'inactivite dépasse les 300 secondes
+         // Si le temps d'inactivite dépasse les 10 minutes
          
       
-         if(temps_inactivite >= 600000){ 
+         if(temps_inactivite == 600000){ 
                  
          Swal.fire({
          title: 'Oups !',

@@ -38,6 +38,7 @@ if (count($_POST) > 0):
     $newStudentBelt = $_POST['newStudentBelt'];
     $newTeacherRank = $_POST['newTeacherRank'];
     $newPresentation = $_POST['newPresentation'];
+    $newShowProfil = $_POST['newShowProfil'];
 
     $lastName = $_SESSION['userInfos'][0]['lastName'];
     $firstName = $_SESSION['userInfos'][0]['firstName'];
@@ -56,6 +57,7 @@ if (count($_POST) > 0):
     $studentBelt = $_SESSION['userInfos'][0]['studentBelt'];
     $teacherRank = $_SESSION['userInfos'][0]['teacherRank'];
     $presentation = $_SESSION['userInfos'][0]['presentation'];
+    $showProfil = $_SESSION['userInfos'][0]['showProfil'];
     
 
 
@@ -98,7 +100,6 @@ if (isset($_POST['newBirthDate'])):
 else:
     $user->birthDate = $_SESSION['userInfos'][0]['birthDate'];
 endif;
-
 
 if (isset($newPicture)):
         $user->picture = $newPicture;
@@ -264,6 +265,11 @@ else:
     $user->presentation = $presentation;   
 endif;
 
+    if ($_POST['newShowProfil'] == 'on'):
+       $user->showProfil = 1;
+    else: 
+        $user->showProfil = 0;
+    endif;
 
 $user->ID = $_SESSION['userInfos'][0]['ID'];
 
@@ -418,6 +424,7 @@ if(isset($_POST['newTeacherRank'])){
 
 
     $_SESSION['userInfos'][0]['presentation'] = $_POST['newPresentation'];
+    $_SESSION['userInfos'][0]['showProfil'] = $_POST['newShowProfil'];
     // alert success s'il n'y a pas d'erreur
         $updateSuccess = true;
     endif; 

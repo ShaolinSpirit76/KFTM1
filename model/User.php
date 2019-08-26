@@ -21,6 +21,7 @@ class User extends DB{
     public $teacherRank;
     public $presentation;
     public $verification;
+    public $showProfil;
 
     public function __construct(){
         //On récupere le constructeur de la page DataBase.php qui est le parent de la class User
@@ -37,7 +38,7 @@ class User extends DB{
     public function addUser(){
         
         $query = 'INSERT INTO `KFTM_USERS`(`firstName`, `lastName`, `birthDate`, `picture`, `mail`, `phoneNumber`, `userLog`, `password`, `status`, 
-        `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :userLog, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation)';
+        `studentCourse`, `teacherCourse`, `groupAge`, `studentYear`, `childBelt`, `studentBelt`, `teacherRank`, `presentation`, `showProfil`) VALUES (:firstName, :lastName, :birthDate, :picture, :mail, :phoneNumber, :userLog, :password, :status, :studentCourse, :teacherCourse, :groupAge, :studentYear, :childBelt, :studentBelt, :teacherRank, :presentation, :showProfil)';
         // création de la variable $addUser qui nous a permis de préparer la requête
         $addUser = $this->db->prepare($query);
         $addUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
@@ -57,6 +58,7 @@ class User extends DB{
         $addUser->bindValue(':studentBelt', $this->studentBelt, PDO::PARAM_STR);
         $addUser->bindValue(':teacherRank', $this->teacherRank, PDO::PARAM_STR);
         $addUser->bindValue(':presentation', $this->presentation, PDO::PARAM_STR);
+        $addUser->bindValue(':showProfil', $this->showProfil, PDO::PARAM_INT);
         // $addUser->bindValue(':verification', $this->verification, PDO::PARAM_INT);            
         if($addUser->execute()){
             return true;
@@ -126,9 +128,6 @@ class User extends DB{
         return $pictureCheckingFetch;
     }
 
-
-
-
     public function connectionUser() {
         $query = 'SELECT * FROM `KFTM_USERS` WHERE userLog = :userLog';
         $connectUser = $this->db->prepare($query);
@@ -163,14 +162,14 @@ class User extends DB{
 
 public function updateUser(){
    
-       $query = 'UPDATE `KFTM_USERS` SET lastName = :newLastName, firstName = :newFirstName, birthDate = :newBirthDate, picture = :newPicture, mail = :newMail, phoneNumber = :newPhoneNumber, status = :newStatus, studentCourse = :newStudentCourse, teacherCourse = :newTeacherCourse, groupAge = :newGroupAge, studentYear = :newStudentYear, childBelt = :newChildBelt, studentBelt = :newStudentBelt, teacherRank = :newTeacherRank, presentation = :newPresentation WHERE ID = :ID';
+    $query = 'UPDATE `KFTM_USERS` SET lastName = :newLastName, firstName = :newFirstName, birthDate = :newBirthDate, picture = :newPicture, mail = :newMail, phoneNumber = :newPhoneNumber, status = :newStatus, studentCourse = :newStudentCourse, teacherCourse = :newTeacherCourse, groupAge = :newGroupAge, studentYear = :newStudentYear, childBelt = :newChildBelt, studentBelt = :newStudentBelt, teacherRank = :newTeacherRank, presentation = :newPresentation, showProfil = :newShowProfil WHERE ID = :ID';
 
     $updateUser = $this->db->prepare($query);
 
-    $updateUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_INT);
+    $updateUser->bindValue(':ID', $_SESSION['userInfos'][0]['ID'], PDO::PARAM_STR);
     $updateUser->bindValue(':newLastName', $this->lastName, PDO::PARAM_STR);
     $updateUser->bindValue(':newFirstName', $this->firstName, PDO::PARAM_STR);
-    $updateUser->bindValue(':newBirthDate', $this->birthDate, PDO::PARAM_STR);
+    $updateUser->bindValue(':newBirthDate', $this->birthDate == '' ? NULL : $this->birthDate);
     $updateUser->bindValue(':newPicture', $this->picture, PDO::PARAM_STR); 
     $updateUser->bindValue(':newMail', $this->mail, PDO::PARAM_STR); 
     $updateUser->bindValue(':newPhoneNumber', $this->phoneNumber, PDO::PARAM_STR); 
@@ -183,6 +182,7 @@ public function updateUser(){
     $updateUser->bindValue(':newStudentBelt', $this->studentBelt, PDO::PARAM_STR);
     $updateUser->bindValue(':newTeacherRank', $this->teacherRank, PDO::PARAM_STR);
     $updateUser->bindValue(':newPresentation', $this->presentation, PDO::PARAM_STR);
+    $updateUser->bindValue(':newShowProfil', $this->showProfil, PDO::PARAM_INT);
     
     
    

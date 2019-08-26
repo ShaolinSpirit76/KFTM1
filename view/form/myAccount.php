@@ -45,10 +45,9 @@ require_once '../../controller/myAccountController.php';
       <fieldset>
 
       <!-- Bouton switch on/off -->
-
 <p class="text-center">Afficher mon profil dans la page "Notre cercle" : 
   <div class="onoffswitch">
-    <input type="checkbox" name="showProfil" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <input type="checkbox" name="newShowProfil" <?= $_SESSION['userInfos'][0]['showProfil'] == 'on' ? 'checked' : '' ?> class="onoffswitch-checkbox" id="myonoffswitch" />
     <label class="onoffswitch-label" for="myonoffswitch">
       <span class="onoffswitch-inner"></span>
       <span class="onoffswitch-switch"></span>
@@ -220,7 +219,7 @@ type="file" name="firstPicture" id="firstPicture" />
 
 
         <?php if (!empty($_SESSION['userInfos'][0]['status'])): ?>
-        <li class="font-weight-bolder   "><label for="status"><i>Rang : </i><?= ($_SESSION['userInfos'][0]['status']) ?></label></li>
+        <li class="font-weight-bolder"><label for="status"><i>Rang : </i><?= ($_SESSION['userInfos'][0]['status']) ?></label></li>
    
 
         <div id="status" class="space">
@@ -390,7 +389,7 @@ type="file" name="firstPicture" id="firstPicture" />
 
           <?php else: ?>
 
-          <li class="font-weight-bolder   "><label for="newStudentYear">Ajouter l'année : </label>
+          <li class="font-weight-bolder"><label for="newStudentYear">Ajouter l'année : </label>
             <select name="newStudentYear" id="newStudentYear" class="inputInscription" value="<?= (!empty($_POST['newStudentYear']))? $_POST['newStudentYear'] : $_SESSION['userInfos'][0]['studentYear']?>">
               <option value="" selected disabled>Année</option>
               <option value="1ère année">1ère</option>
@@ -418,7 +417,7 @@ type="file" name="firstPicture" id="firstPicture" />
             <label for="childBelt"><i>Ceinture : </i> <?= ($_SESSION['userInfos'][0]['childBelt']) ?></label></li>
 
 
-          <span class="font-weight-bolder   "><label for="newChildBelt">Modifier : </label>
+          <span class="font-weight-bolder"><label for="newChildBelt">Modifier : </label>
             <select name="newChildBelt" class="inputInscription" value="<?= (!empty($_POST['newChildBelt']))? $_POST['newChildBelt'] : $_SESSION['userInfos'][0]['childBelt']?>">
               <option value="" selected disabled>Ceinture</option>
 

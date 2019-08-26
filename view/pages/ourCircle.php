@@ -11,7 +11,7 @@ include '../../controller/regex.php';
 <div class="container-fluid">
   <div class="row">
 <?php foreach($displayUsersResult as $displayUser){
-  if ($displayUser['teacherRank'] === 'Sifu'): ?>
+  if ( ($displayUser['teacherRank'] === 'Sifu') && ($displayUser['showProfil'] == '1') ): ?>
 
 <!-- On rajoute une colonne dans la BDD en Tiny int. Elle prend 0 si
 l'utilisateur ne veut pas afficher son profil, sinon 1. -->
@@ -134,7 +134,7 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 <div class="container-fluid">
   <div class="row">
 <?php foreach($displayUsersResult as $displayUser){?>
-  <?php if ($displayUser['teacherRank'] === 'Tailaoshe'): ?>
+  <?php if ( ($displayUser['teacherRank'] === 'Tailaoshe') && ($displayUser['showProfil'] == '1') ): ?>
 
   
 
@@ -258,7 +258,7 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 <div class="container-fluid">
   <div class="row">
 <?php foreach($displayUsersResult as $displayUser){?>
-  <?php if ($displayUser['teacherRank'] === 'Laoshe'): ?>
+  <?php if ( ($displayUser['teacherRank'] === 'Laoshe') && ($displayUser['showProfil'] == '1') ): ?>
 
 
   
@@ -379,7 +379,7 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 <div class="container-fluid">
   <div class="row">
 <?php foreach($displayUsersResult as $displayUser){?>
-  <?php if ($displayUser['teacherRank'] === 'Taïjiaoshe'): ?>
+  <?php if ( ($displayUser['teacherRank'] === 'Taïjiaoshe') && ($displayUser['showProfil'] == '1') ): ?>
 
 
   
@@ -504,7 +504,7 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 <div class="container-fluid">
   <div class="row">
 <?php foreach($displayUsersResult as $displayUser){?>
-  <?php if ($displayUser['teacherRank'] === 'Jiaoshe'): ?>
+  <?php if ( ($displayUser['teacherRank'] === 'Jiaoshe') && ($displayUser['showProfil'] == '1') ): ?>
 
 
   
@@ -640,7 +640,7 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 
 
 <?php foreach($displayUsersResult as $displayUser){?>
-  <?php if ($displayUser['teacherRank'] === 'Sibak'): ?>
+  <?php if ( ($displayUser['teacherRank'] === 'Sibak') && ($displayUser['showProfil'] == '1') ): ?>
 
 
   <div class="col-md-4 col-sm-12 mx-auto">
@@ -754,7 +754,7 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 
 
 <?php foreach($displayUsersResult as $displayUser){?>
-  <?php if ($displayUser['status'] === 'élève'): ?>
+  <?php if ( ($displayUser['status'] === 'élève') && ($displayUser['showProfil'] == '1') ): ?>
 
 
   <div class="col-md-4 col-sm-12 mx-auto">
