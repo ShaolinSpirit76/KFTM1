@@ -12,9 +12,8 @@ require_once '../../controller/myAccountController.php';
 
 <!-- Début affichage du compte -->
 <div id="myAccountTitle" class="container">
-<h1 id="legend1" class="police text-center">Mon profil</h1>
+<h1 id="legend1" class="police text-center">Mon compte</h1>
 </div>
-
 
 
 
@@ -47,7 +46,7 @@ require_once '../../controller/myAccountController.php';
       <!-- Bouton switch on/off -->
 <p class="text-center">Afficher mon profil dans la page "Notre cercle" : 
   <div class="onoffswitch">
-    <input type="checkbox" name="newShowProfil" <?= $_SESSION['userInfos'][0]['showProfil'] == 'on' ? 'checked' : '' ?> class="onoffswitch-checkbox" id="myonoffswitch" />
+    <input type="checkbox" name="newShowProfil" <?= $_SESSION['userInfos'][0]['showProfil'] == 1 ? 'checked' : '' ?> class="onoffswitch-checkbox" id="myonoffswitch" />
     <label class="onoffswitch-label" for="myonoffswitch">
       <span class="onoffswitch-inner"></span>
       <span class="onoffswitch-switch"></span>
@@ -619,8 +618,8 @@ type="file" name="firstPicture" id="firstPicture" />
 
       <p><br /><button id="modifRequest" type="submit" name="modifRequest" class="updateBtn police float-right rounded">Enregistrer les
           modifications</button></p>
-
-          <button type="button" id="countDeleteButton" class="badge badge-secondary" data-toggle="modal" data-target="#securityModal">Supprimer mon compte</button>
+          
+          <a type="button" id="countDeleteButton" class="badge badge-secondary text-white" data-toggle="modal" data-target="#securityModal">Supprimer mon compte</a>
 
 
 

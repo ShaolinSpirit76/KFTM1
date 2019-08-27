@@ -258,18 +258,33 @@ if ( (isset($_FILES['picture']['tmp_name'])) && (!empty($_FILES['picture']['tmp_
                 <textarea id="presentation" name="presentation" rows="5" cols="33" maxlength="518">
 
                 </textarea>
-                <p class="card-text"><small class=" "><i>Max. 500 caractères</i></small></p>
+                <p class="card-text"><small class=" "><i>Max. 500 caractères<br /><br /></i></small></p>
 </div>
+
+
+
+<p class="font-weight-bolder text-justify"><label for="teacherRank">Afficher dès à présent votre profil parmi les membres de l'école visibles sur le site (modifiable à tout moment dans la page "Mon compte") ?</label>
+<!-- Bouton switch on/off -->
+  <div class="onoffswitch">
+    <input type="checkbox" name="showProfil" class="onoffswitch-checkbox" id="myonoffswitch" />
+    <label class="onoffswitch-label" for="myonoffswitch">
+      <span class="onoffswitch-inner"></span>
+      <span class="onoffswitch-switch"></span>
+    </label>
+  </div>
+</p>
+
 
 </ul>
 
 
-<label for="checkForm" class="font-weight-bolder">Je certifie sur l'honneur l'exactitude des informations<br /> renseignées ci-dessus.</label>
-<input type="checkbox" id="checkForm" name="checkForm" value="checkForm" required>
-
-<div class="g-recaptcha" id="recaptcha"
-          data-sitekey="6Leno7MUAAAAAMZSGnEvxMzJCw-k7fX556kdwqUz">
+<label for="checkForm" class="font-weight-bolder">Je certifie sur l'honneur l'exactitude des informations<br /> renseignées ci-dessus. *</label>
+<input type="checkbox" id="checkForm" name="checkForm" value="checkForm" required />
+<br /><br />
+<div class="g-recaptcha" id="recaptcha" data-sitekey="6Leno7MUAAAAAMZSGnEvxMzJCw-k7fX556kdwqUz">
           </div>
+</div>
+
 
 
 <p><br /><button id="submitInscriptionForm" type="submit" name="submitInscriptionForm" class="police float-right rounded">Valider</button></p>

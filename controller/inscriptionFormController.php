@@ -10,6 +10,7 @@ require '../../model/User.php';
 // On crée un tableau error qui s'auto-incrémentera avec la valeur de l'erreur que nous lui assignerons au cas par cas, si la regex n'est pas franchie. Chaque cellule remplie comptera pour 1.
 $error = [];
 $users = new User();
+   
 
 // On teste les regex si le formulaire est rempli
 if (count($_POST) > 0):
@@ -32,6 +33,7 @@ if (count($_POST) > 0):
     $studentBelt = $_POST['studentBelt'];
     $teacherRank = $_POST['teacherRank'];
     $presentation = $_POST['presentation'];
+    $showProfil = $_POST['showProfil'];
     // $verification = $_POST['verification'];
 
     
@@ -50,13 +52,15 @@ if (count($_POST) > 0):
             $users->firstName = $firstName;
      endif;
 
+if (isset($_POST['birthDate']) && !empty($_POST['birthDate'])):
     if ( !preg_match ($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) ) )):
         $error['errorBirthDate'] = 'Votre date de naissance est incorrecte.';
-        elseif (empty($birthDate)):
-            $birthDate = NULL;
-        elseif (preg_match ($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) ))):
+           elseif (preg_match ($regexDate, date('d/m/Y',strtotime($_POST['birthDate']) ))):
             $users->birthDate = $birthDate;
     endif; 
+else:
+    $birthDate = NULL;
+endif;
 
     if (empty($picture)):
         $picture = NULL;
@@ -148,6 +152,14 @@ if (count($_POST) > 0):
         $users->presentation = $presentation;
     endif;
 
+
+    if ($_POST['showProfil'] == 'on'):
+        $users->showProfil = 1;
+     else: 
+         $users->showProfil = 0;
+     endif;
+
+    
     // $users->verification = $verification;
  
     // modal error s'il y a une erreur
@@ -163,13 +175,13 @@ endif;
 
 if (isset($_POST['submitInscriptionForm'])) {
 
-    $picture = $_FILES['picture']['name'];
-    $users->picture = $picture;
-    $pictureResult = $users->pictureChecking();
-    if (count($pictureResult) > 0 ) {
-        $swalErrorPicture = true;
-        $error['errorPictureChecking'] = 'Ce nom de photo est déjà utilisé.';
-    }    
+    // $picture = $_FILES['picture']['name'];
+    // $users->picture = $picture;
+    // $pictureResult = $users->pictureChecking();
+    // if (count($pictureResult) > 0 ) {
+    //     $swalErrorPicture = true;
+    //     $error['errorPictureChecking'] = 'Ce nom de photo est déjà utilisé.';
+    // }    
     $mail = $_POST['mail'];
     $users->mail = $mail;
     $mailResult = $users->mailChecking();
@@ -204,8 +216,8 @@ $api_url = "https://www.google.com/recaptcha/api/siteverify?secret="
 	if ($decode['success'] == true) { 
         if(empty($error)):
             $users->addUser();
-        // alert success s'il n'y a pas d'erreur
-        $success = true;
+            // alert success s'il n'y a pas d'erreur
+         $success = true;
         else:
             $swalErrorForm = true;
     endif;

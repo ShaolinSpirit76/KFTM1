@@ -12,56 +12,60 @@ body {
 }
 
 
-	/* Méthode 1  */
-/* #dropfile{
-width: 300px;
-height: 50px;
-border: 3px dashed #BBBBBB;
-line-height:50px;
-text-align: center;
-} */
 
-/* Méthode 2 */
-/* div#mabox
-{
-width:100px;
-height:100px;
-display:block;
-border:5px solid #FF0000;
-} */
+/* Bouton switch on/off */
 
-/* Méthode 3 */
-/* .dropper {
-  margin: 50px 10px 10px 50px;
-  width: 400px;
-  height: 250px;
-  background-color: #555;
-  border: 1px solid #111;
-  
-  border-radius: 10px;
-  transition: all 200ms linear;
+
+.onoffswitch {
+  margin-top: -1.5rem;
+  position: relative; width: 90px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+  float: right;
 }
-
-.drop_hover {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8) inset;
+.onoffswitch-checkbox {
+  display: none;
 }
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+  font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "ON";
+  padding-left: 10px;
+  background-color: #F5ED05; color: #050505;
+}
+.onoffswitch-inner:after {
+  content: "OFF";
+  padding-right: 10px;
+  background-color: #EEEEEE; color: #999999;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 8px; margin: 11px;
+  background: #FFFFFF;
+  position: absolute; top: 1; bottom: 1;
+  right: 56px;
+  border: 2px solid #999999; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
+/* Fin bouton switch on/off */
 
-.draggable {
-  display: inline-block;
-  margin: 20px 10px 10px 20px;
-  padding-top: 20px;
-  width: 80px;
-  height: 60px;
-  color: #3D110F;
-  background-color: #822520;
-  border: 4px solid #3D110F;
-  text-align: center;
-  font-size: 2em;
-  cursor: move;
 
-  transition: all 200ms linear;
-  user-select: none;
-} */
 
 #inscriptionTitle {
   margin-top: 20rem;

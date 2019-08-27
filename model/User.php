@@ -43,7 +43,7 @@ class User extends DB{
         $addUser = $this->db->prepare($query);
         $addUser->bindValue(':lastName', $this->lastName, PDO::PARAM_STR);
         $addUser->bindValue(':firstName', $this->firstName, PDO::PARAM_STR);
-        $addUser->bindValue(':birthDate', $this->birthDate, PDO::PARAM_STR); 
+        $addUser->bindValue(':birthDate', $this->birthDate == '' ? NULL : $this->birthDate);
         $addUser->bindValue(':picture', $this->picture, PDO::PARAM_STR); 
         $addUser->bindValue(':mail', $this->mail, PDO::PARAM_STR); 
         $addUser->bindValue(':phoneNumber', $this->phoneNumber, PDO::PARAM_STR); 

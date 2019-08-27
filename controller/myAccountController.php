@@ -424,7 +424,12 @@ if(isset($_POST['newTeacherRank'])){
 
 
     $_SESSION['userInfos'][0]['presentation'] = $_POST['newPresentation'];
-    $_SESSION['userInfos'][0]['showProfil'] = $_POST['newShowProfil'];
+    if($_POST['newShowProfil'] == 'on'){
+        $_SESSION['userInfos'][0]['showProfil'] = 1;
+    }else{
+        $_SESSION['userInfos'][0]['showProfil'] = 0;
+    }
+    
     // alert success s'il n'y a pas d'erreur
         $updateSuccess = true;
     endif; 
