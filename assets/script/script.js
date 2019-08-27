@@ -1,3 +1,16 @@
+// Gestion de l'affichage des membres selon la discipline
+// dans la page Notre cercle
+
+// $('#kungFuDiv').show();
+// $('#taichiDiv').show();
+// $('#sandaDiv').show();
+
+
+
+
+
+
+
 // Gestion de l'affichage de la navbar Admin
 $('#navbarAdmin').hide();
 $("#sidebarCollapse").click(function() {

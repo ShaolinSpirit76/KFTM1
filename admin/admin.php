@@ -10,6 +10,8 @@ include 'navbarAdmin.php';
 <h1 class="police text-white">BIENVENUE SUR LA PAGE ADMIN</h1>
 <p class="police text-white"><?= $_SESSION['userInfos'][0]['firstName'] ?></p>
 
+<p>Il y a actuellement <?= (count($displayUsers)); ?> membres inscrits sur le site de KFTM.</p>
+
 
 </div>
 

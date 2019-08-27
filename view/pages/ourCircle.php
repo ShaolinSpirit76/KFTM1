@@ -5,17 +5,66 @@ include '../../controller/regex.php';
 ?>
 
 
+<!-- Début de la side-navbar -->
+
+<div id="content">
+    
+    <div class="container-fluid fixedButton">
+
+    <a role="button" id="sidebarCollapse" class="btn btn-info" data-toggle="collapse" href="#sidebar" aria-expanded="false" aria-controls="sidebar">
+            <i class="fas fa-align-right"></i>
+            <span>Menu</span>
+</a>
+
+    </div>
+
+</div>
+    
+
+<div id="navbarAdmin" class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3 class="police">Les membres de KFTM</h3>
+        </div>
+        <ul class="list-unstyled components">
+            
+            <li>
+                <a class="text-white" id="ourCircleKungFu">Kung-Fu</a>
+            </li>
+            <li>
+                <a class="text-white" id="ourCircleTaichi">Taïchi Chuan & Qi Gong</a>
+            </li>
+            <li>
+                <a class="text-white" id="ourCircleSanda">Sanda & Shoubo</a>
+            </li>
+            <li>
+                <a class="text-white" id="ourCircleAll">Tous les membres</a>
+            </li>
+            
+           
+        </ul>
+        
+
+    </nav>
+</div>
+
+<!-- Fin de la side navbar -->
+
+
+<h1 class="police text-center" id="ourCircleTitle">Le cercle de KFTM</h1>
 
 
 
 <div class="container-fluid">
   <div class="row">
 <?php foreach($displayUsersResult as $displayUser){
+  // On rajoute une colonne dans la BDD en Tiny int. Elle prend 0 si
+  // l'utilisateur ne veut pas afficher son profil, sinon 1.
   if ( ($displayUser['teacherRank'] === 'Sifu') && ($displayUser['showProfil'] == '1') ): ?>
 
-<!-- On rajoute une colonne dans la BDD en Tiny int. Elle prend 0 si
-l'utilisateur ne veut pas afficher son profil, sinon 1. -->
-<!-- if ($displayUser['teacherRank'] === 'Sifu' && $displayUser['show'] === "1"): -->
+
+
 
 
 
@@ -129,6 +178,10 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 
 
 
+<?php
+if ( ($displayUser['teacherCourse'] === 'Kung-Fu') || (($displayUser['studentCourse'] === 'Kung-Fu')) ) : ?>
+
+<div id="kungFuDiv">
 
 
 <div class="container-fluid">
@@ -854,6 +907,10 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 
 
 
+</div>
+<!-- Fin div Kung-Fu -->
+
+<?php endif; ?>
 
 
 
@@ -864,7 +921,60 @@ l'utilisateur ne veut pas afficher son profil, sinon 1. -->
 
 
 
-               
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
 
 
 
